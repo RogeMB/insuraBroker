@@ -33,7 +33,9 @@ public class Ventas {
     @ManyToOne
     private Cliente cliente;
 
-    @ManyToOne
-    private Empleado empleado;
+    //@ManyToOne
+    //private Empleado empleado;
+    
+    private String empleado;
 
 }

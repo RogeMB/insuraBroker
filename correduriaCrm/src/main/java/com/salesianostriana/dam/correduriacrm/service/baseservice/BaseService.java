@@ -9,14 +9,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 public abstract class BaseService <T, ID, R extends JpaRepository<T, ID>> implements IBaseServiceable<T, ID> {
 
 	@Autowired
-	protected R repositorio;   // qué es R?
-	
-	/*
-	 * @RequiredArgsConstructor
-	 * public abstract class BaseService {
-	 * 		private final R repositorio;
-	 * }
-	*/
+	protected R repositorio;
+
 	
 	@Override
 	public List<T> findAll() {

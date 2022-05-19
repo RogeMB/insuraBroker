@@ -39,9 +39,6 @@ public class Cliente {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate fechaAlta;
 
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private LocalDate fechaBaja;
-
     private boolean esPremium;
 
     /*
