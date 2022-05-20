@@ -41,10 +41,6 @@ public class Cliente {
 
     private boolean esPremium;
 
-    /*
-     * 	@ManyToOne
-     *  private Empleado empleado;
-     */
 
 
 }
