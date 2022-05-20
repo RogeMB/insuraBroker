@@ -13,12 +13,14 @@ import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 
+import com.salesianostriana.dam.correduriacrm.repository.EmpleadoRepository;
+
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
-    private UsuarioRepo usuarios;
+    private EmpleadoRepository empleados;
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
@@ -30,8 +32,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/private/**").hasAnyRole("USER", "ADMIN")
-                .antMatchers("/admin/**", "/gestion/**").hasRole("ADMIN")
+                .antMatchers("/admin/**").hasAnyRole("USER", "ADMIN")
+                .antMatchers("/admin/privado/**").hasRole("ADMIN")
                 .anyRequest().permitAll()
                 .and().exceptionHandling().accessDeniedPage("/error")
                 .and().formLogin().loginPage("/").loginProcessingUrl("/login")
@@ -48,7 +50,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
         InMemoryUserDetailsManager userDetailsManager = new InMemoryUserDetailsManager();
 
-        usuarios.getUsuarios()
+        empleados.getEmpleados()
                 .stream()
                 .map(u -> {
                     return User

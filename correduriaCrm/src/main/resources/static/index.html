@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Insura Broker index</title>
+  <meta content="La mejor web para seguros y reaseguros." name="description">
+  <meta content="Consultoría, seguros, mapfre, allianz, protección, mejores coberturas, mejor precio" name="keywords">
+
+  <!-- Favicons -->
+  <link href="..templates/assets/img/favicon.png" rel="icon">
+  <link href="..templates/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,700|Raleway:300,400,400i,500,500i,700,800,900" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet"/>
+  <!-- CSS only -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css" rel="stylesheet" >
+  <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+  <link href="teamplates/assets/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="https://unpkg.com/swiper@8/swiper-bundle.min.css" rel="stylesheet"/>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"> 
+
+  <!-- Template Main CSS File -->
+  <link href="../templates/assets/css/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+  <section id="hero">
+    <div class="hero-container masthead">
+      <div data-aos="fade-up"
+        data-aos-anchor-placement="top-center"
+        data-aos-easing="ease-in-back"
+        data-aos-duration="1500">
+        <div class="hero-logo">
+          <img class="" src="../templates/assets/img/logo/insuraBroker500.svg" alt="InsuraBroker Logo">
+        </div>
+        <h1>Bienvenidos a</h1>
+        <div class="d-flex justify-content-center align-items-center">
+          <h1 class="colorido">Insura Broker</h1>
+        </div>
+        <div class="typer">
+          <h2>Damos protección a <span class="typed-text"></span><span class="cursor">&nbsp;</span></h2>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top d-flex align-items-center">
+    <div class="container d-flex justify-content-between">
+
+      <div class="d-flex logo">
+        <h1><a href="index.html"><span>I</span>nsura Broker</a></h1>
+        <img src="../templates/assets/img/logo/insuraBroker250.png" alt="InsuraBroker Logo" class="logoNavbar d-inline-flex ms-2 mt-1 align-text-top">
+      </div>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto active" href="#hero">Inicio</a></li>
+          <li><a class="nav-link scrollto" href="#about">Sobre Nosotros</a></li>
+          <li><a class="nav-link scrollto" href="#services">Servicios</a></li>
+          <li><a class="nav-link scrollto" href="#portfolio">Portfolio</a></li>
+          <li><a class="nav-link scrollto" href="#team">Equipo</a></li>  
+          <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+          <li><a class="nav-link scrollto" href="login.html"><button class="learn-more">
+            <span class="circle" aria-hidden="true">
+              <span class="icon arrow"></span>
+            </span>
+            <span class="button-text">LOGIN</span>
+          </button></a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav>
+      <!-- .navbar -->
+    </div>
+  </header><!-- End Header -->
+
+  <!-- ======= hero Section ======= -->
+  <section id="hero">
+    <div class="hero-container">
+      <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
+
+        <ol id="hero-carousel-indicators" class="carousel-indicators"></ol>
+
+        <div class="carousel-inner" role="listbox">
+
+          <div class="carousel-item active" style="background-image: url(../templates/assets/img/hero-carousel/1.jpg)">
+            <div class="carousel-container">
+              <div class="container">
+                <h2 class="animate__animated animate__fadeInDown">Una empresa dedicada a ti </h2>
+                <p class="animate__animated animate__fadeInUp">Nos encargamos de cubrirte todas tus necesidades</p>
+                <a href="#about" class="btn-get-started scrollto animate__animated animate__fadeInUp">Empecémos</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="carousel-item" style="background-image: url(../templates/assets/img/hero-carousel/2.jpg)">
+            <div class="carousel-container">
+              <div class="container">
+                <h2 class="animate__animated animate__fadeInDown">At vero eos et accusamus</h2>
+                <p class="animate__animated animate__fadeInUp">Helping Business Security & Peace of Mind for Your Family</p>
+                <a href="#about" class="btn-get-started scrollto animate__animated animate__fadeInUp">Get Started</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="carousel-item" style="background-image: url(../templates/assets/img/hero-carousel/3.jpg)">
+            <div class="carousel-container">
+              <div class="container">
+                <h2 class="animate__animated animate__fadeInDown">Temporibus autem quibusdam</h2>
+                <p class="animate__animated animate__fadeInUp">Beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem</p>
+                <a href="#about" class="btn-get-started scrollto animate__animated animate__fadeInUp">Get Started</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <a class="carousel-control-prev" href="#heroCarousel" role="button" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
+        </a>
+
+        <a class="carousel-control-next" href="#heroCarousel" role="button" data-bs-slide="next">
+          <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
+        </a>
+
+      </div>
+    </div>
+  </section><!-- End Hero Section -->
+
+  <main id="main">
+
+    <!-- ======= About Section ======= -->
+    <div id="about" class="about-area area-padding">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="section-headline text-center">
+              <h2>¿Qué es Insura Broker?</h2>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <!-- single-well start-->
+          <div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="well-left">
+              <div class="single-well">
+                <img src="../templates/assets/img/about/1.jpg" alt="">
+              </div>
+            </div>
+          </div>
+          <!-- single-well end-->
+          <div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="well-middle">
+              <div class="single-well">
+                <h4 class="sec-head">Breve historia</h4>
+                <p>
+                  Somos una pequeña empresa nacida en 2020 que ejerce como correduría y consultoría de seguros y reaseguros ubicada en Sevilla con profesionales con más de 10 años de experiencia en el sector.
+                </p>
+                <ul>
+                  <li >
+                    <i class="bi bi-check lead"></i> Comercializamos seguros de coches
+                  </li>
+                  <li>
+                    <i class="bi bi-check lead"></i> Comercializamos seguros de hogar
+                  </li>
+                  <li>
+                    <i class="bi bi-check lead"></i> Comercializamos seguros de salud
+                  </li>
+                  <li>
+                    <i class="bi bi-check lead"></i> Ofrecemos un seguimiento y asesoramiento personalizados
+                  </li>
+                  <li>
+                    <i class="bi bi-check lead"></i> Cuidamos de nuestros clientes
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <!-- End col-->
+        </div>
+      </div>
+    </div><!-- End About Section -->
+
+    <!-- ======= Services Section ======= -->
+    <div id="services" class="services-area area-padding">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="section-headline services-head text-center">
+              <h2>Nuestra oficina</h2>
+            </div>
+          </div>
+        </div>
+        <div class="row text-center">
+          <!-- Start Left services -->
+          <div class="col-md-4 col-sm-4 col-xs-12">
+            <div class="about-move">
+              <div class="services-details">
+                <div class="single-services">
+                  <a class="services-icon" href="#">
+                    <i class="bi bi-briefcase"></i>
+                  </a>
+                  <h4>Tu protección completa al mejor precio</h4>
+                  <p>
+                    Realizamos todo un proceso de investigación hasta encontrar el mejor producto para ti.
+                  </p>
+                </div>
+              </div>
+              <!-- end about-details -->
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-4 col-xs-12">
+            <div class="about-move">
+              <div class="services-details">
+                <div class="single-services">
+                  <a class="services-icon" href="#">
+                    <i class="bi bi-card-checklist"></i>
+                  </a>
+                  <h4>Un asesoramiento completo</h4>
+                  <p>
+                    Nos adaptamos a tus necesitades y te asesoramos en todo lo que puedas desconocer.
+                  </p>
+                </div>
+              </div>
+              <!-- end about-details -->
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-4 col-xs-12">
+            <!-- end col-md-4 -->
+            <div class=" about-move">
+              <div class="services-details">
+                <div class="single-services">
+                  <a class="services-icon" href="#">
+                    <i class="bi bi-bar-chart"></i>
+                  </a>
+                  <h4>Trabajamos con las mejores compañías</h4>
+                  <p>
+                    Sabemos que tu tranquilidad es lo más importante y por ello nuestro trato irá siempre en tu beneficio.
+                  </p>
+                </div>
+              </div>
+              <!-- end about-details -->
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-4 col-xs-12">
+            <!-- end col-md-4 -->
+            <div class=" about-move">
+              <div class="services-details">
+                <div class="single-services">
+                  <a class="services-icon" href="#">
+                    <i class="bi bi-binoculars"></i>
+                  </a>
+                  <h4>Fidelización </h4>
+                  <p>
+                    Ofrecemos grandes descuentos muy difícilmente igualables.
+                  </p>
+                </div>
+              </div>
+              <!-- end about-details -->
+            </div>
+          </div>
+          <!-- End Left services -->
+          <div class="col-md-4 col-sm-4 col-xs-12">
+            <!-- end col-md-4 -->
+            <div class=" about-move">
+              <div class="services-details">
+                <div class="single-services">
+                  <a class="services-icon" href="#">
+                    <i class="bi bi-brightness-high"></i>
+                  </a>
+                  <h4>Seguimiento</h4>
+                  <p>
+                    ¿Vender un producto y olvidarnos? No va con nosotros. Te acompañaremos el tiempo que quieras ser nuestro cliente.
+                  </p>
+                </div>
+              </div>
+              <!-- end about-details -->
+            </div>
+          </div>
+          <!-- End Left services -->
+          <div class="col-md-4 col-sm-4 col-xs-12">
+            <!-- end col-md-4 -->
+            <div class=" about-move">
+              <div class="services-details">
+                <div class="single-services">
+                  <a class="services-icon" href="#">
+                    <i class="bi bi-calendar4-week"></i>
+                  </a>
+                  <h4>Soporte completo</h4>
+                  <p>
+                    Trabajamos a veinticuatro horas al día, 7 días a la semana por ti.
+                  </p>
+                </div>
+              </div>
+              <!-- end about-details -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div><!-- End Services Section -->
+
+    <!-- ======= Team Section ======= -->
+    <div id="team" class="our-team-area area-padding">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="section-headline text-center">
+              <h2>Un equipo profesional</h2>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-3 col-sm-3 col-xs-12">
+            <div class="single-team-member">
+              <div class="team-img">
+                <a href="#team">
+                  <img src="../templates/assets/img/team/1.jpg" alt="">
+                </a>
+                <div class="team-social-icon text-center">
+                  <ul>
+                    <li>
+                      <a href="#team">
+                        <i class="bi bi-facebook"></i>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#team">
+                        <i class="bi bi-twitter"></i>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#team">
+                        <i class="bi bi-instagram"></i>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="team-content text-center">
+                <h4>Rogelio Mohigefer</h4>
+                <p>Director</p>
+              </div>
+            </div>
+          </div>
+          <!-- End column -->
+          <div class="col-md-3 col-sm-3 col-xs-12">
+            <div class="single-team-member">
+              <div class="team-img">
+                <a href="#team">
+                  <img src="../templates/assets/img/team/2.jpg" alt="">
+                </a>
+                <div class="team-social-icon text-center">
+                  <ul>
+                    <li>
+                      <a href="#team">
+                        <i class="bi bi-facebook"></i>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#team">
+                        <i class="bi bi-twitter"></i>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#team">
+                        <i class="bi bi-instagram"></i>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="team-content text-center">
+                <h4>María Troyano</h4>
+                <p>Asesora técnica</p>
+              </div>
+            </div>
+          </div>
+          <!-- End column -->
+          <div class="col-md-3 col-sm-3 col-xs-12">
+            <div class="single-team-member">
+              <div class="team-img">
+                <a href="#team">
+                  <img src="../templates/assets/img/team/3.jpg" alt="">
+                </a>
+                <div class="team-social-icon text-center">
+                  <ul>
+                    <li>
+                      <a href="#team">
+                        <i class="bi bi-facebook"></i>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#team">
+                        <i class="bi bi-twitter"></i>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#team">
+                        <i class="bi bi-instagram"></i>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="team-content text-center">
+                <h4>Eva Reyes</h4>
+                <p>Gestora experta en autos y hogar</p>
+              </div>
+            </div>
+          </div>
+          <!-- End column -->
+          <div class="col-md-3 col-sm-3 col-xs-12">
+            <div class="single-team-member">
+              <div class="team-img">
+                <a href="#team">
+                  <img src="../templates/assets/img/team/4.jpg" alt="">
+                </a>
+                <div class="team-social-icon text-center">
+                  <ul>
+                    <li>
+                      <a href="#team">
+                        <i class="bi bi-facebook"></i>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#team">
+                        <i class="bi bi-twitter"></i>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#team">
+                        <i class="bi bi-instagram"></i>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="team-content text-center">
+                <h4>Sergio Toledo</h4>
+                <p>Gestor experto en salud</p>
+              </div>
+            </div>
+          </div>
+          <!-- End column -->
+        </div>
+      </div>
+    </div><!-- End Team Section -->
+
+    <!-- ======= Portfolio Section ======= -->
+    <div id="portfolio" class="portfolio-area area-padding fix">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="section-headline text-center">
+              <h2>Nuestro Portfolio</h2>
+            </div>
+          </div>
+        </div>
+        <div class="row wesome-project-1 fix">
+          <!-- Start Portfolio -page -->
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <ul id="portfolio-flters">
+              <li data-filter="*" class="filter-active">Todo</li>
+              <li data-filter=".filter-app">Compañías</li>
+              <li data-filter=".filter-card">Oficina</li>
+              <li data-filter=".filter-web">Seguros</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="row awesome-project-content portfolio-container">
+
+          <!-- portfolio-item start -->
+          <div class="col-md-4 col-sm-4 col-xs-12 portfolio-item filter-app portfolio-item">
+            <div class="single-awesome-project">
+              <div class="awesome-img">
+                <a href="#"><img src="../templates/assets/img/portfolio/1.jpg" alt="Compañía Mapfre" /></a>
+                <div class="add-actions text-center">
+                  <div class="project-dec">
+                    <a class="portfolio-lightbox" data-gallery="myGallery" href="../templates/assets/img/portfolio/1.jpg">
+                      <h4>Mapfre</h4>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- portfolio-item end -->
+
+          <!-- portfolio-item start -->
+          <div class="col-md-4 col-sm-4 col-xs-12 portfolio-item filter-web">
+            <div class="single-awesome-project">
+              <div class="awesome-img">
+                <a href="#"><img src="../templates/assets/img/portfolio/2.jpg" alt="" /></a>
+                <div class="add-actions text-center">
+                  <div class="project-dec">
+                    <a class="portfolio-lightbox" data-gallery="myGallery" href="../templates/assets/img/portfolio/2.jpg">
+                      <h4>Salud</h4>
+                      <span>Tu vida y la de los tuyos</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- portfolio-item end -->
+
+          <!-- portfolio-item start -->
+          <div class="col-md-4 col-sm-4 col-xs-12 portfolio-item filter-card">
+            <div class="single-awesome-project">
+              <div class="awesome-img">
+                <a href="#"><img src="../templates/assets/img/portfolio/3.jpg" alt="" /></a>
+                <div class="add-actions text-center">
+                  <div class="project-dec">
+                    <a class="portfolio-lightbox" data-gallery="myGallery" href="../templates/assets/img/portfolio/3.jpg">
+                      <h4>Nuestra oficina</h4>
+                      <span>Siempre cerca de ti</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- portfolio-item end -->
+
+          <!-- portfolio-item start -->
+          <div class="col-md-4 col-sm-4 col-xs-12 portfolio-item filter-web">
+            <div class="single-awesome-project">
+              <div class="awesome-img">
+                <a href="#"><img src="../templates/assets/img/portfolio/4.jpg" alt="" /></a>
+                <div class="add-actions text-center">
+                  <div class="project-dec">
+                    <a class="portfolio-lightbox" data-gallery="myGallery" href="../templates/assets/img/portfolio/4.jpg">
+                      <h4>Autos</h4>
+                      <span>Al mejor precio</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- portfolio-item end -->
+
+          <!-- portfolio-item start -->
+          <div class="col-md-4 col-sm-4 col-xs-12 portfolio-item filter-app">
+            <div class="single-awesome-project">
+              <div class="awesome-img">
+                <a href="#"><img src="../templates/assets/img/portfolio/5.jpg" alt="Compañía Allianz" /></a>
+                <div class="add-actions text-center text-center">
+                  <div class="project-dec">
+                    <a class="portfolio-lightbox" data-gallery="myGallery" href="assets/img/portfolio/5.jpg">
+                      <h4>Allianz</h4>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- portfolio-item end -->
+
+          <!-- portfolio-item start -->
+          <div class="col-md-4 col-sm-4 col-xs-12 portfolio-item filter-web">
+            <div class="single-awesome-project">
+              <div class="awesome-img">
+                <a href="#"><img src="../templates/assets/img/portfolio/6.jpg" alt="" /></a>
+                <div class="add-actions text-center">
+                  <div class="project-dec">
+                    <a class="portfolio-lightbox" data-gallery="myGallery" href="../templates/assets/img/portfolio/6.jpg">
+                      <h4>Hogar</h4>
+                      <span>Por tu tranquilidad</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- portfolio-item end -->
+
+        </div>
+      </div>
+    </div><!-- End Portfolio Section -->
+
+    <!-- ======= Details Section ======= -->
+    <div id="pricing" class="pricing-area area-padding">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="section-headline text-center">
+              <h2>Tipos de Coberturas</h2>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4 col-sm-4 col-xs-12">
+            <div class="pri_table_list">
+              <h3>Bronce</h3>
+              <ol>
+                <li class="check"><i class="bi bi-check"></i><span>Hasta <span class="text-danger">30000</span>€ con Mapfre Auto</span></li>
+                <li class="check"><i class="bi bi-check"></i><span>Hasta <span class="text-primary">25000</span>€ con Allianz Auto</span></li>
+                <li class="check"><i class="bi bi-check"></i><span>Hasta <span class="text-danger">80000</span>€ con Mapfre Hogar</span></li>
+                <li class="check"><i class="bi bi-check"></i><span>Hasta <span class="text-primary">80000</span>€ con Allianz Hogar</span></li>
+                <li class="check"><i class="bi bi-check"></i><span>Hasta <span class="text-danger">10000</span>€ con Mapfre Salud</span></li>
+                <li class="check"><i class="bi bi-check"></i><span>Hasta <span class="text-primary">10000</span>€ con Allianz Salud</span></li>
+                <li class="check"><i class="bi bi-check"></i><span>Asesoramiento</span></li>
+                <li class="check"><i class="bi bi-check"></i><span>Seguimiento</span></li>
+              </ol>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-4 col-xs-12">
+            <div class="pri_table_list active">
+              <span class="saleon">Más Vendida</span>
+              <h3>Plata </h3>
+              <ol>
+                <li class="check"><i class="bi bi-check"></i><span>Hasta <span class="text-danger">50000</span>€ con Mapfre Auto</span></li>
+                <li class="check"><i class="bi bi-check"></i><span>Hasta <span class="text-primary">40000</span>€ con Allianz Auto</span></li>
+                <li class="check"><i class="bi bi-check"></i><span>Hasta <span class="text-danger">200000</span>€ con Mapfre Hogar</span></li>
+                <li class="check"><i class="bi bi-check"></i><span>Hasta <span class="text-primary">180000</span>€ con Allianz Hogar</span></li>
+                <li class="check"><i class="bi bi-check"></i><span>Hasta <span class="text-danger">30000</span>€ con Mapfre Salud</span></li>
+                <li class="check"><i class="bi bi-check"></i><span>Hasta <span class="text-primary">20000</span>€ con Allianz Salud</span></li>
+                <li class="check"><i class="bi bi-check"></i><span>Asesoramiento</span></li>
+                <li class="check"><i class="bi bi-check"></i><span>Seguimiento</span></li>
+              </ol>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-4 col-xs-12">
+            <div class="pri_table_list">
+              <h3>Oro </h3>
+              <ol>
+                <li class="check"><i class="bi bi-check"></i><span>Hasta <span class="text-danger">100000</span>€ con Mapfre Auto</span></li>
+                <li class="check"><i class="bi bi-check"></i><span>Hasta <span class="text-primary">80000</span>€ con Allianz Auto</span></li>
+                <li class="check"><i class="bi bi-check"></i><span>Hasta <span class="text-danger">500000</span>€ con Mapfre Hogar</span></li>
+                <li class="check"><i class="bi bi-check"></i><span>Hasta <span class="text-primary">450000</span>€ con Allianz Hogar</span></li>
+                <li class="check"><i class="bi bi-check"></i><span>Hasta <span class="text-danger">50000</span>€ con Mapfre Salud</span></li>
+                <li class="check"><i class="bi bi-check"></i><span>Hasta <span class="text-primary">40000</span>€ con Allianz Salud</span></li>
+                <li class="check"><i class="bi bi-check"></i><span>Asesoramiento</span></li>
+                <li class="check"><i class="bi bi-check"></i><span>Seguimiento</span></li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div><!-- End Pricing Section -->
+
+    <!-- ======= Appeal Section ======= -->
+    <div class="suscribe-area">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs=12">
+            <div class="suscribe-text text-center">
+              <h3>No dudes en contactarnos</h3>
+              <a class="sus-btn" href="#contact">¡Primer asesoramiento GRATIS!</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div><!-- End Suscribe Section -->
+
+    <!-- ======= Contact Section ======= -->
+    <div id="contact" class="contact-area">
+      <div class="contact-inner area-padding">
+        <div class="contact-overly"></div>
+        <div class="container ">
+          <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+              <div class="section-headline text-center">
+                <h2>Contáctanos</h2>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <!-- Start contact icon column -->
+            <div class="col-md-4">
+              <div class="contact-icon text-center">
+                <div class="single-icon">
+                  <i class="bi bi-phone"></i>
+                  <p>
+                    Llámanos: +34954 335 335<br>
+                    <span>De Lunes a Viernes (9:00 - 19:00)</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <!-- Start contact icon column -->
+            <div class="col-md-4">
+              <div class="contact-icon text-center">
+                <div class="single-icon">
+                  <i class="bi bi-envelope"></i>
+                  <p>
+                    Email: insurabroker@example.com<br>
+                    <span>Web: www.insurabroker.es</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <!-- Start contact icon column -->
+            <div class="col-md-4">
+              <div class="contact-icon text-center">
+                <div class="single-icon">
+                  <i class="bi bi-geo-alt"></i>
+                  <p>
+                    Estamos en: Conde de Bustillo 18<br>
+                    <span>Sevilla</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+
+            <!-- Google Map -->
+            <div class="col-md-6">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12679.751743008585!2d-5.9804984132324135!3d37.39130000699174!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd126c1755b54781%3A0xe49da05de71e6de5!2sCatedral%20de%20Sevilla!5e0!3m2!1ses!2ses!4v1653034345026!5m2!1ses!2ses" width="100%" height="380" style="border:0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <!-- End Google Map -->
+
+            <!-- Contact -->
+            <div class="col-md-6">
+              <div class="form contact-form">
+                <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+                  <div class="form-group">
+                    <input type="text" name="name" class="form-control" id="name" placeholder="Tu nombre" required>
+                  </div>
+                  <div class="form-group mt-3">
+                    <input type="email" class="form-control" name="email" id="email" placeholder="Tu email" required>
+                  </div>
+                  <div class="form-group mt-3">
+                    <input type="text" class="form-control" name="subject" id="subject" placeholder="Asunto" required>
+                  </div>
+                  <div class="form-group mt-3">
+                    <textarea class="form-control" name="message" rows="5" placeholder="Mensaje" required></textarea>
+                  </div>
+                  <div class="text-center"><button type="submit">Enviar Mensaje</button></div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Contact Section -->
+  </main>
+  <!-- End #main -->
+
+  <!--Footer-->
+  <div class="footer-area">
+    <div class="container">
+      <div class="row">
+          <div class="footer-logo col-lg-3 col-md-6 footer-links">
+            <h2><span>I</span>nsura Broker</h2>
+          <p>Tu oficina de confianza</p></div><div class="row col-lg-3 col-md-6 footer-links">
+              <h4>Enlaces Internos</h4>
+              <ul>
+                <li><i class="bx bx-chevron-right"></i> <a href="#home">Inicio</a></li>
+                <li><i class="bx bx-chevron-right"></i> <a href="#about">Sobre nosotros</a></li>
+                <li><i class="bx bx-chevron-right"></i> <a href="#services">Servicios</a></li>
+                <li><i class="bx bx-chevron-right"></i> <a href="#portfolio">Porfolio</a></li>
+                <li><i class="bx bx-chevron-right"></i> <a href="#team">Equipo</a></li>
+              </ul>
+            </div>     
+            <div class="col-lg-3 col-md-6 footer-links">
+              <h4>Nuestros Servicios</h4>
+              <ul>
+                <li><i class="bx bx-chevron-right"></i> Seguros de auto</li>
+                <li><i class="bx bx-chevron-right"></i> Seguros de hogar</li>
+                <li><i class="bx bx-chevron-right"></i> Seguros de salud</li>
+                <li><i class="bx bx-chevron-right"></i> Seguimiento</li>
+                <li><i class="bx bx-chevron-right"></i> Asesoramiento</li>
+              </ul>
+            </div>    
+          <div class="footer-icons col-lg-3 col-md-6 footer-links">
+            <ul>
+              <li><a href="https://www.facebook.com/" target="_blank" alt="Ir a facebook"><i class="bi bi-facebook"></i></a></li>
+              <li><a href="https://www.twitter.com/" target="_blank" alt="Ir a twitter"><i class="bi bi-twitter"></i></a></li>
+              <li><a href="https://www.instagram.com/" target="_blank" alt="Ir a instagram"><i class="bi bi-instagram"></i></a></li>
+              <li><a href="https://www.linkedin.com/" target="_blank" alt="Ir a linkedin"><i class="bi bi-linkedin"></i></a></li>
+            </ul>
+          </div>
+        </div>
+    </div>
+  </div>
+  <!--End Footer-->
+
+  <div id="preloader"></div>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- JavaScript Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+  <script src="assets/glightbox/js/glightbox.min.js"></script>
+  <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+  <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>AOS.init();</script>
+
+  <!-- Template Main JS File -->
+  <script src="../templates/assets/js/main.js"></script>
+
+</body>
+
+</html>

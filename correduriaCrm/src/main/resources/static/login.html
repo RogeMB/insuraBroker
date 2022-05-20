@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Login Insura Broker</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+  
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@300;600&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel='stylesheet' type='text/css' media='screen' href='../templates/assets/css/stylelogin.css'>
+</head>
+<body class="bg-dark-s" id="loginbody">
+    <section id="#top">
+        <div class="row g-0">
+            <div class="col-lg-7 d-flex mb-auto">
+                <div class="px-lg-5 pt-lg-4 pg-lg-3 w-100"
+                data-aos="fade-down"
+                data-aos-easing="linear"
+                data-aos-duration="2500" >
+                    <h1 class="d-flex fw-bold p-2">Cuidamos de ti...</h1>
+                    <img src="../templates/assets/img/logo/insuraBroker500.png" class="img-fluid flex-shrink-1" alt="logo Insura Broker"> 
+                </div>
+            </div>
+            <div class="col-lg-5 d-flex flex-column align-items-end min-vh-50">
+            
+                <div class="px-lg-5 py-lg-4 p-4 w-100 align-self-center">
+                    <h1 class="fw-bold mb-4">Bienvenidos a Insura Broker</h1> 
+                    <form class="mb-5 needs-validation">
+                        <div class="mb-4 was-valited">
+                            <label for="inputEmail" class="form-label fw-bold fs-5">Email</label>
+                            <input type="email" class="form-control bg-dark-x text-light fw-bold border-0" placeholder="Introduce tu email" id="inputEmail" aria-describedby="emailHelp" required>                       
+                            <div class="invalid-feedback">
+                                Por favor, introduzca una e-mail.
+                            </div>
+                        </div>
+                        <div class="mb-4 was-valited">
+                            <label for="inputPassword" class="form-label fw-bold fs-5">Contraseña</label>
+                            <input type="password" class="form-control bg-dark-x border-0 mb-2 text-light" placeholder="Introduce tu contraseña" id="inputPassword" required>
+                            <div class="invalid-feedback">
+                                Por favor, introduzca una contraseña.
+                            </div>
+                            <a href="#top" id="passwordHelp" class="forget-pass form-text text-light text-decoration-none">¿Has olvidado tu contraseña?
+                        </div>
+                        
+                        <div class="mb-4 form-check was-valited">
+                            <input type="checkbox" class="form-check-input" id="checkRecuerda" required>
+                            <label class="form-check-label text-light" for="checkRecuerda">Acepto los términos y condiciones</label>
+                            <div class="invalid-feedback">
+                               Debes aceptar antes.
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary rounded-pill loginText w-100 fs-4 border border-4 fw-bold">Iniciar Sesión</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+    <script src='../templates/assets/js/login.js'></script>
+</body>
+</html>

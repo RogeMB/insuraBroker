@@ -8,23 +8,26 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import com.salesianostriana.dam.correduriacrm.security.Usuario;
-import com.salesianostriana.dam.correduriacrm.security.UsuarioRepo;
+
+import com.salesianostriana.dam.correduriacrm.model.Empleado;
+import com.salesianostriana.dam.correduriacrm.repository.EmpleadoRepository;
 
 @Controller
 public class MainController {
-
+	
 	@Autowired
-	private UsuarioRepo usuarioRepo;
+	private EmpleadoRepository empleadoRepo;
 	
     @GetMapping("/admin")
     public String adminIndex(Model model, @AuthenticationPrincipal UserDetails user) {
        
         //model.addAttribute("usuario", user.getUsername());
-    	Optional<Usuario> elUsuario = usuarioRepo.findUserByUsername(user.getUsername());
+    	Optional<Empleado> elUsuario = empleadoRepo.findUserByUsername(user.getUsername());
     	// ESTO NO SE DEBE HACER ASÍ NUNCA. 
     	// ES SOLAMENTE POR MOTIVOS DIDÁCTICOS
-    	model.addAttribute("usuario", elUsuario.get());
+    	if(elUsuario.isPresent()){
+    		model.addAttribute("usuario", elUsuario.get());
+    	}
         return "admin/index";
     }
 

@@ -35,6 +35,8 @@ public class Cliente {
     private String telefono;
 
     private String email;
+    
+    private String genero;
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate fechaAlta;
