@@ -404,28 +404,6 @@ HERO
   }
 }
 
-.header-bg {
-  background: url(../img/background/page-header.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: top center;
-  padding: 120px 0 60px;
-}
-.header-bg::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.7);
-}
-@media (min-width: 1025px) {
-  .header-bg {
-    background-attachment: fixed;
-  }
-}
-
 /*--------------------------------------------------------------
 # NavBar Menu
 --------------------------------------------------------------*/
@@ -488,7 +466,9 @@ HERO
   }
 }
 
-/*BUTTON LOGIN--------------------------------------*/
+/*-----------------------------------
+* LOGIN BUTTON
+----------------------------------*/
 
 button {
   position: relative;
@@ -502,13 +482,11 @@ button {
   padding: 0;
   font-size: inherit;
   font-family: inherit;
-
  }
  
  button.learn-more {
   width: 12rem;
   height: auto;
- 
  }
  
  button.learn-more .circle {
@@ -518,7 +496,7 @@ button {
   margin: 0;
   width: 3rem;
   height: 3rem;
-  background: #282936;
+  background: #88ff0136;
   border-radius: 1.625rem;
  }
  
@@ -649,7 +627,6 @@ button {
 }
 
 
-
 /*--------------------------------------------------------------
 # Hero
 --------------------------------------------------------------*/
@@ -672,15 +649,18 @@ button {
   left: 0;
   bottom: 0;
 }
+
 #hero .carousel-item {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
+
 #hero .carousel-item::before {
   content: "";
   background-color: rgba(0, 0, 0, 0.7);
 }
+
 #hero .carousel-container {
   display: flex;
   justify-content: center;
@@ -691,9 +671,11 @@ button {
   left: 50px;
   right: 50px;
 }
+
 #hero .container {
   text-align: center;
 }
+
 #hero h2 {
   color: #fff;
   margin-bottom: 20px;
@@ -706,6 +688,7 @@ button {
     line-height: 1.2;
   }
 }
+
 #hero p {
   width: 80%;
   font-size: 38px;
@@ -713,34 +696,41 @@ button {
   margin: 0 auto 30px auto;
   color: #fff;
 }
+
 @media (min-width: 1024px) {
   #hero p {
     width: 60%;
   }
 }
+
 @media (max-width: 768px) {
   #hero p {
     font-size: 28px;
     line-height: 1.2;
   }
 }
+
 #hero .carousel-fade {
   overflow: hidden;
 }
+
 #hero .carousel-fade .carousel-inner .carousel-item {
   transition-property: opacity;
 }
+
 #hero .carousel-fade .carousel-inner .carousel-item,
 #hero .carousel-fade .carousel-inner .active.carousel-item-start,
 #hero .carousel-fade .carousel-inner .active.carousel-item-end {
   opacity: 0;
 }
+
 #hero .carousel-fade .carousel-inner .active,
 #hero .carousel-fade .carousel-inner .carousel-item-next.carousel-item-start,
 #hero .carousel-fade .carousel-inner .carousel-item-prev.carousel-item-end {
   opacity: 1;
   transition: 0.5s;
 }
+
 #hero .carousel-fade .carousel-inner .carousel-item-next,
 #hero .carousel-fade .carousel-inner .carousel-item-prev,
 #hero .carousel-fade .carousel-inner .active.carousel-item-start,
@@ -748,22 +738,27 @@ button {
   left: 0;
   transform: translate3d(0, 0, 0);
 }
+
 #hero .carousel-control-prev, #hero .carousel-control-next {
   width: 10%;
 }
+
 @media (min-width: 1024px) {
   #hero .carousel-control-prev, #hero .carousel-control-next {
     width: 5%;
   }
 }
+
 #hero .carousel-control-next-icon, #hero .carousel-control-prev-icon {
   background: none;
   font-size: 32px;
   line-height: 1;
 }
+
 #hero .carousel-indicators li {
   cursor: pointer;
 }
+
 #hero .btn-get-started {
   font-weight: 500;
   font-size: 16px;
@@ -776,6 +771,7 @@ button {
   color: #fff;
   background: #3ec1d5;
 }
+
 #hero .btn-get-started:hover {
   background: #fff;
   color: #3ec1d5;
@@ -1226,6 +1222,18 @@ button {
   background: #fff;
 }
 
+#bronce {
+  background-color: rgba(250, 190, 111, 0.637);
+}
+
+#plata {
+  background-color: rgba(179, 179, 179, 0.678);
+}
+
+#oro {
+  background-color: rgba(184, 181, 11, 0.61);
+}
+
 .pri_table_list h3 span {
   font-size: 16px;
 }
@@ -1339,7 +1347,7 @@ button {
 }
 
 /*--------------------------------------------------------------
-# Quote
+# APPEAL SECTION
 --------------------------------------------------------------*/
 .suscribe-area {
   background: #3EC1D5 none repeat scroll 0 0;
@@ -1382,7 +1390,7 @@ button {
 }
 
 /*--------------------------------------------------------------
-# Contact
+# CONTACT SECTION
 --------------------------------------------------------------*/
 .contact-area {
   height: auto;

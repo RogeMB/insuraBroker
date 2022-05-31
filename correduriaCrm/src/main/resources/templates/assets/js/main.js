@@ -1,6 +1,8 @@
 /*--------------------------------------------
 * Hero type effect
 ----------------------------------------------*/
+AOS.init();
+
 const typedTextSpan = document.querySelector(".typed-text");
 const cursorSpan = document.querySelector(".cursor");
 
@@ -267,24 +269,6 @@ window.addEventListener('scroll', setScrollPercent);
    /*-------------------------------------*/
   const portfolioLightbox = GLightbox({
     selector: '.portfolio-lightbox'
-  });
-
-  /*-------------------------------------
-   * Testimonials slider
-   /*-------------------------------------*/
-  new Swiper('.testimonials-slider', {
-    speed: 600,
-    loop: true,
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false
-    },
-    slidesPerView: 'auto',
-    pagination: {
-      el: '.swiper-pagination',
-      type: 'bullets',
-      clickable: true
-    }
   });
 })()
 
