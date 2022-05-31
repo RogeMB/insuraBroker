@@ -1,10 +1,9 @@
+AOS.init();
 (function () {
-    'use strict'
-  
-    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    "use strict";
+
     var forms = document.querySelectorAll('.needs-validation')
   
-    // Loop over them and prevent submission
     Array.prototype.slice.call(forms)
       .forEach(function (form) {
         form.addEventListener('submit', function (event) {
@@ -12,7 +11,6 @@
             event.preventDefault()
             event.stopPropagation()
           }
-  
           form.classList.add('was-validated')
         }, false)
       })
@@ -26,8 +24,6 @@
       mensaje.onclick = function(){
         window.alert("El ususario es Admin y su contraseña es admin. Usuario User y su contraseña es 1234.");
       }
-
-      
   })()
 
  

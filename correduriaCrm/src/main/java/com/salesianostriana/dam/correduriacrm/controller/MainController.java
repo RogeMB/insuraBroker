@@ -23,8 +23,7 @@ public class MainController {
        
         //model.addAttribute("usuario", user.getUsername());
     	Optional<Empleado> elUsuario = empleadoRepo.findUserByUsername(user.getUsername());
-    	// ESTO NO SE DEBE HACER ASÍ NUNCA. 
-    	// ES SOLAMENTE POR MOTIVOS DIDÁCTICOS
+    
     	if(elUsuario.isPresent()){
     		model.addAttribute("usuario", elUsuario.get());
     	}
@@ -60,7 +59,7 @@ public class MainController {
 
 	@GetMapping("/error")
 	public String error() {
-		return "error";
+		return "error404";
 	}
 
 }

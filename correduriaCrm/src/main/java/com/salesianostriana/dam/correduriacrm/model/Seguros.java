@@ -10,6 +10,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+
 import java.time.LocalDate;
 
 @Entity
@@ -18,23 +20,24 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @Builder
 public class Seguros {
-    @Id
+    
+	@Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long idSeguro;
+	
+	@ManyToOne
+	private Categoria categoria;  //idCategoria
 
     private String tipo;
 
-    private double precio;
+    private double cantidadAsegurada;
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate fechaAlta;
 
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private LocalDate fechaBaja;
-
     private String empresa;
 
-    private String descripcion;
+    private String icono;
 
 
 }
