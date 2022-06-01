@@ -11,8 +11,8 @@
   <meta name="keywords" content="seguros, insurance, venta, contratar, consultoría, asesoramiento, mejor correduría, mejores precios">
 
   <!-- Favicons -->
-  <link href="../static/assets/img/logo/insuraBroker32.png" rel="icon">
-  <link href="../static/assets/img/logo/insuraBroker180.png" rel="apple-touch-icon">
+  <link th:href="@{assets/img/logo/insuraBroker32.png}" href="../static/assets/img/logo/insuraBroker32.png" rel="icon">
+  <link th:href="@{assets/img/logo/insuraBroker180.png}" href="../static/assets/img/logo/insuraBroker180.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,700|Raleway:300,400,400i,500,500i,700,800,900" rel="stylesheet">
@@ -23,21 +23,21 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css" rel="stylesheet" >
   <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
-  <link th:href="@{/assets/complementos/glightbox/css/glightbox.min.css}" href="../static/assets/complementos/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link th:href="@{assets/complementos/glightbox/css/glightbox.min.css}" href="../static/assets/complementos/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="https://unpkg.com/swiper@8/swiper-bundle.min.css" rel="stylesheet"/>
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"> 
 
   <!-- Template Main CSS File -->
-  <link th:href="@{/assets/css/style.css}" href="/assets/css/style.css" rel="stylesheet">
+  <link th:href="@{assets/css/style.css}" href="/assets/css/style.css" rel="stylesheet">
 
    <!-- JavaScript Bundle with Popper -->
    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
-   <script defer th:src="@{/assets/complementos/glightbox/js/glightbox.min.js}" src="../static/assets/complementos/glightbox/js/glightbox.min.js"></script>
+   <script defer th:src="@{assets/complementos/glightbox/js/glightbox.min.js}" src="../static/assets/complementos/glightbox/js/glightbox.min.js"></script>
    <script defer src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
    <script defer src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
    <script defer src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
      <!-- Template Main JS File -->
-   <script defer th:src="@{/assets/js/main}" src="../static/assets/js/main.js"></script>
+   <script defer th:src="@{assets/js/main}" src="../static/assets/js/main.js"></script>
 
 </head>
 
@@ -49,7 +49,7 @@
         data-aos-easing="ease-in-back"
         data-aos-duration="1500">
         <div class="hero-logo">
-          <img class="" src="../static/assets/img/logo/insuraBroker500.svg" alt="InsuraBroker Logo">
+          <img class="" th:src="@{assets/img/logo/insuraBroker500.svg}" src="../static/assets/img/logo/insuraBroker500.svg" alt="InsuraBroker Logo">
         </div>
         <h1>Bienvenidos a</h1>
         <div class="d-flex justify-content-center align-items-center">
@@ -66,24 +66,27 @@
     <div class="container d-flex justify-content-between">
 
       <div class="d-flex logo">
-        <h1><a href="index.html"><span>I</span>nsura Broker</a></h1>
-        <img src="../static/assets/img/logo/insuraBroker250.png" alt="InsuraBroker Logo" class="logoNavbar d-inline-flex ms-2 mt-1 align-text-top">
+        <h1><a th:href="@{#}" href="#"><span>I</span>nsura Broker</a></h1>
+        <img th:src="@{assets/img/logo/insuraBroker250.png}" src="../static/assets/img/logo/insuraBroker250.png" alt="InsuraBroker Logo" class="logoNavbar d-inline-flex ms-2 mt-1 align-text-top">
       </div>
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="nav-link scrollto active" href="#hero">Inicio</a></li>
-          <li><a class="nav-link scrollto" href="#about">Sobre Nosotros</a></li>
-          <li><a class="nav-link scrollto" href="#services">Servicios</a></li>
-          <li><a class="nav-link scrollto" href="#portfolio">Portfolio</a></li>
-          <li><a class="nav-link scrollto" href="#team">Equipo</a></li>  
-          <li><a class="nav-link scrollto" href="#contact">Contacto</a></li>
-          <li><a class="nav-link scrollto" href="login.html"><button class="learn-more">
-            <span class="circle" aria-hidden="true">
-              <span class="icon arrow"></span>
-            </span>
-            <span class="button-text">LOGIN</span>
-          </button></a></li>
+          <li><a class="nav-link scrollto active" th:href="@{#hero} "href="#hero">Inicio</a></li>
+          <li><a class="nav-link scrollto" th:href="@{#about}" href="#about">Sobre Nosotros</a></li>
+          <li><a class="nav-link scrollto" th:href="@{#services}" href="#services">Servicios</a></li>
+          <li><a class="nav-link scrollto" th:href="@{#portfolio}" href="#portfolio">Portfolio</a></li>
+          <li><a class="nav-link scrollto" th:href="@{#team}" href="#team">Equipo</a></li>  
+          <li><a class="nav-link scrollto" th:href="@{#contact}" href="#contact">Contacto</a></li>
+          <li><a class="nav-link scrollto" th:href="@{login}" href="login.html">
+          		<button class="learn-more">
+		            <span class="circle" aria-hidden="true">
+		              <span class="icon arrow"></span>
+		            </span>
+	           		<span class="button-text">LOGIN</span>
+	          	</button>
+          	  </a>
+          </li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav>
@@ -161,7 +164,7 @@
           <div class="col-md-6 col-sm-6 col-xs-12">
             <div class="well-left">
               <div class="single-well">
-                <img src="../static/assets/img/about/office900.jpg" alt="Oficina de Insura Broker">
+                <img th:src="@{assets/img/about/office900.jpg}" src="../static/assets/img/about/office900.jpg" alt="Oficina de Insura Broker">
               </div>
             </div>
           </div>
@@ -331,7 +334,7 @@
             <div class="single-team-member">
               <div class="team-img">
                 <a href="#team">
-                  <img src="../static/assets/img/team/1.jpg" alt="">
+                  <img th:src="@{assets/img/team/1.jpg}" src="../static/assets/img/team/1.jpg" alt="">
                 </a>
                 <div class="team-social-icon text-center">
                   <ul>
@@ -364,7 +367,7 @@
             <div class="single-team-member">
               <div class="team-img">
                 <a href="#team">
-                  <img src="../static/assets/img/team/2.jpg" alt="">
+                  <img th:src="@{assets/img/team/2.jpg}" src="../static/assets/img/team/2.jpg" alt="">
                 </a>
                 <div class="team-social-icon text-center">
                   <ul>
@@ -397,7 +400,7 @@
             <div class="single-team-member">
               <div class="team-img">
                 <a href="#team">
-                  <img src="../static/assets/img/team/3.jpg" alt="">
+                  <img th:src="@{assets/img/team/3.jpg}" src="../static/assets/img/team/3.jpg" alt="">
                 </a>
                 <div class="team-social-icon text-center">
                   <ul>
@@ -430,7 +433,7 @@
             <div class="single-team-member">
               <div class="team-img">
                 <a href="#team">
-                  <img src="../static/assets/img/team/4.jpg" alt="">
+                  <img th:src="@{assets/img/team/4.jpg}" src="../static/assets/img/team/4.jpg" alt="">
                 </a>
                 <div class="team-social-icon text-center">
                   <ul>
@@ -491,10 +494,10 @@
           <div class="col-md-4 col-sm-4 col-xs-12 portfolio-item filter-app portfolio-item">
             <div class="single-awesome-project">
               <div class="awesome-img">
-                <a href="#"><img src="../static/assets/img/portfolio/mapfre800.jpg" alt="Mapfre Seguros" /></a>
+                <a href="#"><img th:src=@{assets/img/portfolio/mapfre800.jpg} src="../static/assets/img/portfolio/mapfre800.jpg" alt="Mapfre Seguros" /></a>
                 <div class="add-actions text-center">
                   <div class="project-dec">
-                    <a class="portfolio-lightbox" data-gallery="myGallery" href="../static/assets/img/portfolio/mapfre800.jpg">
+                    <a class="portfolio-lightbox" data-gallery="myGallery" th:href=@{assets/img/portfolio/mapfre800.jpg} href="../static/assets/img/portfolio/mapfre800.jpg">
                       <h4>Mapfre</h4>
                       <span>La mejor compañía española</span>
                     </a>
@@ -509,10 +512,10 @@
           <div class="col-md-4 col-sm-4 col-xs-12 portfolio-item filter-web">
             <div class="single-awesome-project">
               <div class="awesome-img">
-                <a href="#"><img src="../static/assets/img/portfolio/segurosalud800.jpg" alt="Seguro de salud" /></a>
+                <a href="#"><img th:src=@{assets/img/portfolio/segurosalud800.jpg} src="../static/assets/img/portfolio/segurosalud800.jpg" alt="Seguro de salud" /></a>
                 <div class="add-actions text-center">
                   <div class="project-dec">
-                    <a class="portfolio-lightbox" data-gallery="myGallery" href="../static/assets/img/portfolio/segurosalud800.jpg">
+                    <a class="portfolio-lightbox" data-gallery="myGallery" th:href=@{assets/img/portfolio/segurosalud800.jpg} href="../static/assets/img/portfolio/segurosalud800.jpg">
                       <h4>Salud</h4>
                       <span>Nos importa tu vida y la de los tuyos</span>
                     </a>
@@ -527,10 +530,10 @@
           <div class="col-md-4 col-sm-4 col-xs-12 portfolio-item filter-card">
             <div class="single-awesome-project">
               <div class="awesome-img">
-                <a href="#"><img src="../static/assets/img/portfolio/seguro_oficina800.jpg" alt="Oficina de InsuraBroker" /></a>
+                <a href="#"><img th:src=@{assets/img/portfolio/seguro_oficina800.jpg} src="../static/assets/img/portfolio/seguro_oficina800.jpg" alt="Oficina de InsuraBroker" /></a>
                 <div class="add-actions text-center">
                   <div class="project-dec">
-                    <a class="portfolio-lightbox" data-gallery="myGallery" href="../static/assets/img/portfolio/seguro_oficina800.jpg">
+                    <a class="portfolio-lightbox" data-gallery="myGallery" th:href=@{assets/img/portfolio/seguro_oficina800.jpg} href="../static/assets/img/portfolio/seguro_oficina800.jpg">
                       <h4>Nuestra oficina</h4>
                       <span>Siempre cerca de ti</span>
                     </a>
@@ -545,10 +548,10 @@
           <div class="col-md-4 col-sm-4 col-xs-12 portfolio-item filter-web">
             <div class="single-awesome-project">
               <div class="awesome-img">
-                <a href="#"><img src="../static/assets/img/portfolio/seguroauto800.jpg" alt="Seguros de coche" /></a>
+                <a href="#"><img th:src=@{assets/img/portfolio/seguroauto800.jpg} src="../static/assets/img/portfolio/seguroauto800.jpg" alt="Seguros de coche" /></a>
                 <div class="add-actions text-center">
                   <div class="project-dec">
-                    <a class="portfolio-lightbox" data-gallery="myGallery" href="../static/assets/img/portfolio/seguroauto800.jpg">
+                    <a class="portfolio-lightbox" data-gallery="myGallery" th:href=@{assets/img/portfolio/seguroauto800.jpg} href="../static/assets/img/portfolio/seguroauto800.jpg">
                       <h4>Autos</h4>
                       <span>Viajar con las mejores coberturas</span>
                     </a>
@@ -563,10 +566,10 @@
           <div class="col-md-4 col-sm-4 col-xs-12 portfolio-item filter-app">
             <div class="single-awesome-project">
               <div class="awesome-img">
-                <a href="#"><img src="../static/assets/img/portfolio/allianz800.jpg" alt="Compañía Allianz" /></a>
+                <a href="#"><img th:src="@{assets/img/portfolio/allianz800.jpg}" src="../static/assets/img/portfolio/allianz800.jpg" alt="Compañía Allianz" /></a>
                 <div class="add-actions text-center text-center">
                   <div class="project-dec">
-                    <a class="portfolio-lightbox" data-gallery="myGallery" href="../static/assets/img/portfolio/allianz800.jpg">
+                    <a class="portfolio-lightbox" data-gallery="myGallery" th:href=@{assets/img/portfolio/allianz800.jpg} href="../static/assets/img/portfolio/allianz800.jpg">
                       <h4>Allianz</h4>
                       <span>La mejor compañia alemana</span>
                     </a>
@@ -581,10 +584,10 @@
           <div class="col-md-4 col-sm-4 col-xs-12 portfolio-item filter-web">
             <div class="single-awesome-project">
               <div class="awesome-img">
-                <a href="#"><img src="../static/assets/img/portfolio/segurohogar800.jpg" alt="Seguro de hogar" /></a>
+                <a href="#"><img th:src="@{assets/img/portfolio/segurohogar800.jpg}" src="../static/assets/img/portfolio/segurohogar800.jpg" alt="Seguro de hogar" /></a>
                 <div class="add-actions text-center">
                   <div class="project-dec">
-                    <a class="portfolio-lightbox" data-gallery="myGallery" href="../static/assets/img/portfolio/segurohogar800.jpg">
+                    <a class="portfolio-lightbox" data-gallery="myGallery" th:href="@{assets/img/portfolio/segurohogar800.jpg}" href="../static/assets/img/portfolio/segurohogar800.jpg">
                       <h4>Hogar</h4>
                       <span>Para tu tranquilidad</span>
                     </a>
