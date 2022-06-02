@@ -32,7 +32,7 @@ public class MainController {
     		return "error404";
     	}
     	
-        return "admin/admin";
+        return "dashboard/admin/admin";
     }
 
 
@@ -43,31 +43,31 @@ public class MainController {
     
 
     
-    
-    @PostMapping("/login")
-    public String autentificar (Empleado empleado, BindingResult result, Model model) {
-        if (result.hasErrors()) {
-            return "add-user";
-        }
-        
-       
-      //model.addAttribute("usuario", user.getUsername());
-    	Optional<Empleado> elUsuario = empleadoRepo.findUserByUsername(empleado.getUsername());
-    	
-    	if(elUsuario.isPresent()){
-    		model.addAttribute("usuario", elUsuario.get());
-    	}else {
-    		return "error404";
-    	}
-        return "redirect:/index";
-    }
+    /*
+	@PostMapping("/login")
+	public String autentificar(Empleado empleado, Model model) {
 
+		Optional<Empleado> elUsuario = empleadoRepo.findUserByUsername(empleado.getUsername());
+
+		if(elUsuario.isPresent()){
+			Empleado empl = elUsuario.get();
+
+			if (empl.getRole().equals("USER")) {
+				return " ";
+			} else if (empl.getRole().equals("ADMIN")) {
+				//model.addAttribute("usuario", elUsuario.get());
+				return "admin/admin";
+			}
+		}
+		return "index";
+	}
+*/
     
 
     @GetMapping("/login-error")
     public String loginError(Model model) {
     	model.addAttribute("loginError", true);
-        return "index";
+        return "login";
     }
     
     @GetMapping("/private")

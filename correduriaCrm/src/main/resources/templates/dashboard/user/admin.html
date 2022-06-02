@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang=es xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Insura Broker Admin </title>
+    <meta name="description" content="Venta de seguros, mejor consultoría y correduría de seguros">
+    <meta name="keywords" content="seguros, insurance, venta, consultoría, asesoramiento, mejor correduría">
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@300;600&display=swap" rel="stylesheet">
+    <link rel='stylesheet' type='text/css' media='screen' href='../../../static/assets/css/stylelogin.css'>
+</head>
+<body>
+   
+    <div class="d-flex">
+        <div class="sidebar-container">
+            <nav class="navbar bg-dark fixed-top">
+                <div class="container-fluid">
+                    <a class="navbar-brand fw-bold fs-2 ps-2 align-items-center" href="#">Insura Broker</a>
+                    <button class="navbar-toggler me-auto" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <form class="d-inline-flex position-relative my-2">
+                        <input class="form-control me-sm-2" type="search" placeholder="Buscar" aria-label="Buscar">
+                        <button class="btn btn-search position-absolute" type="submit"><icon class= "bi bi-search"></icon></button>
+                    </form>
+                    <div class="offcanvas bg-dark offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                        <div class="offcanvas-header text-light ">
+                            <h5 class="offcanvas-title fw-bold fs-2" id="offcanvasNavbarLabel">Insura Broker</h5>
+                            <button type="button" class="btn-close bg-light" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                        </div>
+                        <div class="offcanvas-body ">
+                            <ul class="navbar-nav justify-content-end flex-grow-1 pe-2">
+                                <li class="nav-item">
+                                    <a class="nav-link active" aria-current="page" href="#">
+                                        <i class="bi bi-bar-chart-line-fill shadow m-2"></i><span class="d-none d-md-inline">DashBoard</span></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#"><i class="bi bi-coin shadow m-2 lead"></i><span class="d-none d-md-inline">Realizar Venta</span></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#"><i class="bi bi-megaphone-fill shadow m-2 lead"></i><span class="d-none d-md-inline">Crear Campaña</span></a>
+                                </li>
+                            
+                                <li class="nav-item dropdown"> 
+                                    <a class="nav-link dropdown-toggle" href="#" id="offcanvasNavbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="bi bi-wrench-adjustable-circle-fill shadow m-2 lead"></i><span class="d-none d-md-inline">Gestión</span>
+                                </a>
+                                <ul class="dropdown-menu  bg-dark border-0" aria-labelledby="offcanvasNavbarDropdown">
+                                    <li><a class="dropdown-item" href="#"><i class="bi bi-shield-fill-plus shadow me-2 lead"></i><span class="d-none d-md-inline">Alta Seguro</span></a></li>
+                                    <li><a class="dropdown-item" href="#"><i class="bi bi-person-plus shadow me-2 lead"></i><span class="d-none d-md-inline">Alta Cliente</span></a></li>
+                                    <li><a class="dropdown-item" href="#"><i class="bi bi-bookmark-plus-fill shadow me-2 lead"></i><span class="d-none d-md-inline">Alta Categoría</span></a></li>
+                                    <li>
+                                    <hr class="dropdown-divider bg-light"/>
+                                    </li>
+                                    <li><a class="dropdown-item" href="#"><i class="bi bi-person-plus shadow m-2 lead"></i><span class="d-none d-md-inline">Alta Empleado</span></a></li>
+                                </ul>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="offcanvasNavbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <i class="bi bi-server shadow m-2 lead"></i><span class="d-none d-md-inline">Tablas</span>
+                                    </a>
+                                    <ul class="dropdown-menu bg-dark border-0" aria-labelledby="offcanvasNavbarDropdown">
+                                        <li><a class="dropdown-item" href="#"><i class="bi bi-shield-shaded shadow me-2 lead"></i><span class="d-none d-md-inline">Tabla Seguros</span></a></li>
+                                        <li><a class="dropdown-item" href="#"><i class="bi bi-person-lines-fill shadow me-2 lead"></i><span class="d-none d-md-inline">Tabla Clientes</span></a></li>
+                                        <li><a class="dropdown-item" href="#"><i class="bi bi-person-circle shadow me-2 lead"></i><span class="d-none d-md-inline">Tabla Empleados</span></a></li>
+                                    </ul>
+                                </li>
+                                <hr/>  
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+<script src='../../../static/assets/js/login.js'></script>
+</body>
+</html>

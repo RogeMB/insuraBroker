@@ -2,7 +2,7 @@ AOS.init();
 (function () {
     "use strict";
 
-    var forms = document.querySelectorAll('.needs-validation')
+    let forms = document.querySelectorAll('.needs-validation')
   
     Array.prototype.slice.call(forms)
       .forEach(function (form) {
@@ -18,12 +18,18 @@ AOS.init();
       window.scrollTo({
         top:0,
         brehaviour: 'smooth'
-      })
+      });
 
-      const mensaje = document.querySelector (".forget-pass");
-      mensaje.onclick = function(){
-        window.alert("El ususario es Admin y su contraseña es admin. Usuario User y su contraseña es 1234.");
-      }
+      let  mensaje = document.getElementById("passwordHelp");
+   
+      let momodal = new bootstrap.Modal(document.getElementById("staticBackdrop"), {});
+      mensaje.addEventListener('click', showModal, true); 
+      function showModal () {
+		momodal.show();
+	  };
+				
+ 
+      
   })()
 
  

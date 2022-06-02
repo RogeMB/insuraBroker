@@ -31,12 +31,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/admin/**").hasAnyRole("USER", "ADMIN")
+                .antMatchers("/admin/**").hasAnyRole("USER", "ADMIN") //estas rutas son controladores
                 .antMatchers("/admin/privado/**").hasRole("ADMIN")
                 .antMatchers("/h2-console").permitAll()
-                .anyRequest().permitAll()
-                .and().exceptionHandling().accessDeniedPage("/error")
-                .and().formLogin().loginPage("/").loginProcessingUrl("/login")
+                .antMatchers("/assets/**").permitAll()
+                .anyRequest().authenticated()
+                //.anyRequest().permitAll()
+                .and().exceptionHandling().accessDeniedPage("/error403")
+                .and().formLogin().loginPage("/login").loginProcessingUrl("/login")
                 		.defaultSuccessUrl("/private")
                 		.failureUrl("/login-error").permitAll()
                 .and().logout().logoutUrl("/logout").logoutSuccessUrl("/").permitAll();
