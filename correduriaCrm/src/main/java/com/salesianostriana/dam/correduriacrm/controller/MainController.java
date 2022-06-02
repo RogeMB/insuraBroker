@@ -7,7 +7,9 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import com.salesianostriana.dam.correduriacrm.model.Empleado;
 import com.salesianostriana.dam.correduriacrm.repository.EmpleadoRepository;
@@ -23,11 +25,14 @@ public class MainController {
        
         //model.addAttribute("usuario", user.getUsername());
     	Optional<Empleado> elUsuario = empleadoRepo.findUserByUsername(user.getUsername());
-    
+    	
     	if(elUsuario.isPresent()){
     		model.addAttribute("usuario", elUsuario.get());
+    	}else {
+    		return "error404";
     	}
-        return "admin/index";
+    	
+        return "admin/admin";
     }
 
 
@@ -35,11 +40,34 @@ public class MainController {
     public String login() {
         return "login";
     }
+    
+
+    
+    
+    @PostMapping("/login")
+    public String autentificar (Empleado empleado, BindingResult result, Model model) {
+        if (result.hasErrors()) {
+            return "add-user";
+        }
+        
+       
+      //model.addAttribute("usuario", user.getUsername());
+    	Optional<Empleado> elUsuario = empleadoRepo.findUserByUsername(empleado.getUsername());
+    	
+    	if(elUsuario.isPresent()){
+    		model.addAttribute("usuario", elUsuario.get());
+    	}else {
+    		return "error404";
+    	}
+        return "redirect:/index";
+    }
+
+    
 
     @GetMapping("/login-error")
     public String loginError(Model model) {
     	model.addAttribute("loginError", true);
-        return "index.html";
+        return "index";
     }
     
     @GetMapping("/private")
@@ -62,4 +90,5 @@ public class MainController {
 		return "error404";
 	}
 */
+	
 }
