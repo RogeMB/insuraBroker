@@ -41,10 +41,15 @@ public class MainController {
         return "login";
     }
     
+    @GetMapping("/redirect")
+    public String redirect() {
+    	return "redirect:/login-login-in";
+    }
+    
 
     
     /*
-	@PostMapping("/login")
+	@GetMapping("/login-in")
 	public String autentificar(Empleado empleado, Model model) {
 
 		Optional<Empleado> elUsuario = empleadoRepo.findUserByUsername(empleado.getUsername());
@@ -53,10 +58,11 @@ public class MainController {
 			Empleado empl = elUsuario.get();
 
 			if (empl.getRole().equals("USER")) {
-				return " ";
+				//model.addAttribute("usuario", elUsuario.get());
+				return "dashboard/admin/admin";
 			} else if (empl.getRole().equals("ADMIN")) {
 				//model.addAttribute("usuario", elUsuario.get());
-				return "admin/admin";
+				return "admin/user/admin";
 			}
 		}
 		return "index";
