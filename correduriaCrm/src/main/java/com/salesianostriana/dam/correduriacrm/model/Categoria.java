@@ -10,6 +10,7 @@ import lombok.ToString;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -29,7 +30,7 @@ public class Categoria {
     
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
-    @OneToMany(mappedBy="categoria")
+    @OneToMany(mappedBy="categoria", fetch = FetchType.EAGER)
     private List<Seguros> seguros;
     
     public void addSeguro(Seguros seg) {

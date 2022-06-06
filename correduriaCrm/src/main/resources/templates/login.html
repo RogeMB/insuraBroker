@@ -81,6 +81,7 @@
                     <br/>
                     <a th:href="@{/}" href="index.html" class="btn btn-primary rounded-pill align-middle loginText w-100 fs-4 border border-4 fw-bold">Volver al index</a>
                      <div sec:authorize="isAuthenticated()" >
+                     <!-- Redirigir al @/redirect-->
 				        <a th:href="@{/logout}">Salir</a>
 				        <a th:href="@{/admin}">Zona admin</a>
 				        <a th:href="@{/logout}" href="index.html" class="btn btn-danger rounded-pill align-middle loginText w-100 fs-4 border border-4 fw-bold">Salir</a>

@@ -31,10 +31,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .csrf().disable()
                 .authorizeRequests()
+                .antMatchers("/assets/**").permitAll()
+                .antMatchers("/h2-console").permitAll()
                 .antMatchers("/admin/**").hasAnyRole("USER", "ADMIN") //estas rutas son controladores
                 .antMatchers("/admin/privado/**").hasRole("ADMIN")
-                .antMatchers("/h2-console").permitAll()
-                .antMatchers("/assets/**").permitAll()
                 .anyRequest().authenticated()
                 //.anyRequest().permitAll()
                 .and().exceptionHandling().accessDeniedPage("/error403")

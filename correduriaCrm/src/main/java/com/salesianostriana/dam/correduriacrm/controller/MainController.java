@@ -9,7 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
+
 
 import com.salesianostriana.dam.correduriacrm.model.Empleado;
 import com.salesianostriana.dam.correduriacrm.repository.EmpleadoRepository;
@@ -20,75 +20,69 @@ public class MainController {
 	@Autowired
 	private EmpleadoRepository empleadoRepo;
 	
-    @GetMapping("/admin")
+	@GetMapping("/")
+	public String welcome() {
+		return "index";
+	}
+
+	
+    @GetMapping("/login-in")
     public String adminIndex(Model model, @AuthenticationPrincipal UserDetails user) {
        
         //model.addAttribute("usuario", user.getUsername());
     	Optional<Empleado> elUsuario = empleadoRepo.findUserByUsername(user.getUsername());
     	
     	if(elUsuario.isPresent()){
-    		model.addAttribute("usuario", elUsuario.get());
-    	}else {
-    		return "error404";
-    	}
-    	
-        return "dashboard/admin/admin";
+			Empleado empl = elUsuario.get(); // como es opcional recupero los datos con .get()
+
+			if (empl.getRole().equals("ADMIN")) {
+				model.addAttribute("administrador", elUsuario.get());
+				return "dashboard/admin/admin";
+			} else if (empl.getRole().equals("USER")) {
+				model.addAttribute("empleado", elUsuario.get());
+				return "dashboard/user/user";
+			}
+		}
+    	model.addAttribute("loginError", true);
+        return "login";
     }
 
 
     @GetMapping("/login")
     public String login() {
+    	//hacer aquí el redirect. Mirar si se puede mirar el @authentification principal
         return "login";
     }
     
     @GetMapping("/redirect")
     public String redirect() {
-    	return "redirect:/login-login-in";
+    	return "redirect:/dashboard";
     }
-    
 
     
-    /*
-	@GetMapping("/login-in")
-	public String autentificar(Empleado empleado, Model model) {
-
-		Optional<Empleado> elUsuario = empleadoRepo.findUserByUsername(empleado.getUsername());
-
-		if(elUsuario.isPresent()){
-			Empleado empl = elUsuario.get();
-
-			if (empl.getRole().equals("USER")) {
-				//model.addAttribute("usuario", elUsuario.get());
-				return "dashboard/admin/admin";
-			} else if (empl.getRole().equals("ADMIN")) {
-				//model.addAttribute("usuario", elUsuario.get());
-				return "admin/user/admin";
-			}
-		}
-		return "index";
-	}
-*/
-    
-
     @GetMapping("/login-error")
     public String loginError(Model model) {
     	model.addAttribute("loginError", true);
         return "login";
     }
     
-    @GetMapping("/private")
+    @GetMapping("/dashboard")
 	public String privateIndex(Model model, @AuthenticationPrincipal UserDetails user) {
-		
-		model.addAttribute("usuario", user.getUsername());
-		
-		return "private/index";
+
+    	Optional<Empleado> elUsuario = empleadoRepo.findUserByUsername(user.getUsername());
+    	
+		Empleado empl = elUsuario.get();
+
+		if (empl.getRole().equals("ADMIN")) {
+			//model.addAttribute("usuario", elUsuario.get());
+			return "dashboard/admin/admin";
+		} else {
+			//model.addAttribute("usuario", elUsuario.get());
+			return "admin/user/user";
+		}
 	}
     
     
-	@GetMapping("/")
-	public String welcome() {
-		return "index";
-	}
 
 /*
 	@GetMapping("/error")
