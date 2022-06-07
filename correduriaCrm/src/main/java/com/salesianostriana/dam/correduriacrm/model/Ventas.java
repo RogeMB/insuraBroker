@@ -35,7 +35,7 @@ public class Ventas {
     
     private double precioVenta;
 
-    private double descuento;
+    private double descuento;  // debería ser un atributo?
     
 
 }

@@ -22,7 +22,7 @@ public class EmpleadoRepository {
 	
 	public Optional<Empleado> findUserByUsername(String username) {
 		return empleados.stream()
-				.filter(u -> u.getUsername().equalsIgnoreCase(username))
+				.filter(u -> u.getUsername().equals(username))
 				.findFirst();
 	}
 	
