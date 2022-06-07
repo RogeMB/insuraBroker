@@ -16,6 +16,7 @@ import com.salesianostriana.dam.correduriacrm.repository.EmpleadoRepository;
 
 @Controller
 public class MainController {
+
 	
 	@Autowired
 	private EmpleadoRepository empleadoRepo;
@@ -26,10 +27,10 @@ public class MainController {
 	}
 
 	
+	
     @GetMapping("/login-in")
     public String adminIndex(Model model, @AuthenticationPrincipal UserDetails user) {
        
-        //model.addAttribute("usuario", user.getUsername());
     	Optional<Empleado> elUsuario = empleadoRepo.findUserByUsername(user.getUsername());
     	
     	if(elUsuario.isPresent()){
@@ -74,11 +75,11 @@ public class MainController {
 		Empleado empl = elUsuario.get();
 
 		if (empl.getRole().equals("ADMIN")) {
-			//model.addAttribute("usuario", elUsuario.get());
+			model.addAttribute("administrador", elUsuario.get());
 			return "dashboard/admin/admin";
 		} else {
-			//model.addAttribute("usuario", elUsuario.get());
-			return "admin/user/user";
+			model.addAttribute("empleado", elUsuario.get());
+			return "dashboard/user/user";
 		}
 	}
     

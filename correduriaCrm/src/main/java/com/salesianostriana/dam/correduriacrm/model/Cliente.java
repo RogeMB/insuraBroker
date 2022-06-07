@@ -7,10 +7,14 @@ import lombok.NoArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Data
@@ -43,6 +47,19 @@ public class Cliente {
 
     private boolean esPremium;
 
+    @OneToMany(mappedBy="idVenta", fetch = FetchType.EAGER)  // qué hacía esto exactamente? ¿debo añadirlo a la base de datos?
+    private List<Ventas> listaVentas;
+    
+    // helpers
+    public void addVenta(Ventas vent) {  //van aquí estos helpers? 
+		this.listaVentas.add(vent);
+		vent.setIdCliente(this);
+	}
+	
+	public void removeVenta(Ventas vent) {
+		this.listaVentas.remove(vent);
+		vent.setIdCliente(null);
+	}
 
 
 }

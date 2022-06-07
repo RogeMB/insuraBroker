@@ -33,13 +33,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers("/assets/**").permitAll()
                 .antMatchers("/h2-console").permitAll()
-                .antMatchers("/admin/**").hasAnyRole("USER", "ADMIN") //estas rutas son controladores
-                .antMatchers("/admin/privado/**").hasRole("ADMIN")
+                .antMatchers("/admin/**").hasRole("ADMIN") //estas rutas son controladores
+                .antMatchers("/user/**").hasAnyRole("USER", "ADMIN")
                 .anyRequest().authenticated()
                 //.anyRequest().permitAll()
                 .and().exceptionHandling().accessDeniedPage("/error403")
-                .and().formLogin().loginPage("/login").loginProcessingUrl("/login")
-                		.defaultSuccessUrl("/private")
+                .and().formLogin().loginPage("/login").loginProcessingUrl("/login-in")
+                		//.defaultSuccessUrl("/dashboard") 
                 		.failureUrl("/login-error").permitAll()
                 .and().logout().logoutUrl("/logout").logoutSuccessUrl("/").permitAll();
         

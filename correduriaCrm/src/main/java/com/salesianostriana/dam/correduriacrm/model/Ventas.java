@@ -19,22 +19,23 @@ public class Ventas {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long idVenta;
+    
+    @ManyToOne
+    private Cliente idCliente;   
+
+    @OneToOne(mappedBy="idVentas")
+    private Seguros idSeguro;  // revisar relación
+    
+    private String empleado;
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate fecha_venta;
 
+    private boolean esActivo;
+    
     private double precioVenta;
 
     private double descuento;
-
-    @OneToOne
-    private Seguros seguros;
-
-    @ManyToOne
-    private Cliente cliente;
     
-    //private boolean esActivo;
-
-    private String empleado;
 
 }

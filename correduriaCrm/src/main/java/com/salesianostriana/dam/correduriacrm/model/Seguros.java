@@ -10,7 +10,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 import java.time.LocalDate;
 
@@ -26,18 +28,21 @@ public class Seguros {
     private long idSeguro;
 	
 	@ManyToOne
-	private Categoria categoria;  //idCategoria
+	private Categoria idCategoria;  //categoria categoria_id_categoria
 
     private String tipo;
 
     private double cantidadAsegurada;
 
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private LocalDate fechaAlta;
-
+    private double precio;
+    
     private String empresa;
 
     private String icono;
+    
+    @OneToOne
+    @JoinColumn(name="id_venta")  // ¿Correcto? ¿debo añadirlo a la base de datos?
+    private Ventas idVenta;
 
 
 }

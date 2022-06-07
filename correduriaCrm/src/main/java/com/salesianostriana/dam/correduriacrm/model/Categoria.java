@@ -26,21 +26,23 @@ public class Categoria {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long idCategoria;
+    
     private String nombre;
     
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
-    @OneToMany(mappedBy="categoria", fetch = FetchType.EAGER)
-    private List<Seguros> seguros;
+    @OneToMany(mappedBy="idCategoria", fetch = FetchType.EAGER)  // qué hacía esto exactamente?
+    private List<Seguros> listaSeguros;
     
-    public void addSeguro(Seguros seg) {
-		this.seguros.add(seg);
-		seg.setCategoria(this);
+    // helpers
+    public void addSeguro(Seguros seg) {  //van aquí estos helpers? 
+		this.listaSeguros.add(seg);
+		seg.setIdCategoria(this);
 	}
 	
 	public void removeSeguro(Seguros seg) {
-		this.seguros.remove(seg);
-		seg.setCategoria(null);
+		this.listaSeguros.remove(seg);
+		seg.setIdCategoria(null);
 	}
 
 }

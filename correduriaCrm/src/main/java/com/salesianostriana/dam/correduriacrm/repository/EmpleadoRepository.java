@@ -19,9 +19,10 @@ public class EmpleadoRepository {
 		return Collections.unmodifiableList(empleados);
 	}
 
+	
 	public Optional<Empleado> findUserByUsername(String username) {
 		return empleados.stream()
-				.filter(u -> u.getUsername().equals(username))
+				.filter(u -> u.getUsername().equalsIgnoreCase(username))
 				.findFirst();
 	}
 	
