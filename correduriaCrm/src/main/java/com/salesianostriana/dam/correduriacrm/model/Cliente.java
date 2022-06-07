@@ -3,7 +3,10 @@ package com.salesianostriana.dam.correduriacrm.model;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
+
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.Entity;
@@ -14,7 +17,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 import java.time.LocalDate;
-import java.util.List;
+import java.util.*;
 
 @Entity
 @Data
@@ -47,19 +50,13 @@ public class Cliente {
 
     private boolean esPremium;
 
-    @OneToMany(mappedBy="idVenta", fetch = FetchType.EAGER)  // qué hacía esto exactamente? ¿debo añadirlo a la base de datos?
-    private List<Ventas> listaVentas;
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude
+    @OneToMany(mappedBy="cliente", fetch = FetchType.EAGER)  //¿debo añadirlo a la base de datos?
+    @Builder.Default
+    private List<Venta> ventas = new ArrayList <> ();
     
-    // helpers
-    public void addVenta(Ventas vent) {  //van aquí estos helpers? 
-		this.listaVentas.add(vent);
-		vent.setIdCliente(this);
-	}
-	
-	public void removeVenta(Ventas vent) {
-		this.listaVentas.remove(vent);
-		vent.setIdCliente(null);
-	}
+   
 
 
 }

@@ -7,7 +7,7 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-import java.util.List;
+import java.util.*;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -25,24 +25,15 @@ public class Categoria {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long idCategoria;
+    private long categoria;
     
     private String nombre;
     
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
-    @OneToMany(mappedBy="idCategoria", fetch = FetchType.EAGER)  // qué hacía esto exactamente?
-    private List<Seguros> listaSeguros;
-    
-    // helpers
-    public void addSeguro(Seguros seg) {  //van aquí estos helpers? 
-		this.listaSeguros.add(seg);
-		seg.setIdCategoria(this);
-	}
-	
-	public void removeSeguro(Seguros seg) {
-		this.listaSeguros.remove(seg);
-		seg.setIdCategoria(null);
-	}
+    @OneToMany(mappedBy="categoria", fetch = FetchType.EAGER)  
+    @Builder.Default
+    private List<Seguro> seguros = new ArrayList <> ();
+
 
 }

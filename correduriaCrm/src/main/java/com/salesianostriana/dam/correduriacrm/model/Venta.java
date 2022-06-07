@@ -14,17 +14,19 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Ventas {
+public class Venta {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long idVenta;
     
     @ManyToOne
-    private Cliente idCliente;   
+    @JoinColumn(name="id_cliente")
+    private Cliente cliente;   
 
-    @OneToOne(mappedBy="idVentas")
-    private Seguros idSeguro;  // revisar relación
+    @ManyToOne    
+    @JoinColumn(name="id_seguro")
+    private Seguro seguro;
     
     private String empleado;
 
@@ -34,8 +36,20 @@ public class Ventas {
     private boolean esActivo;
     
     private double precioVenta;
-
-    private double descuento;  // debería ser un atributo?
     
-
+    @Column(nullable = true)
+    private double descuento; 
+    
+    
+    // helpers
+    public void addToCliente(Cliente client) { 
+		this.setCliente(client);
+		client.getVentas().add(this);
+	}
+	
+	public void removeFromCliente(Cliente client) {
+		this.setCliente(client);
+		client.getVentas().remove(this);
+	}
+	
 }

@@ -37,7 +37,7 @@
                     <!-- <p class="fw-bold mb-4 text-danger" th:if="${loginError}">Error en el nombre de usuario y/o contraseña</p> -->
                     <form class="mb-5 needs-validation" method="POST" th:action="@{/login-in}" sec:authorize="!isAuthenticated()">
                         <div class="mb-4 was-valited">
-                            <label for="inputEmail" class="form-label fw-bold fs-5">Usuario</label>
+                            <label for="inputUserName" class="form-label fw-bold fs-5">Nombre Usuario</label>
                             <input type="text" class="form-control bg-dark-x text-light fw-bold border-0" placeholder="Introduce tu nombre de usuario" id="username" aria-describedby="userHelp" required>                       
                             <div class="invalid-feedback">
                                 Por favor, introduzca un nombre de usuario válido.
