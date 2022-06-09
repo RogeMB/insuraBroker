@@ -34,17 +34,19 @@
             
                 <div class="px-lg-5 py-lg-4 p-4 w-100 align-self-center">
                     <h1 class="fw-bold mb-4">Bienvenidos a Insura Broker</h1> 
-                    <!-- <p class="fw-bold mb-4 text-danger" th:if="${loginError}">Error en el nombre de usuario y/o contraseña</p> -->
+                    
+                    <p class="fw-bold mb-4 text-danger" th:if="${loginError}">Error en el nombre de usuario y/o contraseña</p>
+                    
                     <form class="mb-5 needs-validation" method="POST" th:action="@{/login-in}" sec:authorize="!isAuthenticated()">
                         <div class="mb-4 was-valited">
-                            <label for="inputUserName" class="form-label fw-bold fs-5">Nombre Usuario</label>
-                            <input type="text" class="form-control bg-dark-x text-light fw-bold border-0" placeholder="Introduce tu nombre de usuario" id="username" aria-describedby="userHelp" required>                       
+                            <label for="username" class="form-label fw-bold fs-5">Nombre Usuario</label>
+                            <input type="text" name="username" class="form-control bg-dark-x text-light fw-bold border-0" placeholder="Introduce tu nombre de usuario" id="username" aria-describedby="userHelp" required>                       
                             <div class="invalid-feedback">
                                 Por favor, introduzca un nombre de usuario válido.
                             </div>
                         </div>
                         <div class="mb-4 was-valited">
-                            <label for="inputPassword" class="form-label fw-bold fs-5">Contraseña</label>
+                            <label for="password" class="form-label fw-bold fs-5">Contraseña</label>
                             <input type="password" name="password" class="form-control bg-dark-x border-0 mb-2 text-light" placeholder="Introduce tu contraseña" id="password" required>
                             <div class="invalid-feedback">
                                 Por favor, introduzca una contraseña válida.

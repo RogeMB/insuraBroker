@@ -1,18 +1,16 @@
 package com.salesianostriana.dam.correduriacrm.security;
 
+import com.salesianostriana.dam.correduriacrm.repository.EmpleadoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
-
-import com.salesianostriana.dam.correduriacrm.repository.EmpleadoRepository;
 
 @Configuration
 @EnableWebSecurity
@@ -28,22 +26,44 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http
-                .csrf().disable()
-                .authorizeRequests()
+
+        http.authorizeRequests().antMatchers("/").permitAll()
+                .and()
+                .authorizeRequests().antMatchers("/h2-console/**").permitAll()
                 .antMatchers("/assets/**").permitAll()
-                .antMatchers("/h2-console").permitAll()
-                .antMatchers("/admin/**").hasRole("ADMIN") //estas rutas son controladores
-                .antMatchers("/user/**").hasAnyRole("USER", "ADMIN")
-                .anyRequest().authenticated()
-                //.anyRequest().permitAll()
-                .and().exceptionHandling().accessDeniedPage("/error403")
-                .and().formLogin().loginPage("/login").loginProcessingUrl("/login-in")
-                		//.defaultSuccessUrl("/dashboard") 
-                		.failureUrl("/login-error").permitAll()
-                .and().logout().logoutUrl("/logout").logoutSuccessUrl("/").permitAll();
-        
+                .antMatchers("/dashboard/user/**").hasAnyRole("USER", "ADMIN")
+                .antMatchers("/dashboard/admin/**").hasRole("ADMIN")
+                .anyRequest().permitAll()
+                .and()
+                .exceptionHandling().accessDeniedPage("/error")
+                .and()
+                .formLogin()
+                .loginPage("/")
+                .loginProcessingUrl("/login")
+                .defaultSuccessUrl("/dashboard/user")
+                .failureUrl("/login-error").permitAll()
+                .and()
+                .logout().logoutUrl("/logout").logoutSuccessUrl("/").permitAll();
+        http.csrf()
+                //.ignoringAntMatchers("/h2-console/**")
+                .disable();
         http.headers().frameOptions().disable();
+
+
+//        http
+//                .csrf().disable()
+//                .authorizeRequests()
+//                .antMatchers("/admin/**").hasAnyRole("USER", "ADMIN") //estas rutas son controladores
+//                .antMatchers("/admin/privado/**").hasRole("ADMIN")
+//                .antMatchers("/h2-console").permitAll()
+//                .anyRequest().authenticated()
+//                //.anyRequest().permitAll()
+//                .and().exceptionHandling().accessDeniedPage("/error403")
+//                .and().formLogin().loginPage("/login").loginProcessingUrl("/login")
+//                		.defaultSuccessUrl("/private")
+//                		.failureUrl("/login-error").permitAll()
+//                .and().logout().logoutUrl("/logout").logoutSuccessUrl("/").permitAll();
+//
     }
 
     @Bean
@@ -57,7 +77,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .map(u -> {
                     return User
                             .withUsername(u.getUsername())
-                            .password("{noop}"+ u.getPassword())
+                            .password("{noop}" + u.getPassword())
                             .roles(u.getRole())
                             .build();
 
@@ -66,14 +86,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 
         return userDetailsManager;
-
-
     }
+}
     
+   /* 
     @Override
     public void configure(WebSecurity web) throws Exception {
         web
             .ignoring()
             .antMatchers("/h2-console/**");
     }
-}
+    */

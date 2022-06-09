@@ -1,15 +1,13 @@
 package com.salesianostriana.dam.correduriacrm.repository;
 
+import com.salesianostriana.dam.correduriacrm.model.Empleado;
+import org.springframework.stereotype.Repository;
+
+import javax.annotation.PostConstruct;
 import java.time.LocalDate;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
-
-import javax.annotation.PostConstruct;
-
-import org.springframework.stereotype.Repository;
-
-import com.salesianostriana.dam.correduriacrm.model.Empleado;
 
 @Repository
 public class EmpleadoRepository {

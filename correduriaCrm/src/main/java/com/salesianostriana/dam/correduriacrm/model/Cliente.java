@@ -1,23 +1,14 @@
 package com.salesianostriana.dam.correduriacrm.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
-
+import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-
+import javax.persistence.*;
 import java.time.LocalDate;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+
+import static javax.persistence.GenerationType.SEQUENCE;
 
 @Entity
 @Data
@@ -27,7 +18,16 @@ import java.util.*;
 public class Cliente {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @SequenceGenerator(
+            name = "cliente_sequence",
+            sequenceName = "cliente_sequence",
+            allocationSize = 1
+    )
+//  @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(
+            strategy = SEQUENCE,
+            generator = "cliente_sequence"
+    )
     private long idCliente;
 
     private String nombre;
@@ -56,7 +56,4 @@ public class Cliente {
     @Builder.Default
     private List<Venta> ventas = new ArrayList <> ();
     
-   
-
-
 }
