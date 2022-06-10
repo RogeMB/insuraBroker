@@ -8,10 +8,15 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class PublicController {
 
-    private static final Logger log = LoggerFactory.getLogger(PublicController.class);
+    //private static final Logger log = LoggerFactory.getLogger(PublicController.class);
 
     @GetMapping("/")
     public String welcome() {
+        return "index";
+    }
+    
+    @GetMapping("/index")
+    public String index() {
         return "index";
     }
 

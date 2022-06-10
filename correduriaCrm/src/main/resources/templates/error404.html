@@ -5,10 +5,10 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Insura Broker - error 404</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='../static/assets/css/style.css'>
-    <script src='../static/assets/js/main.js'></script>
+    <link rel='stylesheet' type='text/css' media='screen' th:href="@{/assets/css/style.css}" href='../static/assets/css/style.css'>
+    <script defer th:src="@{/assets/js/main.js}" src='../static/assets/js/main.js'></script>
 </head>
 <body>
-    <img src="../static/assets/img/error/ERROR 404.gif" alt="error 404 page not found"/>
+    <img th:src="@{/assets/img/error/ERROR404.gif}" src="../static/assets/img/error/ERROR404.gif" alt="error 404 page not found"/>
 </body>
 </html>

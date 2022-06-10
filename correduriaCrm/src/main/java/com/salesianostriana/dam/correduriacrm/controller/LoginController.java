@@ -20,7 +20,7 @@ import java.util.Optional;
 @Controller
 public class LoginController {
 
-    private static final Logger log = LoggerFactory.getLogger(LoginController.class);
+    //private static final Logger log = LoggerFactory.getLogger(LoginController.class);
 
     @Autowired
     private EmpleadoRepository empleadoRepo;
@@ -39,8 +39,10 @@ public class LoginController {
     @PostMapping("/login-in")
     public String autentificar(Empleado empleado, Model model, @AuthenticationPrincipal UserDetails user) {
         Optional<Empleado> elUsuario = empleadoRepo.findUserByUsername(empleado.getUsername());
+        
+        
 
-        log.info("inside");
+        //log.info("inside");
 
         if (elUsuario.isPresent()) {
             Empleado empl = elUsuario.get();
@@ -58,11 +60,11 @@ public class LoginController {
         return "redirect:/login-error";
     }
 
-    @GetMapping("/login-in")
+    @GetMapping("/login-in")  // el código no está utilizando el get en la ejecución
     public String autentificarGet(Empleado empleado, Model model, @AuthenticationPrincipal UserDetails user) {
         Optional<Empleado> elUsuario = empleadoRepo.findUserByUsername(empleado.getUsername());
 
-        log.info("inside");
+        //log.info("inside");
 
         if (elUsuario.isPresent()) {
             Empleado empl = elUsuario.get();

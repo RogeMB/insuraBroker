@@ -17,16 +17,16 @@ import java.util.Optional;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 
-//@RequestMapping("/admin")
+@RequestMapping("/admin")
 @Controller
 public class AdminController {
 
-    private static final Logger log = LoggerFactory.getLogger(AdminController.class);
+    //private static final Logger log = LoggerFactory.getLogger(AdminController.class);
 
     @Autowired
     private EmpleadoRepository empleadoRepo;
 
-    @GetMapping("/admin")
+    @GetMapping("/")
     public String adminIndex(Model model, @AuthenticationPrincipal UserDetails user) {
 
         //model.addAttribute("usuario", user.getUsername());
@@ -39,6 +39,13 @@ public class AdminController {
         }
 
         return "dashboard/admin/index";
+    }
+    
+  
+    
+    @GetMapping("/tables")
+    public String adminTables() {
+    	return "dashboard/admin/tables";
     }
     
     
