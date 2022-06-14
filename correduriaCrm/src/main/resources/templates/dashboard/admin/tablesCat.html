@@ -45,7 +45,7 @@
                 <h5 class="sidebar-heading text-center fw-bold fs-3 border-bottom"><span id="Insura">I</span>nsura Broker</h5>
                 <ul class="navbar-nav justify-content-end flex-grow-1 pe-2 ">
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="#">
+                        <a class="nav-link" th:href="@{/admin/}" aria-current="page" href="#">
                             <i class="bi bi-grid-3x3-gap-fill shadow m-2"></i>DashBoard</a>
                     </li>
                     <li class="nav-item">
@@ -68,13 +68,13 @@
                             <li><a class="dropdown-item" href="#"><i class="bi bi-person-plus shadow m-2 lead"></i>Alta Empleado</a></li>
                         </ul>   
                     </li>
-                    <li class="nav-item dropdown">
+                    <li class="nav-item dropdown active">
                         <a class="nav-link dropdown-toggle" href="#" id="offcanvasNavbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <i class="bi bi-server shadow m-2 lead"></i>Tablas
                         </a>
                         <ul class="dropdown-menu bg-dark border-0" aria-labelledby="offcanvasNavbarDropdown">
-                            <li class="active"><a class="dropdown-item" href="#"><i class="bi bi-bookmark-fill shadow me-2 lead"></i>Categorías</a></li>
-                            <li><a class="dropdown-item" href="#"><i class="bi bi-shield-shaded shadow me-2 lead"></i>Seguros</a></li>
+                            <li><a class="dropdown-item active" th:href="@{/admin/tablesCat}" href="#"><i class="bi bi-bookmark-fill shadow me-2 lead"></i>Categorías</a></li>
+                            <li><a class="dropdown-item" th:href="@{/admin/tablesSeg}" href="#"><i class="bi bi-shield-shaded shadow me-2 lead"></i>Seguros</a></li>
                             <li><a class="dropdown-item" href="#"><i class="bi bi-person-lines-fill shadow me-2 lead"></i>Clientes</a></li>
                             <li><a class="dropdown-item" href="#"><i class="bi bi-person-circle shadow me-2 lead"></i>Empleados</a></li>
                         </ul>
@@ -99,10 +99,10 @@
                 <div class="container-fluid d-flex-block flex-wrap my-4 px-4">
                     <!-- Breadcrumb -->
                     <div class="pagetitle px-4">
-                        <h1>Dashboard</h1>
+                        <h1>Categorías</h1>
                         <nav>
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+                            <li class="breadcrumb-item"><a th:href="@{/admin/}" href="index.html">Dashboard</a></li>
                             <li class="breadcrumb-item">Tablas</li>
                             <li class="breadcrumb-item active">Categorías</li>
                         </ol>
@@ -137,9 +137,9 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
+                                    <tr th:each="categoria : ${listaCategorias}">
                                         <th scope="row">1</th>
-                                        <td class="text-center">Autos</td>
+                                        <td class="text-center" scope="col" th:text="${categoria.nombre}">Nombre</td>
                                         <td class="text-center"><button type="button" class="btn btn-info btn-floating rounded-circle">
                                             <i class="bi bi-pen-fill"></i>
                                             </button>
@@ -162,6 +162,6 @@
    	 	<!-- Footer Start-->
 	    <footer th:replace="~{fragments/footer::footer}"></footer>
 	    <!-- End: footer --> 
-	    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+	<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 </body>    
 </html>       

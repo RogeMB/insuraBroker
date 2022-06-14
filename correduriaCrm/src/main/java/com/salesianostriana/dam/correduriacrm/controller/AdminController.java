@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.salesianostriana.dam.correduriacrm.model.Empleado;
 import com.salesianostriana.dam.correduriacrm.repository.EmpleadoRepository;
 import com.salesianostriana.dam.correduriacrm.repository.ICategoriaRepository;
+import com.salesianostriana.dam.correduriacrm.repository.ISeguroRepository;
 
 @RequestMapping("/admin")
 @Controller
@@ -23,6 +24,9 @@ public class AdminController {
     
     @Autowired
     private ICategoriaRepository categoriaRepo;
+    
+    @Autowired
+    private ISeguroRepository seguroRepo;
 
     @GetMapping("/")
     public String adminIndex(Model model, @AuthenticationPrincipal UserDetails user) {
@@ -56,6 +60,25 @@ public class AdminController {
         
     	//user.getUsername()
         return "dashboard/admin/tablesCat";
+    }
+    
+    
+    @GetMapping("/tablesSeg")
+    public String adminTablesSeg(Model model, @AuthenticationPrincipal UserDetails user) {
+
+        Optional<Empleado> elUsuario = empleadoRepo.findUserByUsername(user.getUsername());
+        
+        categoriaRepo.findAll();
+        
+        if (elUsuario.isPresent()) {
+            model.addAttribute("usuario", elUsuario.get());
+            model.addAttribute("listaSeguros",  seguroRepo.findAll());
+        } else {
+            return "error404";
+        }
+        
+    	//user.getUsername()
+        return "dashboard/admin/tablesSeg";
     }
     
     

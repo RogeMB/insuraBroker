@@ -55,7 +55,7 @@ public class EmpleadoRepository {
 				.role("USER")
 				.telefono("687941358")
 				.email("mariatroyano@gmail.com")
-				.fechaNacimiento(LocalDate.of(2020, 3, 18))
+				.fechaAlta(LocalDate.of(2020, 3, 18))
 				.Cargo("Asesor")
 				.Salario(35850.00)
 				.build()
