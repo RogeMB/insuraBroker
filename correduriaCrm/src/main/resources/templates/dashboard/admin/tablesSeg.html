@@ -37,7 +37,7 @@
 	<script defer th:src="@{/assets/js/admin.js}" src='../../../static/assets/js/admin.js'></script>
 </head>
 
-<body>
+<body id="top">
     <div class="d-flex" id="wrapper">
         <!-- Sidebar -->
         <div class="bg-dark white-text sidebar" id="sidebar-wrapper">
@@ -62,10 +62,6 @@
                             <li><a class="dropdown-item" href="#"><i class="bi bi-shield-fill-plus shadow me-2 lead"></i>Alta Seguro</a></li>
                             <li><a class="dropdown-item" href="#"><i class="bi bi-person-plus shadow me-2 lead"></i>Alta Cliente</a></li>
                             <li><a class="dropdown-item" href="#"><i class="bi bi-bookmark-plus-fill shadow me-2 lead"></i>Alta Categoría</a></li>
-                            <li>
-                                <hr class="dropdown-divider bg-light"/>
-                            </li>
-                            <li><a class="dropdown-item" href="#"><i class="bi bi-person-plus shadow m-2 lead"></i>Alta Empleado</a></li>
                         </ul>   
                     </li>
                     <li class="nav-item dropdown active">
@@ -73,9 +69,12 @@
                             <i class="bi bi-server shadow m-2 lead"></i>Tablas
                         </a>
                         <ul class="dropdown-menu bg-dark border-0" aria-labelledby="offcanvasNavbarDropdown">
-                            <li><a class="dropdown-item" th:href="@{/admin/tablesCat}" href="#"><i class="bi bi-bookmark-fill shadow me-2 lead"></i>Categorías</a></li>
-                            <li><a class="dropdown-item active" th:href="@{/admin/tablesSeg}" href="#"><i class="bi bi-shield-shaded shadow me-2 lead"></i>Seguros</a></li>
-                            <li><a class="dropdown-item" href="#"><i class="bi bi-person-lines-fill shadow me-2 lead"></i>Clientes</a></li>
+                            <li><a class="dropdown-item" th:href="@{/admin/tables/categoria}" href="#"><i class="bi bi-bookmark-fill shadow me-2 lead"></i>Categorías</a></li>
+                            <li><a class="dropdown-item active" th:href="@{/admin/tables/seguro}" href="#"><i class="bi bi-shield-shaded shadow me-2 lead"></i>Seguros</a></li>
+                            <li><a class="dropdown-item" th:href="@{/admin/tables/cliente}" href="#"><i class="bi bi-person-lines-fill shadow me-2 lead"></i>Clientes</a></li>
+                            <li>
+                                <hr class="dropdown-divider bg-light"/>
+                            </li>
                             <li><a class="dropdown-item" href="#"><i class="bi bi-person-circle shadow me-2 lead"></i>Empleados</a></li>
                         </ul>
                     </li>
@@ -139,7 +138,7 @@
                                 <caption>Lista de seguros de Insura Broker</caption>
                                 <thead>
                                     <tr class="table-primary">
-                                        <th scope="col" width="50">Fila</th>
+                                        <th scope="col" width="50">ID</th>
                                         <th scope="col" class="text-center">Categoria</th>
                                         <th scope="col" class="text-center">Tipo</th>
                                         <th scope="col" class="text-center">Suma Asegurada</th>
@@ -151,11 +150,11 @@
                                 </thead>
                                 <tbody>
                                     <tr th:each="seguro : ${listaSeguros}">
-                                        <th scope="row">1</th>
+                                        <th scope="row" th:text="${seguro.idSeguro}">Id</th>
                                         <td class="text-center" scope="col" th:text="${seguro.categoria.nombre}">Categoría</td>
                                         <td class="text-center" scope="col" th:text="${seguro.tipo}">Tipo</td>
-                                        <td class="text-center" scope="col" th:text="${seguro.cantidadAsegurada}">Cantidad Aseg</td>
-                                        <td class="text-center" scope="col" th:text="${seguro.precio}">Precio</td>
+                                        <td class="text-center" scope="col" th:text="${seguro.cantidadAsegurada + ' €'}">Cantidad Aseg</td>
+                                        <td class="text-center" scope="col" th:text="${seguro.precio + ' €'}">Precio</td>
                                         <td class="text-center" scope="col" th:text="${seguro.empresa}">Empresa</td>
                                         <td class="text-center"><button type="button" class="btn btn-info btn-floating rounded-circle">
                                             <i class="bi bi-pen-fill"></i>
@@ -179,6 +178,6 @@
    	 	<!-- Footer Start-->
 	    <footer th:replace="~{fragments/footer::footer}"></footer>
 	    <!-- End: footer --> 
-	<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+	<a th:href="@{#top}" href="#top" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 </body>    
 </html>    

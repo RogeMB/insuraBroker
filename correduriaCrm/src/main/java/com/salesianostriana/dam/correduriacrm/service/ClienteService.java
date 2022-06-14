@@ -13,4 +13,9 @@ public class ClienteService extends BaseService<Cliente, Long, IClienteRepositor
 	@Autowired
 	private IClienteRepository clienteRepository;
 	
+	public long getNumeroDeClientes() {
+		long numeroDeClientes = clienteRepository.count();
+		return numeroDeClientes;
+	}
+	
 }

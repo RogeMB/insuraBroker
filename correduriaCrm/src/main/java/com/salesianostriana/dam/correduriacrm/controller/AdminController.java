@@ -2,83 +2,85 @@ package com.salesianostriana.dam.correduriacrm.controller;
 
 import java.util.Optional;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.salesianostriana.dam.correduriacrm.model.Empleado;
-import com.salesianostriana.dam.correduriacrm.repository.EmpleadoRepository;
-import com.salesianostriana.dam.correduriacrm.repository.ICategoriaRepository;
-import com.salesianostriana.dam.correduriacrm.repository.ISeguroRepository;
+import com.salesianostriana.dam.correduriacrm.service.CategoriaService;
+import com.salesianostriana.dam.correduriacrm.service.ClienteService;
+import com.salesianostriana.dam.correduriacrm.service.EmpleadoService;
+import com.salesianostriana.dam.correduriacrm.service.SeguroService;
+import com.salesianostriana.dam.correduriacrm.service.VentaService;
+
+import lombok.RequiredArgsConstructor;
 
 @RequestMapping("/admin")
 @Controller
+@RequiredArgsConstructor
 public class AdminController {
 
-    @Autowired
-    private EmpleadoRepository empleadoRepo;
+	private final EmpleadoService empleadoService;
+	
+    private final CategoriaService categoriaService;
     
-    @Autowired
-    private ICategoriaRepository categoriaRepo;
+    private final SeguroService seguroService;
     
-    @Autowired
-    private ISeguroRepository seguroRepo;
+    private final ClienteService clienteService;
+    
+   // private final VentaService ventaService;
 
     @GetMapping("/")
     public String adminIndex(Model model, @AuthenticationPrincipal UserDetails user) {
-
-        Optional<Empleado> elUsuario = empleadoRepo.findUserByUsername(user.getUsername());
+    	
+    	Optional<Empleado> elUsuario = empleadoService.findUserByUsername(user.getUsername());
         
         if (elUsuario.isPresent()) {
-            model.addAttribute("usuario", elUsuario.get());
-            model.addAttribute("listaEmpleados", empleadoRepo.getEmpleados());
+        	long numeroDeClientes = clienteService.getNumeroDeClientes();
+        	//long dineroGanado = ventaService.getDineroGanado();
+        	
+        	model.addAttribute("usuario", elUsuario.get());
+    		model.addAttribute("listaEmpleados", empleadoService.getEmpleados());
+    		
+    		model.addAttribute("numeroDeClientes", numeroDeClientes);
+    		//model.addAttribute("dineroGanado", dineroGanado);
+    		
+    		return "dashboard/admin/index";
         } else {
             return "error404";
         }
-
-        return "dashboard/admin/index";
     }
     
-    
-    @GetMapping("/tablesCat")
-    public String adminTablesCat(Model model, @AuthenticationPrincipal UserDetails user) {
-
-        Optional<Empleado> elUsuario = empleadoRepo.findUserByUsername(user.getUsername());
-        
-        categoriaRepo.findAll();
+    @GetMapping("/tables/{nav}")
+    public String adminTablesCat(@PathVariable("nav") String nav,  Model model, @AuthenticationPrincipal UserDetails user) {
+    	
+    	Optional<Empleado> elUsuario = empleadoService.findUserByUsername(user.getUsername());
         
         if (elUsuario.isPresent()) {
-            model.addAttribute("usuario", elUsuario.get());
-            model.addAttribute("listaCategorias",  categoriaRepo.findAll());
+        	if ("categoria".equals(nav)) {
+        		model.addAttribute("usuario", elUsuario.get());
+	            model.addAttribute("listaCategorias", categoriaService.findAll());
+	            return "dashboard/admin/tablesCat";
+        	} else if ("seguro".equals(nav)) {
+        		model.addAttribute("usuario", elUsuario.get());
+                model.addAttribute("listaSeguros", seguroService.findAll());
+                return "dashboard/admin/tablesSeg";
+        	} else if ("cliente".equals(nav)) {
+        		model.addAttribute("usuario", elUsuario.get());
+        		model.addAttribute("listaClientes", clienteService.findAll());
+        		return "dashboard/admin/tablesCli";
+        	} else {
+        		model.addAttribute("usuario", elUsuario.get());
+        		model.addAttribute("listaEmpleados", empleadoService.getEmpleados());
+        		return "dashboard/admin/index";
+        	}
         } else {
             return "error404";
         }
-        
-    	//user.getUsername()
-        return "dashboard/admin/tablesCat";
-    }
-    
-    
-    @GetMapping("/tablesSeg")
-    public String adminTablesSeg(Model model, @AuthenticationPrincipal UserDetails user) {
-
-        Optional<Empleado> elUsuario = empleadoRepo.findUserByUsername(user.getUsername());
-        
-        categoriaRepo.findAll();
-        
-        if (elUsuario.isPresent()) {
-            model.addAttribute("usuario", elUsuario.get());
-            model.addAttribute("listaSeguros",  seguroRepo.findAll());
-        } else {
-            return "error404";
-        }
-        
-    	//user.getUsername()
-        return "dashboard/admin/tablesSeg";
     }
     
     
