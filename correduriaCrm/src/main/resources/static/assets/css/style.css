@@ -560,7 +560,7 @@ button {
 
 
 /*---------------------------------
- Móvil 
+ Mobile 
 ---------------------------------*/
 .mobile-nav-toggle {
   color: #fff;
@@ -1652,7 +1652,7 @@ button {
 }
 
 /*--------------------------------------------------------------
-# Diseño Responsivo
+# Responsive Design
 --------------------------------------------------------------*/
 @media (min-width: 1920px) {
   .work-right-text {
@@ -1674,7 +1674,7 @@ button {
     line-height: 28px;
   }
 }
-/* Tableta: 768px. */
+/* Tablet: 768px. */
 @media (min-width: 768px) and (max-width: 991px) {
   .layer-1-1 h2 {
     font-size: 24px;
@@ -1784,7 +1784,7 @@ button {
     width: 67%;
   }
 }
-/* móvil pequeño :320px. */
+/* small mobile :320px. */
 @media (max-width: 767px) {
   .slider-area {
     margin-top: 60px;
@@ -1933,7 +1933,7 @@ button {
   }
 }
 
-/* Móvil grande: 480px. */
+/* Big mobile: 480px. */
 @media only screen and (min-width: 480px) and (max-width: 767px) {
   .submitbtn {
     float: none;

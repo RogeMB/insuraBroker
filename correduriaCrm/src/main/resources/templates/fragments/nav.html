@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <meta name="description" content="Venta de seguros, la mejor consultoría y correduría de seguros">
+    <meta name="keywords" content="seguros, insurance, venta, contratar, consultoría, asesoramiento, mejor correduría, mejores precios">
+    
+    <title>Insura Broker - Admin Dashboard Nav</title>
+    
+    <!-- Favicons -->
+    <link th:href="@{/assets/img/logo/insuraBroker32.png}" href="../static/assets/img/logo/insuraBroker32.png" rel="icon">
+    <link th:href="@{/assets/img/logo/insuraBroker180.png}" href="../static/assets/img/logo/insuraBroker180.png" rel="apple-touch-icon">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@300;600&display=swap" rel="stylesheet">
+    
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    
+    <!-- Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css" rel="stylesheet" >
+    
+    <!-- cloudflare ajax lib -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+
+    <!-- Css style-->
+    <link rel='stylesheet' type='text/css' media='screen' th:href="@{assets/css/styleadmin.css}" href='../../../static/assets/css/styleadmin.css'>
+
+    <!-- <link rel="stylesheet" href="styles.css" /> 
+      <script defer th:src="@{assets/js/admin.js}" src='main.js'></script>
+    -->
+    <!-- JavaScript Bundle with Popper -->
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+	<script defer th:src="@{assets/js/admin.js}" src='../../../static/assets/js/admin.js'></script>
+</head>
+<body>
+    <!-- Start NavBar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark py-2 px-4">
+        <div class="d-flex align-items-center">
+            <i class="bi bi-window-sidebar lead primary-text fs-3 me-3" id="menu-toggle"></i>
+            <a class="navbar-brand fw-bold fs-2 m-0 ps-2 align-items-center" href="#top"><span id="Insura">I</span>nsura Broker(AD)</a>
+            <img th:src="@{/assets/img/logo/insuraBroker250.png}" src="../../../static/assets/img/logo/insuraBroker250.png" alt="InsuraBroker Logo" class="logoNavbar d-inline-flex ms-2 align-text-top"/>
+        </div>
+        <button class="navbar-toggler me-auto" id="openButton" type="button" data-bs-toggle="collapse" 
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <button type="button" id="closeButton" class="btn-close btn-close-white d-none ps-4 me-auto" data-bs-target="#navbarSupportedContent" data-bs-toggle="collapse" 
+            aria-controls="navbarSupportedContent" aria-label="Close"></button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 profile">          
+                <li class="nav-item dropdown">     
+                    <a  th:text="${usuario.nombre + ' ' + usuario.apellidos}" class="nav-link dropdown-toggle white-text fw-bold" href="#" id="navbarDropdown"
+                        role="button" data-bs-toggle="dropdown" aria-expanded="false">Usuario
+                    </a>
+                        <img th:src="${usuario.imagen}" class="rounded-circle avatarIma"/>
+                        <span th:text="${usuario.role}" class="fs-6 aling-items-center second-text" id="roll">Roll</span>             
+                    <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow bg-dark me-0" aria-labelledby="navbarDropdown">
+                        <li><a th:href="@{/logout}" class="dropdown-item" href="../../index.html" alt="Salir"><i class="bi bi-power shadow m-2 lead text-danger"></i>Log-out</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!-- End NavBar -->
+</body>
+</html>

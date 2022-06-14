@@ -43,9 +43,9 @@ public class AdminController {
     
   
     
-    @GetMapping("/tables")
+    @GetMapping("/tablesCat")
     public String adminTables() {
-    	return "dashboard/admin/tables";
+    	return "dashboard/admin/tablesCat";
     }
     
     

@@ -8,7 +8,7 @@
     <meta name="description" content="Venta de seguros, la mejor consultoría y correduría de seguros">
     <meta name="keywords" content="seguros, insurance, venta, contratar, consultoría, asesoramiento, mejor correduría, mejores precios">
     
-    <title>Insura Broker - Admin Dashboard</title>
+    <title>Insura Broker - Admin Categorías</title>
     
     <!-- Favicons -->
     <link th:href="@{/assets/img/logo/insuraBroker32.png}" href="../static/assets/img/logo/insuraBroker32.png" rel="icon">
@@ -36,6 +36,7 @@
     <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 	<script defer th:src="@{assets/js/admin.js}" src='../../../static/assets/js/admin.js'></script>
 </head>
+
 <body>
     <div class="d-flex" id="wrapper">
         <!-- Sidebar -->
@@ -43,8 +44,8 @@
             <div class="list-group list-group-flush my-3 ">
                 <h5 class="sidebar-heading text-center fw-bold fs-3 border-bottom"><span id="Insura">I</span>nsura Broker</h5>
                 <ul class="navbar-nav justify-content-end flex-grow-1 pe-2 ">
-                    <li class="nav-item active">
-                        <a class="nav-link" aria-current="page" href="#http://localhost:9000/dashboard/admin/index/">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="#">
                             <i class="bi bi-grid-3x3-gap-fill shadow m-2"></i>DashBoard</a>
                     </li>
                     <li class="nav-item">
@@ -72,7 +73,7 @@
                             <i class="bi bi-server shadow m-2 lead"></i>Tablas
                         </a>
                         <ul class="dropdown-menu bg-dark border-0" aria-labelledby="offcanvasNavbarDropdown">
-                            <li><a class="dropdown-item" href="http://localhost:9000/dashboard/admin/tablesCat/"><i class="bi bi-bookmark-fill shadow me-2 lead"></i>Categorías</a></li>
+                            <li class="active"><a class="dropdown-item" href="#"><i class="bi bi-bookmark-fill shadow me-2 lead"></i>Categorías</a></li>
                             <li><a class="dropdown-item" href="#"><i class="bi bi-shield-shaded shadow me-2 lead"></i>Seguros</a></li>
                             <li><a class="dropdown-item" href="#"><i class="bi bi-person-lines-fill shadow me-2 lead"></i>Clientes</a></li>
                             <li><a class="dropdown-item" href="#"><i class="bi bi-person-circle shadow me-2 lead"></i>Empleados</a></li>
@@ -80,19 +81,19 @@
                     </li>
                     <hr/>
                     <li class="nav-item">
-                        <a th:href="@{/logout}" class="nav-link" href="../../index.html" alt="salir"><i class="bi bi-power shadow m-2 lead text-danger"></i>Log-out</a>
+                        <a class="nav-link" href="#"><i class="bi bi-power shadow m-2 lead text-danger"></i>Log-out</a>
                     </li>           
                 </ul>
             </div>
         </div>
-        <!-- /#sidebar-wrapper -->
+         <!-- /#sidebar-wrapper -->
         <!-- Page Content -->    
         <div id="page-content-wrapper">
             <header>       
                 <!-- Start NavBar -->
                 <nav th:replace="~{fragments/nav::nav}"></nav>
                 <!-- End NavBar -->
-            </header>    
+            </header>
 
             <section>  
                 <div class="container-fluid d-flex-block flex-wrap my-4 px-4">
@@ -101,7 +102,9 @@
                         <h1>Dashboard</h1>
                         <nav>
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="index.html" class="active">Dashboard</a></li>
+                            <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+                            <li class="breadcrumb-item">Tablas</li>
+                            <li class="breadcrumb-item active">Categorías</li>
                         </ol>
                         </nav>
                     </div>
@@ -111,50 +114,21 @@
                         <div class="col-md-3">
                             <div class="p-3 bg-white shadow-lg d-flex justify-content-around align-items-center rounded">
                                 <div>
-                                    <h3 class="fs-2">número</h3>
-                                    <p class="fs-5">Clientes activos</p>
-                                </div>
-                                <i class="fas fa-gift fs-1 primary-text border rounded-full secondary-bg p-3"></i>
-                            </div>
-                        </div>
-
-                        <div class="col-md-3">
-                            <div class="p-3 bg-white shadow-lg d-flex justify-content-around align-items-center rounded">
-                                <div>
-                                    <h3 class="fs-2">dinero ganado</h3>
-                                    <p class="fs-5">Ventas trimestre</p>
+                                    <h3 class="fs-2">nombre</h3>
+                                    <p class="fs-5">Categoría más vendida</p>
                                 </div>
                                 <i class="fas fa-hand-holding-usd fs-1 primary-text border rounded-full secondary-bg p-3"></i>
                             </div>
                         </div>
-
-                        <div class="col-md-3">
-                            <div class="p-3 bg-white shadow-lg d-flex justify-content-around align-items-center rounded">
-                                <div>
-                                    <h3 class="fs-2">numero de ventas</h3>
-                                    <p class="fs-5">Ventas año</p>
-                                </div>
-                                <i class="fas fa-truck fs-1 primary-text border rounded-full secondary-bg p-3"></i>
-                            </div>
-                        </div>
-
-                        <div class="col-md-3">
-                            <div class="p-3 bg-white shadow-lg d-flex justify-content-around align-items-center rounded">
-                                <div>
-                                    <h3 class="fs-2">% diferencia</h3>
-                                    <p class="fs-5">Diferencia mes 2020</p>
-                                </div>
-                                <i class="fas fa-chart-line fs-1 primary-text border rounded-full secondary-bg p-3"></i>
-                            </div>
                         </div>
                     </div>
                     <!-- End Reports -->
                     <div class="row flex-wrap my-4">
                         <!-- Tables -->
-                        <h3 class="fs-4 mb-1 mt-1">Empleados</h3>
+                        <h3 class="fs-4 mb-1 mt-1">Categorías</h3>
                         <div class="col table-responsive">
                             <table class="table caption-top bg-white rounded shadow-sm table-striped table-hover" summary="Tabla de categorías de Insura Broker"> 
-                                <caption>Lista de empleados que tiene Insura Broker</caption>
+                                <caption>Lista de categorías de Insura Broker</caption>
                                 <thead>
                                     <tr class="table-primary">
                                         <th scope="col" width="50">Fila</th>
@@ -190,5 +164,5 @@
         </div>
         <!-- End Content Wrapper -->
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-</body>
-</html>
+</body>    
+</html>       

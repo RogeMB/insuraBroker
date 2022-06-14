@@ -24,7 +24,6 @@ public class EmpleadoRepository {
 				.findFirst();
 	}
 	
-	
 	@PostConstruct
 	public void init() {
 		empleados = List.of(
@@ -32,7 +31,7 @@ public class EmpleadoRepository {
 				.nombre("Rogelio")
 				.apellidos("Mohigefer Barrera")
 				.dni("11122233Q")
-				.imagen(null)
+				//.imagen(null)
 				.fechaNacimiento(LocalDate.of(1989, 6, 9))
 				.username("admin")
 				.password("admin")
@@ -48,7 +47,7 @@ public class EmpleadoRepository {
 				.nombre("María")
 				.apellidos("Troyano Ballesteros")
 				.dni("31212351A")
-				.imagen(null)
+				//.imagen(null)
 				.fechaNacimiento(LocalDate.of(1993, 3, 21))
 				.username("user")
 				.password("1234")
@@ -64,7 +63,7 @@ public class EmpleadoRepository {
 				.nombre("Sergio")
 				.apellidos("Jiménez Toledo")
 				.dni("22122122R")
-				.imagen(null)
+				//.imagen(null)
 				.fechaNacimiento(LocalDate.of(1990, 7, 15))
 				.username("sergio")
 				.password("user1234")
@@ -80,7 +79,7 @@ public class EmpleadoRepository {
 				.nombre("Eva")
 				.apellidos("Reyes Trigo")
 				.dni("75516387J")
-				.imagen(null)
+				//.imagen(null)
 				.fechaNacimiento(LocalDate.of(1998, 12, 4))
 				.username("eva")
 				.password("user1234")
@@ -94,4 +93,5 @@ public class EmpleadoRepository {
 				);
 				
 	}
+	
 }

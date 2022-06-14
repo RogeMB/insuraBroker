@@ -41,24 +41,21 @@ function erase() {
   }
 }
 
-document.addEventListener("DOMContentLoaded", function() { // On DOM Load initiate the effect
+document.addEventListener("DOMContentLoaded", function() { 
   if(textArray.length) setTimeout(type, newTextDelay + 250);
 });
 
 
-function setScrollPercent () {
-  var docEl = document.documentElement;
-  var body = document.body;
-  var h = 'scrollHeight';
-  var t = 'scrollTop';
-  var percent = (docEl[t]||body[t]) / ((docEl[h]||body[h]) - docEl.clientHeight) * 100;
-  document.documentElement.style.setProperty('--scroll', percent);
-}
-
 window.addEventListener('scroll', setScrollPercent);
 
-
-
+function setScrollPercent () {
+  let docuEle = document.documentElement;
+  let body = document.body;
+  let hei = 'scrollHeight';
+  let top = 'scrollTop';
+  let percent = (docuEle[top]||body[top]) / ((docuEle[hei]||body[hei]) - docuEle.clientHeight) * 100;
+  document.documentElement.style.setProperty('--scroll', percent);
+};
 
 (function() {
   "use strict";
@@ -204,7 +201,7 @@ window.addEventListener('scroll', setScrollPercent);
   }, true)
 
   /*-------------------------------------
-   * Scroll with ofset on page load with hash links in the url
+   * Scroll with ofset on page load with #hash links in the url
    *-------------------------------------*/
   window.addEventListener('load', () => {
     if (window.location.hash) {
@@ -222,7 +219,7 @@ window.addEventListener('scroll', setScrollPercent);
     window.addEventListener('load', () => {
       preloader.remove()
     });
-  }
+  };
 
   /*-------------------------------------
    * Hero carousel indicators
@@ -237,7 +234,7 @@ window.addEventListener('scroll', setScrollPercent);
   });
 
   /*-------------------------------------
-   * Porfolio isotope and filter
+   * Porfolio isotope & filter
    *-------------------------------------*/
   window.addEventListener('load', () => {
     let portfolioContainer = select('.portfolio-container');
@@ -265,7 +262,7 @@ window.addEventListener('scroll', setScrollPercent);
   });
 
   /*-------------------------------------
-   * Initiate portfolio lightbox 
+   * Init portfolio lightbox 
    /*-------------------------------------*/
   const portfolioLightbox = GLightbox({
     selector: '.portfolio-lightbox'

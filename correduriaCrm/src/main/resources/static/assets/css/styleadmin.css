@@ -1,0 +1,287 @@
+:root {
+    --main-bg-color: #009d63;
+    --main-text-color: #009d63;
+    --second-text-color: #bbbec5;
+    --second-bg-color: #c1efde;
+    --primary: #111B54;
+    --light: #ffffff;
+    --grey: #efefef;
+    --bg-dark: #070707;
+
+}
+
+/*--------------------------------------------------------------
+  # Basics
+  --------------------------------------------------------------*/
+
+.primary-text {
+    color: var(--main-text-color);
+}
+
+.white-text {
+    color: var(--grey);
+}
+
+.second-text {
+    color: var(--second-text-color);
+}
+
+.primary-bg {
+    background-color: var(--main-bg-color);
+}
+
+.secondary-bg {
+    background-color: var(--second-bg-color);
+}
+
+.bg-dark {
+    background-color: var(--bg-dark) !important;
+}
+
+.rounded-full {
+    border-radius: 100%;
+}
+
+/*--------------------------------------------------------------
+  # Wrapper
+  --------------------------------------------------------------*/
+
+#wrapper {
+    overflow-x: hidden;
+    background-image: linear-gradient(to right,
+            #baf3d7,
+            #c2f5de,
+            #cbf7e4,
+            #d4f8ea,
+            #ddfaef);
+}
+
+/*--------------------------------------------------------------
+  # Scrollbar
+  --------------------------------------------------------------*/
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: black;
+    border-radius: 50px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-image: linear-gradient(to bottom,
+            #27bdf8,
+            #cbf7e4,
+            #0a4399);
+    border-radius: 50px;
+}
+
+
+/*--------------------------------------------------------------
+  # NavBar
+  --------------------------------------------------------------*/
+
+#roll {
+    font-size: 10px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.logoNavbar {
+    height: 65px;
+    width: 65px;
+}
+
+.avatarIma {
+    height: 32px;
+    width: 32px;
+}
+
+/*--------------------------------------------------------------
+  # Sidebar
+  --------------------------------------------------------------*/
+
+#sidebar-wrapper {
+    min-height: 100vh;
+    margin-left: -15rem;
+    -webkit-transition: margin 0.25s ease-out;
+    -moz-transition: margin 0.25s ease-out;
+    -o-transition: margin 0.25s ease-out;
+    transition: margin 0.25s ease-out;
+    box-shadow: 0px 0px 20px rgba(1, 41, 112, 0.1);
+}
+
+#sidebar-wrapper .sidebar-heading {
+    padding: 0.875rem 1.25rem;
+    font-size: 1.2rem;
+}
+
+#sidebar-wrapper .list-group {
+    width: 15rem;
+}
+
+.dropdown-item {
+    color: var(--grey);
+}
+
+#Insura {
+    color: #3ec1d5;
+}
+
+.active {
+    color: #3ec1d5 !important;
+    background-color: transparent !important;
+    font-weight: bolder;
+}
+
+.nav-link,
+.dropdown-item {
+    background-image:
+        linear-gradient(transparent 0%,
+            transparent 90%,
+            rgba(0, 89, 255, 0.884) 90%,
+            rgba(0, 89, 255, 0.884) 100%);
+    background-repeat: no-repeat;
+    background-size: 0% 80%;
+    background-position: right;
+    border-radius: 10%;
+    overflow: hidden;
+    transition: background-size 300ms;
+}
+
+li a:hover,
+.dropdown-item:hover {
+    color: rgb(1, 10, 27) !important;
+    background-color: rgba(255, 255, 255, 0.904) !important;
+    background-size: 100% 80%;
+    background-position-x: left;
+    border-radius: 10px 25px 10px 30px;
+}
+
+
+#page-content-wrapper {
+    min-width: 100vw;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+    margin-left: 0;
+}
+
+#menu-toggle {
+    cursor: pointer;
+}
+
+.list-group-item {
+    border: none;
+    padding: 20px 30px;
+}
+
+.list-group-item.active {
+    background-color: transparent;
+    color: var(--main-text-color);
+    font-weight: bold;
+    border: none;
+}
+
+
+/*--------------------------------------------------------------
+  # Page Title
+  --------------------------------------------------------------*/
+.pagetitle {
+    margin-bottom: 10px;
+}
+
+.pagetitle h1 {
+    font-size: 24px;
+    margin-bottom: 0;
+    color: #120170;
+}
+
+/*--------------------------------------------------------------
+  # Breadcrumbs
+  --------------------------------------------------------------*/
+.breadcrumb {
+    font-size: 14px;
+    font-family: "Nunito", sans-serif;
+    color: #899bbd;
+    font-weight: 600;
+}
+
+.breadcrumb a {
+    color: #899bbd;
+    transition: 0.3s;
+    text-decoration: none;
+}
+
+.breadcrumb a:hover {
+    color: #51678f;
+}
+
+.breadcrumb .breadcrumb-item::before {
+    color: #899bbd;
+}
+
+.breadcrumb .active {
+    font-weight: 600;
+}
+
+/*--------------------------------------------------------------
+  # Back to top button
+  --------------------------------------------------------------*/
+.back-to-top {
+    position: fixed;
+    right: 15px;
+    bottom: 15px;
+    z-index: 99999;
+    background: #00b7ff;
+    width: 40px;
+    height: 40px;
+    border-radius: 4px;
+    transition: all 0.4s;
+}
+
+.back-to-top i {
+    font-size: 24px;
+    color: rgb(213, 226, 228);
+    line-height: 0;
+}
+
+.back-to-top:hover {
+    background: #6776f4;
+    color: #fff;
+}
+
+/*--------------------------------------------------------------
+  # Btn Search
+  --------------------------------------------------------------*/
+
+
+.btn-search {
+    right: 10px;
+}
+
+.btn-search:hover {
+    background-color: #22bce2;
+    color: black;
+}
+
+/*--------------------------------------------------------------
+  # Media screen
+--------------------------------------------------------------*/
+
+
+@media (min-width: 768px) {
+    #sidebar-wrapper {
+        margin-left: 0;
+    }
+
+    #page-content-wrapper {
+        min-width: 0;
+        width: 100%;
+    }
+
+    #wrapper.toggled #sidebar-wrapper {
+        margin-left: -15rem;
+    }
+}

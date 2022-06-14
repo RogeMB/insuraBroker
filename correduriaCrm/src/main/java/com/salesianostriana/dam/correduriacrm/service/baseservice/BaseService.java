@@ -19,8 +19,8 @@ public abstract class BaseService <T, ID, R extends JpaRepository<T, ID>> implem
 
 	@Override
 	public Optional<T> findByID(ID id) {
-		return repositorio.findById(id);
-		//return Optional.ofNullable(repositorio.findByID(id).orElse(null));
+		//return repositorio.findById(id);
+		return Optional.ofNullable(repositorio.findById(id).orElse(null));
 	}
 
 	@Override

@@ -1,14 +1,13 @@
 
-
+/*--------------------------------------
+LOGIN
+---------------------------------------*/
 :root{
     --dark-s: #16191c;
     --dark-x: #1e2126;
     --light: #ffffff;
 }
 
-/*--------------------------------------
-LOGIN
----------------------------------------*/
 
 #loginbody {
     font-family: 'League Spartan', sans-serif !important;
@@ -48,54 +47,3 @@ LOGIN
 }
 
 
-/*-------------------------------------
-ADMIN
-----------------------------------*/
-
-.sidebar-container {
-    min-height: 100vh;
-}
-
-.offcanvas-body, ul, a {
-    color: white !important; 
-}
-
-.navbar-toggler-icon {  
-    background-color: white;
-    border-radius: 20%;
-}
-
-.offcanvas{
-    width: 20% !important;
-}
-
-li a:hover, .dropdown-item:hover {
-    color:rgb(1, 10, 27) !important;
-    background-color: rgba(255, 255, 255, 0.904);
-    background-size: 100% 80%;
-    background-position-x: left;
-    border-radius: 10px 25px 10px 30px;
-}
-
-.nav-link, .dropdown-item{
-    background-image: 
-        linear-gradient(
-            transparent 0%,
-            transparent 90%,
-            rgba(0, 89, 255, 0.884) 90%,
-            rgba(0, 89, 255, 0.884) 100%
-        );
-    background-repeat: no-repeat;
-    background-size: 0% 80%;
-    background-position: right;
-    border-radius: 10%;
-
-    transition: background-size 300ms;
-}
-
-.btn-search {
-    right: 10px;
-}
-.btn-search:hover {
-    background-color: #16191c;
-}
