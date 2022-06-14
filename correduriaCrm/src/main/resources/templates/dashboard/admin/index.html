@@ -27,14 +27,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 
     <!-- Css style-->
-    <link rel='stylesheet' type='text/css' media='screen' th:href="@{assets/css/styleadmin.css}" href='../../../static/assets/css/styleadmin.css'>
+    <link rel='stylesheet' type='text/css' media='screen' th:href="@{/assets/css/styleadmin.css}" href='../../../static/assets/css/styleadmin.css'>
 
     <!-- <link rel="stylesheet" href="styles.css" /> 
       <script defer th:src="@{assets/js/admin.js}" src='main.js'></script>
     -->
     <!-- JavaScript Bundle with Popper -->
     <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
-	<script defer th:src="@{assets/js/admin.js}" src='../../../static/assets/js/admin.js'></script>
+	<script defer th:src="@{/assets/js/admin.js}" src='../../../static/assets/js/admin.js'></script>
 </head>
 <body>
     <div class="d-flex" id="wrapper">
@@ -72,7 +72,7 @@
                             <i class="bi bi-server shadow m-2 lead"></i>Tablas
                         </a>
                         <ul class="dropdown-menu bg-dark border-0" aria-labelledby="offcanvasNavbarDropdown">
-                            <li><a class="dropdown-item" href="http://localhost:9000/dashboard/admin/tablesCat/"><i class="bi bi-bookmark-fill shadow me-2 lead"></i>Categorías</a></li>
+                            <li><a class="dropdown-item" th:href="@{/admin/tablesCat}" href="#"><i class="bi bi-bookmark-fill shadow me-2 lead"></i>Categorías</a></li>
                             <li><a class="dropdown-item" href="#"><i class="bi bi-shield-shaded shadow me-2 lead"></i>Seguros</a></li>
                             <li><a class="dropdown-item" href="#"><i class="bi bi-person-lines-fill shadow me-2 lead"></i>Clientes</a></li>
                             <li><a class="dropdown-item" href="#"><i class="bi bi-person-circle shadow me-2 lead"></i>Empleados</a></li>
@@ -159,22 +159,28 @@
                                     <tr class="table-primary">
                                         <th scope="col" width="50">Fila</th>
                                         <th scope="col" class="text-center">Nombre</th>
-                                        <th scope="col" width="50" class="text-info">Editar</th>
-                                        <th scope="col" width="50" class="text-danger">Eliminar</th>
+                                        <th scope="col" class="text-center">Apellidos</th>
+                                        <th scope="col" class="text-center">DNI</th>
+                                        <th scope="col" class="text-center">Fecha Nacimiento</th>
+                                        <th scope="col" class="text-center">Teléfono</th>
+                                        <th scope="col" class="text-center">Email</th>
+                                        <th scope="col" class="text-center">Fecha Alta</th>
+                                        <th scope="col" class="text-center">Cargo</th>
+                                        <th scope="col" class="text-center">Salario</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
+                                    <tr th:each="empleado : ${listaEmpleados}" >
                                         <th scope="row">1</th>
-                                        <td class="text-center">Autos</td>
-                                        <td class="text-center"><button type="button" class="btn btn-info btn-floating rounded-circle">
-                                            <i class="bi bi-pen-fill"></i>
-                                            </button>
-                                        </td>
-                                        <td class="text-center"><button type="button" class="btn btn-danger btn-floating rounded-circle">
-                                            <i class="bi bi-trash"></i>
-                                            </button>
-                                        </td>
+                                        <td scope="col" class="text-center" th:text="${empleado.nombre}">Nombre</th>
+                                        <td scope="col" class="text-center" th:text="${empleado.apellidos}">Apellidos</th>
+                                        <td scope="col" class="text-center" th:text="${empleado.dni}">DNI</th>
+                                        <td scope="col" class="text-center" th:text="${empleado.fechaNacimiento}">Fecha Nacimiento</th>
+                                        <td scope="col" class="text-center" th:text="${empleado.telefono}">Teléfono</th>
+                                        <td scope="col" class="text-center" th:text="${empleado.email}">Email</th>
+                                        <td scope="col" class="text-center" th:text="${empleado.fechaAlta}">Fecha Alta</th>
+                                        <td scope="col" class="text-center" th:text="${empleado.cargo}">Cargo</th>
+                                        <td scope="col" class="text-center" th:text="${empleado.salario}">Salario</th>
                                     </tr>
                                 </tbody>
                             </table>
@@ -182,13 +188,13 @@
                         <!-- End Table -->
                     </div>
                 </div>
-            </section>
-
-            <!-- Footer Start-->
-            <footer th:replace="~{fragments/footer::footer}"></footer>
-            <!-- End: footer -->       
+            </section>    
         </div>
         <!-- End Content Wrapper -->
+     </div>
+        <!-- Footer Start-->
+        <footer th:replace="~{fragments/footer::footer}"></footer>
+        <!-- End: footer -->   
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 </body>
 </html>

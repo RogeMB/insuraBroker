@@ -18,6 +18,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
     private EmpleadoRepository empleados;
+    
+    @Autowired
+    private SecurityHandler successLoginHandler;
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
@@ -41,7 +44,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	                .formLogin()
 	                .loginPage("/")
 	                .loginProcessingUrl("/login")
-	                .defaultSuccessUrl("/dashboard/user")
+	                //defaultSuccessUrl("/admin/")
+	                .successHandler(successLoginHandler)
+	               
 	                .failureUrl("/login-error").permitAll()
                 .and()
                 	.logout()
@@ -69,6 +74,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 //                .and().logout().logoutUrl("/logout").logoutSuccessUrl("/").permitAll();
 //
     }
+    
+    //https://www.baeldung.com/spring_redirect_after_login
 
     @Bean
     @Override

@@ -29,8 +29,6 @@ public class Seguro {
     private double precio;
     
     private String empresa;
-
-    private String icono;
       
     // helpers
     public void addToCategoria(Categoria cat) { 

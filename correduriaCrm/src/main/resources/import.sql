@@ -2,25 +2,25 @@ INSERT INTO CATEGORIA (id_categoria, nombre) VALUES (NEXTVAL('hibernate_sequence
 INSERT INTO CATEGORIA (id_categoria, nombre) VALUES (NEXTVAL('hibernate_sequence'), 'Hogar');
 INSERT INTO CATEGORIA (id_categoria, nombre) VALUES (NEXTVAL('hibernate_sequence'), 'Salud');
 
-INSERT INTO SEGURO (id_seguro, id_categoria, tipo, cantidad_asegurada, precio, empresa, icono) VALUES (NEXTVAL('hibernate_sequence'), '1', 'Bronce', 30000, 350,'Mapfre', null);
-INSERT INTO SEGURO (id_seguro, id_categoria, tipo, cantidad_asegurada, precio, empresa, icono) VALUES (NEXTVAL('hibernate_sequence'), '1', 'Plata', 50000, 500, 'Mapfre', null);
-INSERT INTO SEGURO (id_seguro, id_categoria, tipo, cantidad_asegurada, precio, empresa, icono) VALUES (NEXTVAL('hibernate_sequence'), '1', 'Oro', 100000, 850, 'Mapfre', null);
-INSERT INTO SEGURO (id_seguro, id_categoria, tipo, cantidad_asegurada, precio, empresa, icono) VALUES (NEXTVAL('hibernate_sequence'), '2', 'Bronce', 80000, 180, 'Mapfre', null);
-INSERT INTO SEGURO (id_seguro, id_categoria, tipo, cantidad_asegurada, precio, empresa, icono) VALUES (NEXTVAL('hibernate_sequence'), '2', 'Plata', 200000, 250, 'Mapfre', null);
-INSERT INTO SEGURO (id_seguro, id_categoria, tipo, cantidad_asegurada, precio, empresa, icono) VALUES (NEXTVAL('hibernate_sequence'), '2', 'Oro', 500000, 350, 'Mapfre', null);
-INSERT INTO SEGURO (id_seguro, id_categoria, tipo, cantidad_asegurada, precio, empresa, icono) VALUES (NEXTVAL('hibernate_sequence'), '3', 'Bronce', 1000, 380, 'Mapfre', null);
-INSERT INTO SEGURO (id_seguro, id_categoria, tipo, cantidad_asegurada, precio, empresa, icono) VALUES (NEXTVAL('hibernate_sequence'), '3', 'Plata', 30000, 610, 'Mapfre', null);
-INSERT INTO SEGURO (id_seguro, id_categoria, tipo, cantidad_asegurada, precio, empresa, icono) VALUES (NEXTVAL('hibernate_sequence'), '3', 'Oro', 50000, 920, 'Mapfre', null);
+INSERT INTO SEGURO (id_seguro, id_categoria, tipo, cantidad_asegurada, precio, empresa) VALUES (NEXTVAL('hibernate_sequence'), '1', 'Bronce', 30000, 350,'Mapfre');
+INSERT INTO SEGURO (id_seguro, id_categoria, tipo, cantidad_asegurada, precio, empresa) VALUES (NEXTVAL('hibernate_sequence'), '1', 'Plata', 50000, 500, 'Mapfre');
+INSERT INTO SEGURO (id_seguro, id_categoria, tipo, cantidad_asegurada, precio, empresa) VALUES (NEXTVAL('hibernate_sequence'), '1', 'Oro', 100000, 850, 'Mapfre');
+INSERT INTO SEGURO (id_seguro, id_categoria, tipo, cantidad_asegurada, precio, empresa) VALUES (NEXTVAL('hibernate_sequence'), '2', 'Bronce', 80000, 180, 'Mapfre');
+INSERT INTO SEGURO (id_seguro, id_categoria, tipo, cantidad_asegurada, precio, empresa) VALUES (NEXTVAL('hibernate_sequence'), '2', 'Plata', 200000, 250, 'Mapfre');
+INSERT INTO SEGURO (id_seguro, id_categoria, tipo, cantidad_asegurada, precio, empresa) VALUES (NEXTVAL('hibernate_sequence'), '2', 'Oro', 500000, 350, 'Mapfre');
+INSERT INTO SEGURO (id_seguro, id_categoria, tipo, cantidad_asegurada, precio, empresa) VALUES (NEXTVAL('hibernate_sequence'), '3', 'Bronce', 1000, 380, 'Mapfre');
+INSERT INTO SEGURO (id_seguro, id_categoria, tipo, cantidad_asegurada, precio, empresa) VALUES (NEXTVAL('hibernate_sequence'), '3', 'Plata', 30000, 610, 'Mapfre');
+INSERT INTO SEGURO (id_seguro, id_categoria, tipo, cantidad_asegurada, precio, empresa) VALUES (NEXTVAL('hibernate_sequence'), '3', 'Oro', 50000, 920, 'Mapfre');
 
-INSERT INTO SEGURO (id_seguro, id_categoria, tipo, cantidad_asegurada, precio, empresa, icono) VALUES (NEXTVAL('hibernate_sequence'), '1', 'Bronce', 25000, 300, 'Allianz', null);
-INSERT INTO SEGURO (id_seguro, id_categoria, tipo, cantidad_asegurada, precio, empresa, icono) VALUES (NEXTVAL('hibernate_sequence'), '1', 'Plata', 40000, 450, 'Allianz', null);
-INSERT INTO SEGURO (id_seguro, id_categoria, tipo, cantidad_asegurada, precio, empresa, icono) VALUES (NEXTVAL('hibernate_sequence'), '1', 'Oro', 80000, 780, 'Allianz', null);
-INSERT INTO SEGURO (id_seguro, id_categoria, tipo, cantidad_asegurada, precio, empresa, icono) VALUES (NEXTVAL('hibernate_sequence'), '2', 'Bronce', 70000, 170, 'Allianz', null);
-INSERT INTO SEGURO (id_seguro, id_categoria, tipo, cantidad_asegurada, precio, empresa, icono) VALUES (NEXTVAL('hibernate_sequence'), '2', 'Plata', 180000, 230, 'Allianz', null);
-INSERT INTO SEGURO (id_seguro, id_categoria, tipo, cantidad_asegurada, precio, empresa, icono) VALUES (NEXTVAL('hibernate_sequence'), '2', 'Oro', 450000, 310, 'Allianz', null);
-INSERT INTO SEGURO (id_seguro, id_categoria, tipo, cantidad_asegurada, precio, empresa, icono) VALUES (NEXTVAL('hibernate_sequence'), '3', 'Bronce', 10000, 385, 'Allianz', null);
-INSERT INTO SEGURO (id_seguro, id_categoria, tipo, cantidad_asegurada, precio, empresa, icono) VALUES (NEXTVAL('hibernate_sequence'), '3', 'Plata', 20000, 500, 'Allianz', null);
-INSERT INTO SEGURO (id_seguro, id_categoria, tipo, cantidad_asegurada, precio, empresa, icono) VALUES (NEXTVAL('hibernate_sequence'), '3', 'Oro', 40000, 750, 'Allianz', null);
+INSERT INTO SEGURO (id_seguro, id_categoria, tipo, cantidad_asegurada, precio, empresa) VALUES (NEXTVAL('hibernate_sequence'), '1', 'Bronce', 25000, 300, 'Allianz');
+INSERT INTO SEGURO (id_seguro, id_categoria, tipo, cantidad_asegurada, precio, empresa) VALUES (NEXTVAL('hibernate_sequence'), '1', 'Plata', 40000, 450, 'Allianz');
+INSERT INTO SEGURO (id_seguro, id_categoria, tipo, cantidad_asegurada, precio, empresa) VALUES (NEXTVAL('hibernate_sequence'), '1', 'Oro', 80000, 780, 'Allianz');
+INSERT INTO SEGURO (id_seguro, id_categoria, tipo, cantidad_asegurada, precio, empresa) VALUES (NEXTVAL('hibernate_sequence'), '2', 'Bronce', 70000, 170, 'Allianz');
+INSERT INTO SEGURO (id_seguro, id_categoria, tipo, cantidad_asegurada, precio, empresa) VALUES (NEXTVAL('hibernate_sequence'), '2', 'Plata', 180000, 230, 'Allianz');
+INSERT INTO SEGURO (id_seguro, id_categoria, tipo, cantidad_asegurada, precio, empresa) VALUES (NEXTVAL('hibernate_sequence'), '2', 'Oro', 450000, 310, 'Allianz');
+INSERT INTO SEGURO (id_seguro, id_categoria, tipo, cantidad_asegurada, precio, empresa) VALUES (NEXTVAL('hibernate_sequence'), '3', 'Bronce', 10000, 385, 'Allianz');
+INSERT INTO SEGURO (id_seguro, id_categoria, tipo, cantidad_asegurada, precio, empresa) VALUES (NEXTVAL('hibernate_sequence'), '3', 'Plata', 20000, 500, 'Allianz');
+INSERT INTO SEGURO (id_seguro, id_categoria, tipo, cantidad_asegurada, precio, empresa) VALUES (NEXTVAL('hibernate_sequence'), '3', 'Oro', 40000, 750, 'Allianz');
 
 
 INSERT INTO CLIENTE (id_cliente, nombre, apellidos, dni, fecha_nacimiento, telefono, email, genero, fecha_alta, es_premium) VALUES (NEXTVAL('cliente_sequence'), 'Charisse', 'Cicchitello Romani', '11111020V', '1981-02-08', '644274264' , 'cicchitello0@gmail.com', 'Mujer', '2022-01-22', true);

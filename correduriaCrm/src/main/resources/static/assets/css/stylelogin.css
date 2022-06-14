@@ -13,7 +13,6 @@ LOGIN
     font-family: 'League Spartan', sans-serif !important;
     font-weight: 300;
     color: var(--light) !important;
-    overflow: hidden;
 }
 
 .bg-dark-s {

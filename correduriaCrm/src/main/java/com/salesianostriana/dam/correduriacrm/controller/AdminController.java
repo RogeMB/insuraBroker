@@ -1,10 +1,6 @@
 package com.salesianostriana.dam.correduriacrm.controller;
 
-import com.salesianostriana.dam.correduriacrm.model.Empleado;
-import com.salesianostriana.dam.correduriacrm.repository.EmpleadoRepository;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -12,28 +8,30 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-
-import java.util.Optional;
-
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.salesianostriana.dam.correduriacrm.model.Empleado;
+import com.salesianostriana.dam.correduriacrm.repository.EmpleadoRepository;
+import com.salesianostriana.dam.correduriacrm.repository.ICategoriaRepository;
 
 @RequestMapping("/admin")
 @Controller
 public class AdminController {
 
-    //private static final Logger log = LoggerFactory.getLogger(AdminController.class);
-
     @Autowired
     private EmpleadoRepository empleadoRepo;
+    
+    @Autowired
+    private ICategoriaRepository categoriaRepo;
 
     @GetMapping("/")
     public String adminIndex(Model model, @AuthenticationPrincipal UserDetails user) {
 
-        //model.addAttribute("usuario", user.getUsername());
         Optional<Empleado> elUsuario = empleadoRepo.findUserByUsername(user.getUsername());
-
+        
         if (elUsuario.isPresent()) {
             model.addAttribute("usuario", elUsuario.get());
+            model.addAttribute("listaEmpleados", empleadoRepo.getEmpleados());
         } else {
             return "error404";
         }
@@ -41,11 +39,23 @@ public class AdminController {
         return "dashboard/admin/index";
     }
     
-  
     
     @GetMapping("/tablesCat")
-    public String adminTables() {
-    	return "dashboard/admin/tablesCat";
+    public String adminTablesCat(Model model, @AuthenticationPrincipal UserDetails user) {
+
+        Optional<Empleado> elUsuario = empleadoRepo.findUserByUsername(user.getUsername());
+        
+        categoriaRepo.findAll();
+        
+        if (elUsuario.isPresent()) {
+            model.addAttribute("usuario", elUsuario.get());
+            model.addAttribute("listaCategorias",  categoriaRepo.findAll());
+        } else {
+            return "error404";
+        }
+        
+    	//user.getUsername()
+        return "dashboard/admin/tablesCat";
     }
     
     

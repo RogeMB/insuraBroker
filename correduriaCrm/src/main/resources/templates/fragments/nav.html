@@ -27,21 +27,21 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 
     <!-- Css style-->
-    <link rel='stylesheet' type='text/css' media='screen' th:href="@{assets/css/styleadmin.css}" href='../../../static/assets/css/styleadmin.css'>
+    <link rel='stylesheet' type='text/css' media='screen' th:href="@{/assets/css/styleadmin.css}" href='../../../static/assets/css/styleadmin.css'>
 
     <!-- <link rel="stylesheet" href="styles.css" /> 
       <script defer th:src="@{assets/js/admin.js}" src='main.js'></script>
     -->
     <!-- JavaScript Bundle with Popper -->
     <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
-	<script defer th:src="@{assets/js/admin.js}" src='../../../static/assets/js/admin.js'></script>
+	<script defer th:src="@{/assets/js/admin.js}" src='../../../static/assets/js/admin.js'></script>
 </head>
 <body>
     <!-- Start NavBar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark py-2 px-4">
         <div class="d-flex align-items-center">
             <i class="bi bi-window-sidebar lead primary-text fs-3 me-3" id="menu-toggle"></i>
-            <a class="navbar-brand fw-bold fs-2 m-0 ps-2 align-items-center" href="#top"><span id="Insura">I</span>nsura Broker(AD)</a>
+            <a class="navbar-brand fw-bold fs-2 m-0 ps-2 align-items-center" href="#top"><span id="Insura">I</span>nsura Broker</a>
             <img th:src="@{/assets/img/logo/insuraBroker250.png}" src="../../../static/assets/img/logo/insuraBroker250.png" alt="InsuraBroker Logo" class="logoNavbar d-inline-flex ms-2 align-text-top"/>
         </div>
         <button class="navbar-toggler me-auto" id="openButton" type="button" data-bs-toggle="collapse" 
@@ -53,7 +53,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0 profile">          
                 <li class="nav-item dropdown">     
-                    <a  th:text="${usuario.nombre + ' ' + usuario.apellidos}" class="nav-link dropdown-toggle white-text fw-bold" href="#" id="navbarDropdown"
+                    <a th:text="${usuario.nombre + ' ' + usuario.apellidos}" class="nav-link dropdown-toggle white-text fw-bold" href="#" id="navbarDropdown"
                         role="button" data-bs-toggle="dropdown" aria-expanded="false">Usuario
                     </a>
                         <img th:src="${usuario.imagen}" class="rounded-circle avatarIma"/>
