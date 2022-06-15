@@ -44,11 +44,12 @@ public class AdminController {
         
         if (elUsuario.isPresent()) {
         	long numeroDeClientes = clienteService.getNumeroDeClientes();
+        	double dineroTrimestre = ventaService.calcularVentasTrimestre();
         	//long dineroGanado = ventaService.getDineroGanado();
         	
         	model.addAttribute("usuario", elUsuario.get());
     		model.addAttribute("listaEmpleados", empleadoService.getEmpleados());
-    		
+    		model.addAttribute("ventasTrimestre", dineroTrimestre);
     		model.addAttribute("numeroDeClientes", numeroDeClientes);
     		//model.addAttribute("dineroGanado", dineroGanado);
     		
@@ -110,9 +111,8 @@ public class AdminController {
 		
 		switch(element) {
 			case "seguro":
-				if (seguro.isPresent() /* && ventaService.comprobarVentasSeguro(id)*/) {
-					//seguroService.deleteByID(id);
-					//seguroService.deleteSeguro(seguro.get());
+				if (seguro.isPresent()) {
+					seguroService.deleteSeguro(seguro.get());
 					return "redirect:/admin/tables/seguro/?success=true";
 				} else {
 					return "redirect:/admin/tables/seguro/?error=true";

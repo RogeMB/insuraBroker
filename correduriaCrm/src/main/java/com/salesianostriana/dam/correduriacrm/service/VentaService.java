@@ -16,25 +16,30 @@ import com.salesianostriana.dam.correduriacrm.service.baseservice.BaseService;
 @Service
 public class VentaService extends BaseService<Venta, Long, IVentaRepository>{
 	
+	public VentaService (IVentaRepository repositorioVenta) {
+		super(repositorioVenta);
+	}
+	
+	
+	/*
 	@Autowired
 	private IVentaRepository ventasRepository;
+	*/
 	
 	@Autowired
 	private ISeguroRepository seguroRepository;
 	
-	/*
-	public boolean comprobarVentasSeguro(Seguro seguro) { //Seguro s
-		boolean resultado = false;
-		
-		if(ventasRepository.existBySeguro(seguro)) {
-			resultado = true;
-		}
-		return resultado;		
+	
+	public boolean comprobarVentasSeguro(Seguro seguro) {
+		boolean exists = repositorio.existsBySeguro(seguro);
+		return exists;
 	}
-	*/
+
+	public double calcularVentasTrimestre() {
+		return repositorio.getDineroTrimestre();
+	}
 	
-	
-	
+
 	/*
 	public List<Venta> buscarVentasActivas() {
 		List<Venta>ventas = findAll();

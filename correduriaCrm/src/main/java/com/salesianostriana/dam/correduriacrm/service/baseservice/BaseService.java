@@ -7,6 +7,10 @@ import java.util.List;
 import java.util.Optional;
 
 public abstract class BaseService <T, ID, R extends JpaRepository<T, ID>> implements IBaseServiceable<T, ID> {
+	
+	public BaseService (R repositorio) {
+        this.repositorio=repositorio;
+    }
 
 	@Autowired
 	protected R repositorio;

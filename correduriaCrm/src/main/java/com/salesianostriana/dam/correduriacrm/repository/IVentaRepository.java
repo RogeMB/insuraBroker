@@ -21,10 +21,13 @@ public interface IVentaRepository extends JpaRepository<Venta, Long>{
 	@Query("SELECT id_seguro FROM venta v WHERE v.es_activo is true")
 	public List<Venta> getVentasActivas();
 	*/
+
+	@Query("SELECT SUM(v.precioVenta) FROM Venta v WHERE v.fecha_venta < (CURRENT_DATE) AND v.fecha_venta > DATEADD('MONTH',-3, CURRENT_DATE)")
+	public Long getDineroTrimestre();
+
 	
-	/*
-	public boolean existBySeguro(Seguro seguro);
-	*/
+	public boolean existsBySeguro(Seguro seguro);
+	
 	
 
 }
