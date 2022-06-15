@@ -96,14 +96,14 @@
 
             <section>  
                 <div class="container-fluid d-flex-block flex-wrap my-4 px-4">
-                <div th:if="${param.success}" class="alert alert-success alert dismissible" role="alert">
-                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-				  ¡Seguro borrado con éxito!
-				</div>
-				<div th:if="${param.error}" class="alert alert-danger d-flex-inline alert dismissible" role="alert">
-                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-				  ¡No se puede borrar este elemento!
-				</div>
+	                <div th:if="${param.success}" class="alert alert-warning alert dismissible" role="alert">
+	                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+					  ¡Seguro borrado con éxito!
+					</div>
+					<div th:if="${param.error}" class="alert alert-danger d-flex-inline alert dismissible" role="alert">
+	                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+					  ¡No se puede borrar este elemento!
+					</div>
                     <!-- Breadcrumb -->
                     <div class="pagetitle px-4">
                         <h1>Seguros</h1>

@@ -19,12 +19,13 @@ public class SeguroService extends BaseService<Seguro, Long, ISeguroRepository> 
 	@Autowired
 	private VentaService ventaService;
 	
-	
-	public boolean deleteSeguro(Optional<Seguro> s) {
-		
+/*
+	public boolean deleteSeguro(Seguro s) { //Seguro s
+
 		boolean resultado = ventaService.comprobarVentasSeguro(s);
 		
 		if (resultado == true)
+			
 			resultado = false;
 			// No se puede borrar
 			// Devuelvo false y en la plantilla le digo al usuario que no se puede borrar
@@ -37,7 +38,7 @@ public class SeguroService extends BaseService<Seguro, Long, ISeguroRepository> 
 		return resultado;			
 	}
 	
-	
+	*/
 	
 	
 }

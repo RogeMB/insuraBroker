@@ -22,8 +22,8 @@ public class VentaService extends BaseService<Venta, Long, IVentaRepository>{
 	@Autowired
 	private ISeguroRepository seguroRepository;
 	
-	
-	public boolean comprobarVentasSeguro(Optional<Seguro> seguro) {
+	/*
+	public boolean comprobarVentasSeguro(Seguro seguro) { //Seguro s
 		boolean resultado = false;
 		
 		if(ventasRepository.existBySeguro(seguro)) {
@@ -31,6 +31,9 @@ public class VentaService extends BaseService<Venta, Long, IVentaRepository>{
 		}
 		return resultado;		
 	}
+	*/
+	
+	
 	
 	/*
 	public List<Venta> buscarVentasActivas() {

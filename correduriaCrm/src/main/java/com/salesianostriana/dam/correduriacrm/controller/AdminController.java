@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.salesianostriana.dam.correduriacrm.model.Categoria;
+import com.salesianostriana.dam.correduriacrm.model.Cliente;
 import com.salesianostriana.dam.correduriacrm.model.Empleado;
 import com.salesianostriana.dam.correduriacrm.model.Seguro;
 import com.salesianostriana.dam.correduriacrm.service.CategoriaService;
@@ -33,7 +35,7 @@ public class AdminController {
     
     private final ClienteService clienteService;
     
-   private final VentaService ventaService;
+    private final VentaService ventaService;
 
     @GetMapping("/")
     public String adminIndex(Model model, @AuthenticationPrincipal UserDetails user) {
@@ -84,28 +86,52 @@ public class AdminController {
         }
     }
     
+    
+    @GetMapping("/ventas/")
+    public String adminVentas(Model model, @AuthenticationPrincipal UserDetails user) {
+    	
+    	Optional<Empleado> elUsuario = empleadoService.findUserByUsername(user.getUsername());
+        
+        if (elUsuario.isPresent()) {
+        	model.addAttribute("usuario", elUsuario.get());
+    		model.addAttribute("listaVentas", ventaService.findAll());	
+    		return "dashboard/admin/ventas";
+        } else {
+            return "error404";
+        }
+    }
+    
    
 	@GetMapping("/eliminar/{element}/{id}")
 	public String borrar (@PathVariable("id") Long id, @PathVariable("element") String element) {
 		Optional<Seguro> seguro = seguroService.findByID(id);
+		Optional<Cliente> cliente = clienteService.findByID(id);
+		Optional<Categoria> categoria = categoriaService.findByID(id);
 		
 		switch(element) {
 			case "seguro":
-				if (seguro.isPresent()) {
-					ventaService.comprobarVentasSeguro(seguro);
+				if (seguro.isPresent() /* && ventaService.comprobarVentasSeguro(id)*/) {
+					//seguroService.deleteByID(id);
+					//seguroService.deleteSeguro(seguro.get());
 					return "redirect:/admin/tables/seguro/?success=true";
+				} else {
+					return "redirect:/admin/tables/seguro/?error=true";
+				}	
+			case "cliente":
+				if (cliente.isPresent()) {
+					clienteService.deleteByID(id);
+					return "redirect:/admin/tables/cliente/?success=true";
+				} else {	
+					return "redirect:/admin/tables/cliente/?error=true";
+				}
+			case "categoria":
+				if (categoria.isPresent()) {
+					categoriaService.deleteByID(id);
+					return "redirect:/admin/tables/categoria/?success=true";
+				} else {
+					return "redirect:/admin/tables/categoria/?error=true";
 				}
 				
-				
-				/*if (!ventaService.buscarVentasActivas().contains(seguro)) {
-					seguroService.deleteByID(id);
-					return "redirect:/admin/tablesSeg/?success=true";
-				} else {
-					return "redirect:/admin/tablesSeg/?error=true";
-				}*/
-				
-			case "cliente":
-				return "hola";
 			default:
 				return "dashboard/admin/index";
 
@@ -113,31 +139,14 @@ public class AdminController {
 		
 	}
 	
-    
-		
+ 
 	@GetMapping("/borrarSeguro/{id}")
 	public String borrarSeguro(@PathVariable("id") Long id, Model model) {
 		// System.out.print(ventaService.buscarVentasActivas());
 		seguroService.deleteByID(id);
 		return "redirect:/admin/tables/seguro/?success=true";
 	}
-		
-		
-		
-		/*
-		if(seguro.isPresent()) {
-			if ("seguro".equals(element)) {
-				seguroService.deleteByID(id);
-				return "redirect:/admin/tablesSeg/?success=true";
-			} else {
-				return "redirect:/admin/tablesSeg/?error=true";
-			}
-		} else {
-			return "dashboard/admin/index";
-		}
-		 */
-	
-    
+
     
 	/*
 	 * 

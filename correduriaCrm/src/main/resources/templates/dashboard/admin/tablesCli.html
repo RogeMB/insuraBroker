@@ -87,7 +87,7 @@
         </div>
          <!-- /#sidebar-wrapper -->
         <!-- Page Content -->    
-        <div id="page-content-wrapper">
+        <div id="page-content-wrapper">      
             <header>       
                 <!-- Start NavBar -->
                 <nav th:replace="~{fragments/nav::nav}"></nav>
@@ -96,6 +96,14 @@
 
             <section>  
                 <div class="container-fluid d-flex-block flex-wrap my-4 px-4">
+                    <div th:if="${param.success}" class="alert alert-warning alert dismissible" role="alert">
+	                	<button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+					  	¡Cliente borrado con éxito!
+					</div>
+					<div th:if="${param.error}" class="alert alert-danger d-flex-inline alert dismissible" role="alert">
+	               	 	<button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+					  	¡No se puede borrar este elemento!
+					</div>
                     <!-- Breadcrumb -->
                     <div class="pagetitle px-4">
                         <h1>Clientes</h1>
@@ -168,10 +176,34 @@
                                             <i class="bi bi-pen-fill"></i>
                                             </button>
                                         </td>
-                                        <td class="text-center"><button type="button" class="btn btn-danger btn-floating rounded-circle">
-                                            <i class="bi bi-trash"></i>
-                                            </button>
-                                        </td>
+                                        	<td class="text-center"><button type="button" class="btn btn-danger rounded-circle" data-bs-toggle="modal"
+											th:attr="data-bs-target='#myModalDelete'+${cliente.idCliente}"><i class="bi bi-trash"></i></button>
+										</td>
+									<!--The Modal-->
+									<div class="modal" id="myModalDel" th:id="'myModalDelete'+${cliente.idCliente}">
+										<div class="modal-dialog">
+											<div class="modal-content">
+		
+												<!--Modal Header-->
+												<div class="modal-header">
+													<h5 class="modal-title">Eliminar</h5>
+													<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+												</div>
+												<!--Modal body-->
+												<div class="modal-body">
+													<p>¿Esta seguro que desea eliminar este elemento?</p>
+												</div>
+												<!--Modal footer-->
+												<div class="modal-footer">
+										        <a th:href="@{/admin/tables/cliente}" class="btn btn-info btn-floating rounded-circle">
+		                                            <i class="bi bi-arrow-return-left"></i></a>
+										        <a th:href="@{/admin/eliminar/cliente/{id}(id=${cliente.idCliente})}" class="btn btn-danger btn-floating rounded-circle">
+	                                            	<i class="bi bi-trash"></i></a>
+										        </div>
+											</div>
+										</div>
+									</div>   
+									<!-- End Modal -->
                                     </tr>
                                 </tbody>
                             </table>
