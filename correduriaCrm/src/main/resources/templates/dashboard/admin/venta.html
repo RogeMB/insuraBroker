@@ -49,7 +49,7 @@
                             <i class="bi bi-grid-3x3-gap-fill shadow m-2"></i>DashBoard</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" th:href="@{/admin/venta}" href="#"><i class="bi bi-coin shadow m-2 lead"></i>Ventas</a>
+                        <a class="nav-link active" th:href="@{/admin/venta}" href="#"><i class="bi bi-coin shadow m-2 lead"></i>Ventas</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#"><i class="bi bi-bar-chart-line-fill shadow m-2 lead"></i>Gráficos</a>
@@ -64,15 +64,15 @@
                             <li><a class="dropdown-item" href="#"><i class="bi bi-bookmark-plus-fill shadow me-2 lead"></i>Alta Categoría</a></li>
                         </ul>   
                     </li>
-                    <li class="nav-item dropdown active">
+                    <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="offcanvasNavbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <i class="bi bi-server shadow m-2 lead"></i>Tablas
                         </a>
                         <ul class="dropdown-menu bg-dark border-0" aria-labelledby="offcanvasNavbarDropdown">
                             <li><a class="dropdown-item" th:href="@{/admin/tables/categoria}" href="#"><i class="bi bi-bookmark-fill shadow me-2 lead"></i>Categorías</a></li>
-                            <li><a class="dropdown-item active" th:href="@{/admin/tables/seguro}" href="#"><i class="bi bi-shield-shaded shadow me-2 lead"></i>Seguros</a></li>
+                            <li><a class="dropdown-item" th:href="@{/admin/tables/seguro}" href="#"><i class="bi bi-shield-shaded shadow me-2 lead"></i>Seguros</a></li>
                             <li><a class="dropdown-item" th:href="@{/admin/tables/cliente}" href="#"><i class="bi bi-person-lines-fill shadow me-2 lead"></i>Clientes</a></li>
-                            <li>
+                             <li>
                                 <hr class="dropdown-divider bg-light"/>
                             </li>
                             <li><a class="dropdown-item" href="#"><i class="bi bi-person-circle shadow me-2 lead"></i>Empleados</a></li>
@@ -87,7 +87,7 @@
         </div>
          <!-- /#sidebar-wrapper -->
         <!-- Page Content -->    
-        <div id="page-content-wrapper">
+        <div id="page-content-wrapper">      
             <header>       
                 <!-- Start NavBar -->
                 <nav th:replace="~{fragments/nav::nav}"></nav>
@@ -96,22 +96,21 @@
 
             <section>  
                 <div class="container-fluid d-flex-block flex-wrap my-4 px-4">
-	                <div th:if="${param.success}" class="alert alert-warning alert dismissible" role="alert">
-	                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-					  ¡Seguro borrado con éxito!
+                    <div th:if="${param.success}" class="alert alert-warning alert dismissible" role="alert">
+	                	<button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+					  	¡Venta borrada con éxito!
 					</div>
 					<div th:if="${param.error}" class="alert alert-danger d-flex-inline alert dismissible" role="alert">
-	                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-					  ¡No se puede borrar este elemento!
+	               	 	<button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+					  	¡No se puede borrar este elemento!
 					</div>
                     <!-- Breadcrumb -->
                     <div class="pagetitle px-4">
-                        <h1>Seguros</h1>
+                        <h1>Ventas</h1>
                         <nav>
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a th:href="@{/admin/}" href="index.html">Dashboard</a></li>
-                            <li class="breadcrumb-item">Tablas</li>
-                            <li class="breadcrumb-item active">Seguros</li>
+                            <li class="breadcrumb-item active">Ventas</li>
                         </ol>
                         </nav>
                     </div>
@@ -121,8 +120,8 @@
                         <div class="col-md-3">
                             <div class="p-3 bg-white shadow-lg d-flex justify-content-around align-items-center rounded">
                                 <div>
-                                    <h3 class="fs-2">nombre</h3>
-                                    <p class="fs-5">Seguro más vendido</p>
+                                    <h3 class="fs-2">cantidad</h3>
+                                    <p class="fs-5">Clientes Premium</p>
                                 </div>
                                 <i class="fas fa-hand-holding-usd fs-1 primary-text border rounded-full secondary-bg p-3"></i>
                             </div>
@@ -130,8 +129,8 @@
                         <div class="col-md-3">
                             <div class="p-3 bg-white shadow-lg d-flex justify-content-around align-items-center rounded">
                                 <div>
-                                    <h3 class="fs-2">nombre empresa</h3>
-                                    <p class="fs-5">Empresa más elegida</p>
+                                    <h3 class="fs-2">número</h3>
+                                    <p class="fs-5">Gasto medio por cliente</p>
                                 </div>
                                 <i class="fas fa-truck fs-1 primary-text border rounded-full secondary-bg p-3"></i>
                             </div>
@@ -140,39 +139,43 @@
                     <!-- End Reports -->
                     <div class="row flex-wrap my-4 px-4">
                         <!-- Tables -->
-                        <h3 class="fs-4 mb-1 mt-1">Seguros</h3>
+                        <h3 class="fs-4 mb-1 mt-1">Ventas</h3>
                         <div class="col table-responsive">
                             <table class="table caption-top bg-white m-auto rounded shadow-sm table-striped table-hover" summary="Tabla de categorías de Insura Broker"> 
-                                <caption>Lista de seguros de Insura Broker</caption>
+                                <caption>Ventas de Insura Broker</caption>
                                 <thead>
                                     <tr class="table-primary">
                                         <th scope="col" width="50">ID</th>
-                                        <th scope="col" class="text-center">Categoria</th>
-                                        <th scope="col" class="text-center">Tipo</th>
-                                        <th scope="col" class="text-center">Suma Asegurada</th>
-                                        <th scope="col" class="text-center">Precio Base</th>
-                                        <th scope="col" class="text-center">Empresa</th>
+                                        <th scope="col" class="text-center">IDCliente</th>  
+                                        <th scope="col" class="text-center">IDSeguro</th>
+                                        <th scope="col" class="text-center">Vendedor</th>
+                                        <th scope="col" class="text-center">Fecha venta</th>
+										<th scope="col" class="text-center">Activa</th>
+                                        <th scope="col" class="text-center">Precio Final</th>
+                                        <th scope="col" class="text-center">Descuento</th>
                                         <th scope="col" class="text-info text-center">Editar</th>
                                         <th scope="col" class="text-danger text-center">Eliminar</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr th:each="seguro : ${listaSeguros}">
-                                        <th scope="row" th:text="${seguro.idSeguro}">Id</th>
-                                        <td class="text-center" scope="col" th:text="${seguro.categoria.nombre}">Categoría</td>
-                                        <td class="text-center" scope="col" th:text="${seguro.tipo}">Tipo</td>
-                                        <td class="text-center" scope="col" th:text="${#numbers.formatCurrency(seguro.cantidadAsegurada)}">Cantidad Aseg</td>
-                                        <td class="text-center" scope="col" th:text="${#numbers.formatCurrency(seguro.precio)}">Precio</td>
-                                        <td class="text-center" scope="col" th:text="${seguro.empresa}">Empresa</td>
+                                    <tr th:each="venta : ${listaVentas}">
+                                        <th scope="row" th:text="${venta.idVenta}">ID</th>
+                                        <td class="text-center" scope="col" th:text="${venta.cliente.idCliente}">Id Cliente</td>
+                                        <td class="text-center" scope="col" th:text="${venta.seguro.idSeguro}">Id Seguro</td>
+                                        <td class="text-center" scope="col" th:text="${venta.empleado}">empleado</td>
+                                        <td class="text-center" scope="col" th:text="${#temporals.format(venta.fecha_venta, 'dd-MM-yyyy')}">Fecha venta</td>
+                                        <td class="text-center" scope="col" th:text="${venta.esActivo}">activo</td>
+                                        <td class="text-center" scope="col" th:text="${#numbers.formatCurrency(venta.precioVenta)}">precio final</td>
+                                        <td class="text-center" scope="col" th:text="${#numbers.formatCurrency(venta.descuento)}">descuento</td>
                                         <td class="text-center"><button type="button" class="btn btn-info btn-floating rounded-circle">
                                             <i class="bi bi-pen-fill"></i>
                                             </button>
                                         </td>
-                                     	<td class="text-center"><button type="button" class="btn btn-danger rounded-circle" data-bs-toggle="modal"
-											th:attr="data-bs-target='#myModalDelete'+${seguro.idSeguro}"><i class="bi bi-trash"></i></button>
+                                        	<td class="text-center"><button type="button" class="btn btn-danger rounded-circle" data-bs-toggle="modal"
+											th:attr="data-bs-target='#myModalDelete'+${venta.idVenta}"><i class="bi bi-trash"></i></button>
 										</td>
 									<!--The Modal-->
-									<div class="modal" id="myModalDel" th:id="'myModalDelete'+${seguro.idSeguro}">
+									<div class="modal" id="myModalDel" th:id="'myModalDelete'+${venta.idVenta}">
 										<div class="modal-dialog">
 											<div class="modal-content">
 		
@@ -187,9 +190,9 @@
 												</div>
 												<!--Modal footer-->
 												<div class="modal-footer">
-										        <a th:href="@{/admin/tables/seguro}" class="btn btn-info btn-floating rounded-circle">
+										        <a th:href="@{/admin/venta}" class="btn btn-info btn-floating rounded-circle">
 		                                            <i class="bi bi-arrow-return-left"></i></a>
-										        <a th:href="@{/admin/eliminar/seguro/{id}(id=${seguro.idSeguro})}" class="btn btn-danger btn-floating rounded-circle">
+										        <a th:href="@{/admin/eliminar/venta/{id}(id=${venta.idVenta})}" class="btn btn-danger btn-floating rounded-circle">
 	                                            	<i class="bi bi-trash"></i></a>
 										        </div>
 											</div>
@@ -212,4 +215,4 @@
 	    <!-- End: footer --> 
 	<a th:href="@{#top}" href="#top" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 </body>    
-</html>    
+</html> 

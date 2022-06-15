@@ -87,7 +87,7 @@ public class AdminController {
     }
     
     
-    @GetMapping("/ventas/")
+    @GetMapping("/venta")
     public String adminVentas(Model model, @AuthenticationPrincipal UserDetails user) {
     	
     	Optional<Empleado> elUsuario = empleadoService.findUserByUsername(user.getUsername());
@@ -95,7 +95,7 @@ public class AdminController {
         if (elUsuario.isPresent()) {
         	model.addAttribute("usuario", elUsuario.get());
     		model.addAttribute("listaVentas", ventaService.findAll());	
-    		return "dashboard/admin/ventas";
+    		return "dashboard/admin/venta";
         } else {
             return "error404";
         }
@@ -140,11 +140,11 @@ public class AdminController {
 	}
 	
  
-	@GetMapping("/borrarSeguro/{id}")
-	public String borrarSeguro(@PathVariable("id") Long id, Model model) {
+	@GetMapping("/eliminar/venta/{id}")
+	public String eliminarVenta(@PathVariable("id") Long id, Model model) {
 		// System.out.print(ventaService.buscarVentasActivas());
-		seguroService.deleteByID(id);
-		return "redirect:/admin/tables/seguro/?success=true";
+		ventaService.deleteByID(id);
+		return "redirect:/admin/venta/?success=true";
 	}
 
     
