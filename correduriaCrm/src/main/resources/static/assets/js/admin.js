@@ -8,6 +8,7 @@ toggleButton.onclick = function () {
 
 let openBut = document.getElementById("openButton");
 let closeBut = document.getElementById("closeButton");
+
 openBut.addEventListener('pointerup', appear);
 closeBut.addEventListener('pointerup', disapp);
 
@@ -35,6 +36,8 @@ if (backtotop) {
     window.addEventListener('load', toggleBacktotop)
     onscroll(document, toggleBacktotop)
 };
+
+
 
 
 

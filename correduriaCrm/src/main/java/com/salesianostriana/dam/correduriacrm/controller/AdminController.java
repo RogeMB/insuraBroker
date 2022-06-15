@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.salesianostriana.dam.correduriacrm.model.Empleado;
+import com.salesianostriana.dam.correduriacrm.model.Seguro;
 import com.salesianostriana.dam.correduriacrm.service.CategoriaService;
 import com.salesianostriana.dam.correduriacrm.service.ClienteService;
 import com.salesianostriana.dam.correduriacrm.service.EmpleadoService;
@@ -32,7 +33,7 @@ public class AdminController {
     
     private final ClienteService clienteService;
     
-   // private final VentaService ventaService;
+   private final VentaService ventaService;
 
     @GetMapping("/")
     public String adminIndex(Model model, @AuthenticationPrincipal UserDetails user) {
@@ -82,6 +83,60 @@ public class AdminController {
             return "error404";
         }
     }
+    
+   
+	@GetMapping("/eliminar/{element}/{id}")
+	public String borrar (@PathVariable("id") Long id, @PathVariable("element") String element) {
+		Optional<Seguro> seguro = seguroService.findByID(id);
+		
+		switch(element) {
+			case "seguro":
+				if (seguro.isPresent()) {
+					ventaService.comprobarVentasSeguro(seguro);
+					return "redirect:/admin/tables/seguro/?success=true";
+				}
+				
+				
+				/*if (!ventaService.buscarVentasActivas().contains(seguro)) {
+					seguroService.deleteByID(id);
+					return "redirect:/admin/tablesSeg/?success=true";
+				} else {
+					return "redirect:/admin/tablesSeg/?error=true";
+				}*/
+				
+			case "cliente":
+				return "hola";
+			default:
+				return "dashboard/admin/index";
+
+		}
+		
+	}
+	
+    
+		
+	@GetMapping("/borrarSeguro/{id}")
+	public String borrarSeguro(@PathVariable("id") Long id, Model model) {
+		// System.out.print(ventaService.buscarVentasActivas());
+		seguroService.deleteByID(id);
+		return "redirect:/admin/tables/seguro/?success=true";
+	}
+		
+		
+		
+		/*
+		if(seguro.isPresent()) {
+			if ("seguro".equals(element)) {
+				seguroService.deleteByID(id);
+				return "redirect:/admin/tablesSeg/?success=true";
+			} else {
+				return "redirect:/admin/tablesSeg/?error=true";
+			}
+		} else {
+			return "dashboard/admin/index";
+		}
+		 */
+	
     
     
 	/*

@@ -18,4 +18,5 @@ public class ClienteService extends BaseService<Cliente, Long, IClienteRepositor
 		return numeroDeClientes;
 	}
 	
+	
 }

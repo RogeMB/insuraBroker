@@ -52,7 +52,7 @@ public class Cliente {
 
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
-    @OneToMany(mappedBy="cliente", fetch = FetchType.EAGER)  //¿debo añadirlo a la base de datos?
+    @OneToMany(mappedBy="cliente", fetch = FetchType.EAGER)
     @Builder.Default
     private List<Venta> ventas = new ArrayList <> ();
     

@@ -1,0 +1,57 @@
+                                  <td><button type="button" class="btn btn-danger" data-bs-toggle="modal"
+									th:attr="data-bs-target='#myModal2'+${seguro.idSeguro}">Eliminar</button></td>
+							<!--The Modal-->
+							<div class="modal" id="myModal" th:id="'myModal2'+${seguro.idSeguro}">
+								<div class="modal-dialog">
+									<div class="modal-content">
+
+										<!--Modal Header-->
+										<div class="modal-header">
+											<h4 class="modal-title">Modal Heading</h4>
+											<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+										</div>
+										<!--Modal body-->
+										<div class="modal-body">¿Esta seguro que desea eliminar
+											esta venta?</div>
+										<!--Modal footer-->
+										<div class="modal-footer">
+											<a class="btn btn-danger"
+												th:href="@{/admin/eliminar/seguro/{id}(id=${seguro.idSeguro})}">Eliminar</a>
+											<a class="btn btn-secondary" th:href="@{/admin/}">Volver</a>
+										</div>
+									</div>
+								</div>
+							</div>   
+							
+							
+							
+							
+							------------
+							
+							  <td class="text-center"><button type="button" th:attr="data-bs-target='#myModal2'+${seguro.idSeguro}" data-ts-toggle="modal" class="btn btn-danger btn-floating rounded-circle" >
+                                            <i class="bi bi-trash"></i>
+                                            </button>
+                                        </td>
+                                        <!-- Modal -->
+                                        <div class="modal" id="myModal" th:id="'myModal2'+${seguro.idSeguro}">
+										  <div class="modal-dialog">
+										    <div class="modal-content">
+										    
+										      <div class="modal-header">
+										        <h5 class="modal-title">Eliminar</h5>
+										        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+										      </div>
+										      
+										      <div class="modal-body">
+										        <p>¿Estás seguro que deseas eliminar este elemento?</p>
+										      </div>
+										      <div class="modal-footer">
+										        <a th:href="@{/admin/tables/seguro}" class="btn btn-info btn-floating rounded-circle">
+		                                            <i class="bi bi-arrow-return-left"></i></a>
+										        <a th:href="@{/admin/eliminar/seguro/{id}(id=${seguro.idSeguro})}" class="btn btn-danger btn-floating rounded-circle">
+	                                            	<i class="bi bi-trash"></i></a>
+										      </div>
+										    </div>
+										  </div>
+										</div>
+										<!-- End Modal -->
