@@ -34,12 +34,6 @@ public class Seguro {
     private double precio;
     
     private String empresa;
-  
-//    @EqualsAndHashCode.Exclude
-//    @ToString.Exclude
-//    @OneToMany(mappedBy="seguro", fetch = FetchType.EAGER, cascade=javax.persistence.CascadeType.REMOVE, orphanRemoval = true)
-//    @Builder.Default
-//    private List<Venta> ventas = new ArrayList <> ();
     
     // helpers
     public void addToCategoria(Categoria cat) { 

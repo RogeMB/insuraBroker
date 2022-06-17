@@ -37,8 +37,3 @@ if (backtotop) {
     onscroll(document, toggleBacktotop)
 };
 
-
-
-
-
-

@@ -1,57 +1,47 @@
-                                  <td><button type="button" class="btn btn-danger" data-bs-toggle="modal"
-									th:attr="data-bs-target='#myModal2'+${seguro.idSeguro}">Eliminar</button></td>
-							<!--The Modal-->
-							<div class="modal" id="myModal" th:id="'myModal2'+${seguro.idSeguro}">
-								<div class="modal-dialog">
-									<div class="modal-content">
+<!-- /#sidebar-wrapper -->
+        <!-- Page Content -->    
+        <div id="page-content-wrapper">
+            <header>       
+                <!-- Start NavBar -->
+                <nav th:replace="~{fragments/nav::nav}"></nav>
+                <!-- End NavBar -->
+            </header>    
 
-										<!--Modal Header-->
-										<div class="modal-header">
-											<h4 class="modal-title">Modal Heading</h4>
-											<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-										</div>
-										<!--Modal body-->
-										<div class="modal-body">¿Esta seguro que desea eliminar
-											esta venta?</div>
-										<!--Modal footer-->
-										<div class="modal-footer">
-											<a class="btn btn-danger"
-												th:href="@{/admin/eliminar/seguro/{id}(id=${seguro.idSeguro})}">Eliminar</a>
-											<a class="btn btn-secondary" th:href="@{/admin/}">Volver</a>
-										</div>
-									</div>
-								</div>
-							</div>   
-							
-							
-							
-							
-							------------
-							
-							  <td class="text-center"><button type="button" th:attr="data-bs-target='#myModal2'+${seguro.idSeguro}" data-ts-toggle="modal" class="btn btn-danger btn-floating rounded-circle" >
-                                            <i class="bi bi-trash"></i>
-                                            </button>
-                                        </td>
-                                        <!-- Modal -->
-                                        <div class="modal" id="myModal" th:id="'myModal2'+${seguro.idSeguro}">
-										  <div class="modal-dialog">
-										    <div class="modal-content">
-										    
-										      <div class="modal-header">
-										        <h5 class="modal-title">Eliminar</h5>
-										        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-										      </div>
-										      
-										      <div class="modal-body">
-										        <p>¿Estás seguro que deseas eliminar este elemento?</p>
-										      </div>
-										      <div class="modal-footer">
-										        <a th:href="@{/admin/tables/seguro}" class="btn btn-info btn-floating rounded-circle">
-		                                            <i class="bi bi-arrow-return-left"></i></a>
-										        <a th:href="@{/admin/eliminar/seguro/{id}(id=${seguro.idSeguro})}" class="btn btn-danger btn-floating rounded-circle">
-	                                            	<i class="bi bi-trash"></i></a>
-										      </div>
-										    </div>
-										  </div>
-										</div>
-										<!-- End Modal -->
+            <section>  
+                <div class="container-fluid d-flex-block flex-wrap my-4 px-4">
+                    <!-- Breadcrumb -->
+                    <div class="pagetitle">
+                        <h1>Dashboard</h1>
+                        <nav>
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a th:href="@{/admin/}" href="index.html" class="active">Dashboard</a></li>
+                         	<li class="breadcrumb-item active">GestiÃ³n</li>
+                         	<li class="breadcrumb-item active">Alta CategorÃ­a</li>
+                        </ol>
+                        </nav>
+                    </div>
+                    <!-- End Breadcrumb -->
+                	
+                	<!--formulario-->
+					<main class="container-fluid">
+						<div class="row">
+							<div class="col-2"></div>
+							<form method="POST" th:action="@{/admin/gestion/categoria}" th:object="${categoria}" id="formulariocategoria" class="col-10 " onsubmit="return revisarFormulario();	">
+								<div class="input-group mb-3 w-50 ">
+								    <div class="input-group-prepend">
+								      <label for="nombre" class="input-group-text" th:field="*{nombre}">Nombre</label>
+								    </div>
+								    <input type="text" id="nombre" name="nombre" class="form-control" placeholder="Nombre">				    
+								</div>				
+								<div class="mensajeError text-danger" id="errorNombre" >Nombre Incorrecto</div>
+								<button type="reset" class="btn btn-secondary mb-2">Limpiar</button>
+								<button type="submit" id="enviar" class="btn btn-primary mb-2">Enviar</button>
+							</form>
+						</div>
+					</main>
+					<!-- End Formulario-->
+                </div>
+            </section>    
+        </div>
+        <!-- End Content Wrapper -->
+    </div>

@@ -60,7 +60,8 @@
                         <ul class="dropdown-menu bg-dark border-0" aria-labelledby="offcanvasNavbarDropdown">
                             <li><a class="dropdown-item" href="#"><i class="bi bi-shield-fill-plus shadow me-2 lead"></i>Alta Seguro</a></li>
                             <li><a class="dropdown-item" href="#"><i class="bi bi-person-plus shadow me-2 lead"></i>Alta Cliente</a></li>
-                            <li><a class="dropdown-item" href="#"><i class="bi bi-bookmark-plus-fill shadow me-2 lead"></i>Alta Categoría</a></li>
+                            <li><a class="dropdown-item" th:href="@{/admin/gestion/categoria}" href="#"><i class="bi bi-bookmark-plus-fill shadow me-2 lead"></i>Alta Categoría</a></li>
+                            <li><a class="dropdown-item" th:href="@{/admin/gestion/venta}" href="#"><i class="bi bi-bookmark-plus-fill shadow me-2 lead"></i>Alta Venta</a></li>
                         </ul>   
                     </li>
                     <li class="nav-item dropdown">
@@ -71,10 +72,6 @@
                             <li><a class="dropdown-item" th:href="@{/admin/tables/categoria}" href="#"><i class="bi bi-bookmark-fill shadow me-2 lead"></i>Categorías</a></li>
                             <li><a class="dropdown-item" th:href="@{/admin/tables/seguro}" href="#"><i class="bi bi-shield-shaded shadow me-2 lead"></i>Seguros</a></li>
                             <li><a class="dropdown-item" th:href="@{/admin/tables/cliente}" href="#"><i class="bi bi-person-lines-fill shadow me-2 lead"></i>Clientes</a></li>
-                            <li>
-                                <hr class="dropdown-divider bg-light"/>
-                            </li>
-                            <li><a class="dropdown-item" href="#"><i class="bi bi-person-circle shadow me-2 lead"></i>Empleados</a></li>
                         </ul>
                     </li>
                     <hr/>
@@ -130,7 +127,7 @@
                         <div class="col-md-3">
                             <div class="p-3 bg-white shadow-lg d-flex justify-content-around align-items-center rounded">
                                 <div>
-                                    <h3 class="fs-2">numero de ventas</h3>
+                                    <h3 class="fs-2" th:text="${#numbers.formatCurrency(ventasAnno)}">numero de ventas</h3>
                                     <p class="fs-5">Ventas año</p>
                                 </div>
                                 <i class="fas fa-truck fs-1 primary-text border rounded-full secondary-bg p-3"></i>

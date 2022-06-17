@@ -1,5 +1,8 @@
 package com.salesianostriana.dam.correduriacrm.controller;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -7,13 +10,16 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.salesianostriana.dam.correduriacrm.model.Categoria;
 import com.salesianostriana.dam.correduriacrm.model.Cliente;
 import com.salesianostriana.dam.correduriacrm.model.Empleado;
 import com.salesianostriana.dam.correduriacrm.model.Seguro;
+import com.salesianostriana.dam.correduriacrm.model.Venta;
 import com.salesianostriana.dam.correduriacrm.service.CategoriaService;
 import com.salesianostriana.dam.correduriacrm.service.ClienteService;
 import com.salesianostriana.dam.correduriacrm.service.EmpleadoService;
@@ -45,14 +51,13 @@ public class AdminController {
         if (elUsuario.isPresent()) {
         	long numeroDeClientes = clienteService.getNumeroDeClientes();
         	double dineroTrimestre = ventaService.calcularVentasTrimestre();
-        	//long dineroGanado = ventaService.getDineroGanado();
+        	double dineroAnno = ventaService.calcularVentasAnno();
         	
         	model.addAttribute("usuario", elUsuario.get());
     		model.addAttribute("listaEmpleados", empleadoService.getEmpleados());
     		model.addAttribute("ventasTrimestre", dineroTrimestre);
     		model.addAttribute("numeroDeClientes", numeroDeClientes);
-    		//model.addAttribute("dineroGanado", dineroGanado);
-    		
+    		model.addAttribute("ventasAnno", dineroAnno);
     		return "dashboard/admin/index";
         } else {
             return "error404";
@@ -74,8 +79,13 @@ public class AdminController {
                 model.addAttribute("listaSeguros", seguroService.findAll());
                 return "dashboard/admin/tablesSeg";
         	} else if ("cliente".equals(nav)) {
+        		int numeroClientesPremium = clienteService.getNumeroClientesPreium();
+        		double mediaGastoCliente = ventaService.calcularMediaGastoCliente();
+        		
         		model.addAttribute("usuario", elUsuario.get());
         		model.addAttribute("listaClientes", clienteService.findAll());
+        		model.addAttribute("clientesPremium", numeroClientesPremium);
+        		model.addAttribute("gastoMedio", mediaGastoCliente);
         		return "dashboard/admin/tablesCli";
         	} else {
         		model.addAttribute("usuario", elUsuario.get());
@@ -111,29 +121,26 @@ public class AdminController {
 		
 		switch(element) {
 			case "seguro":
-				if (seguro.isPresent()) {
-					seguroService.deleteSeguro(seguro.get());
+				if (seguro.isPresent() && seguroService.deleteSeguro(seguro.get())) {
 					return "redirect:/admin/tables/seguro/?success=true";
 				} else {
 					return "redirect:/admin/tables/seguro/?error=true";
 				}	
 			case "cliente":
-				if (cliente.isPresent()) {
-					clienteService.deleteByID(id);
+				if (cliente.isPresent() && clienteService.deleteCliente(cliente.get())) {
 					return "redirect:/admin/tables/cliente/?success=true";
 				} else {	
 					return "redirect:/admin/tables/cliente/?error=true";
 				}
 			case "categoria":
-				if (categoria.isPresent()) {
-					categoriaService.deleteByID(id);
+				if (categoria.isPresent() && categoriaService.deleteCategoria(categoria.get())) {
 					return "redirect:/admin/tables/categoria/?success=true";
 				} else {
 					return "redirect:/admin/tables/categoria/?error=true";
 				}
 				
 			default:
-				return "dashboard/admin/index";
+				return "error404";
 
 		}
 		
@@ -142,12 +149,73 @@ public class AdminController {
  
 	@GetMapping("/eliminar/venta/{id}")
 	public String eliminarVenta(@PathVariable("id") Long id, Model model) {
-		// System.out.print(ventaService.buscarVentasActivas());
 		ventaService.deleteByID(id);
 		return "redirect:/admin/venta/?success=true";
 	}
 
     
+	@GetMapping("/gestion/categoria")
+	public String altaCategoria(Model model, @AuthenticationPrincipal UserDetails user) {
+		Optional<Empleado> elUsuario = empleadoService.findUserByUsername(user.getUsername());
+        
+        if (elUsuario.isPresent()) {
+      	
+        	model.addAttribute("usuario", elUsuario.get());
+
+        	model.addAttribute("categoria", new Categoria());
+        	return "dashboard/admin/categoriaForm";
+        } else {
+        	return "error404";
+        }
+	}
+	
+	@GetMapping("/gestion/venta")
+	public String annadirVenta(Model model, @AuthenticationPrincipal UserDetails user) {
+		Optional<Empleado> elUsuario = empleadoService.findUserByUsername(user.getUsername());
+        
+        if (elUsuario.isPresent()) {
+        	List<Cliente> clientes = clienteService.findAll();
+        	List<Seguro> seguros = seguroService.findAll();
+        	
+        	model.addAttribute("usuario", elUsuario.get());
+        	model.addAttribute("venta", new Venta());
+        	
+        	model.addAttribute("seguros", seguros);
+        	model.addAttribute("clientes", clientes);
+        	
+        	model.addAttribute("fechaDia", LocalDate.now().format(DateTimeFormatter.ISO_DATE));
+        	
+        	/*
+        	listaSelection
+        	<ul>
+        	th:for{ for(seguro : seguros) }
+        		<li id=seguro.idSeguro>seguro.nombre</li>
+        	</ul>
+        	*/
+        	
+        	return "dashboard/admin/ventaForm";
+        } else {
+        	return "error404";
+        }
+	}
+	
+	@PostMapping("/gestion/categoria/submit")
+	public String submitCategoria(@ModelAttribute("categoria") Categoria categoria, Model model) {
+		categoriaService.save(categoria);
+	    return "redirect:/admin/tables/categoria";
+	}
+	
+	@PostMapping("/gestion/venta/submit")
+	public String submitVenta(@ModelAttribute("venta") Venta venta, Model model, @AuthenticationPrincipal UserDetails user) {
+		double precioVenta = ventaService.calcularPrecioVenta(venta);
+		venta.setPrecioVenta(precioVenta);
+		venta.setFecha_venta(LocalDate.now());
+		venta.setEmpleado(user.getUsername());
+		ventaService.save(venta);
+	    return "redirect:/admin/venta";
+	}
+	
+
 	/*
 	 * 
 	 * Autowired de cliente

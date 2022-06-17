@@ -23,7 +23,6 @@ public class Cliente {
             sequenceName = "cliente_sequence",
             allocationSize = 1
     )
-//  @GeneratedValue(strategy = GenerationType.AUTO)
     @GeneratedValue(
             strategy = SEQUENCE,
             generator = "cliente_sequence"
