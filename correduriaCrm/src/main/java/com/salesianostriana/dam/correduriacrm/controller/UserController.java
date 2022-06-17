@@ -18,15 +18,13 @@ import com.salesianostriana.dam.correduriacrm.repository.EmpleadoRepository;
 @Controller
 public class UserController {
 
-	    //private static final Logger log = LoggerFactory.getLogger(AdminController.class);
 
 	    @Autowired
 	    private EmpleadoRepository empleadoRepo;
 
 	    @GetMapping("/")
 	    public String userIndex(Model model, @AuthenticationPrincipal UserDetails user) {
-
-	        //model.addAttribute("usuario", user.getUsername());
+   
 	        Optional<Empleado> elUsuario = empleadoRepo.findUserByUsername(user.getUsername());
 	        
 	        if (elUsuario.isPresent()) {
@@ -36,14 +34,13 @@ public class UserController {
 	            return "error404";
 	        }
 
-	        return "dashboard/admin/index";
+	        return "dashboard/user/index";
 	    }
 	    
 	    
 	    @GetMapping("/tablesCat")
 	    public String userTablesCat(Model model, @AuthenticationPrincipal UserDetails user) {
 
-	    	//model.addAttribute("usuario", user.getUsername());
 	        Optional<Empleado> elUsuario = empleadoRepo.findUserByUsername(user.getUsername());
 	        
 	        
@@ -55,7 +52,7 @@ public class UserController {
 	        }
 	        
 	    	//user.getUsername()
-	        return "dashboard/admin/tablesCat";
+	        return "dashboard/user/tablesCat";
 	    }
 	   
 }

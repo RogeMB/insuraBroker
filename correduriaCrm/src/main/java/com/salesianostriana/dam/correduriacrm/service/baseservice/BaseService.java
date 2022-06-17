@@ -52,27 +52,5 @@ public abstract class BaseService <T, ID, R extends JpaRepository<T, ID>> implem
 		repositorio.deleteById(id);
 	}
 	
-	/*
-	 public boolean delete(T t, BaseService service) { //Seguro s
-	 
-		boolean resultado = service.comprobarVentasSeguro(t);
-		
-		if (resultado)
-			resultado = false;
-			// No se puede borrar
-			// Devuelvo false y en la plantilla le digo al usuario que no se puede borrar
-		else {
-			try {				
-				// borro el seguro
-				// Devuelvo true
-				repositorio.deleteById(t.getIdSeguro());
-				resultado = true;
-			} catch(IllegalArgumentException e) {
-				return false;
-			}
-		}
-		return resultado;			
-	}
-	*/
 	
 }

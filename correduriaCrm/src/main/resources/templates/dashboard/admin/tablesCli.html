@@ -61,7 +61,8 @@
                         <ul class="dropdown-menu bg-dark border-0" aria-labelledby="offcanvasNavbarDropdown">
                             <li><a class="dropdown-item" href="#"><i class="bi bi-shield-fill-plus shadow me-2 lead"></i>Alta Seguro</a></li>
                             <li><a class="dropdown-item" href="#"><i class="bi bi-person-plus shadow me-2 lead"></i>Alta Cliente</a></li>
-                            <li><a class="dropdown-item" href="#"><i class="bi bi-bookmark-plus-fill shadow me-2 lead"></i>Alta Categoría</a></li>
+                            <li><a class="dropdown-item" th:href="@{/admin/gestion/categoria}" href="#"><i class="bi bi-bookmark-plus-fill shadow me-2 lead"></i>Alta Categoría</a></li>
+                        	<li><a class="dropdown-item" th:href="@{/admin/gestion/venta}" href="#"><i class="bi bi-coin shadow me-2 lead"></i>Alta Venta</a></li>
                         </ul>   
                     </li>
                     <li class="nav-item dropdown active">
@@ -135,6 +136,17 @@
                     </div>
                     <!-- End Reports -->
                     <div class="row flex-wrap my-4 px-4">
+	                    <form method="GET" class="mb-1 mt-1" th:action="@{/admin/cliente/buscar}">
+	                    <div class="input-group">
+					  	<div class="form-outline">
+						    <input type="search" id="clienteSearch" name="clienteSearch" class="form-control" placeholder="Buscar"/>
+					  	</div>
+					  		<button type="submit" class="btn btn-primary">
+					    		<i class="fas fa-search"></i>
+					  		</button>
+						</div>
+						</form>
+						
                         <!-- Tables -->
                         <h3 class="fs-4 mb-1 mt-1">Clientes</h3>
                         <div class="col table-responsive">

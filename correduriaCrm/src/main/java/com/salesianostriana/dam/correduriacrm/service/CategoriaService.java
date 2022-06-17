@@ -34,5 +34,17 @@ public class CategoriaService extends BaseService<Categoria, Long, ICategoriaRep
 			}
 			return resultado;			
 	}
+
+
+	public boolean editCategoria(Categoria categoria) {
+		boolean resultado;
+		try {				
+			repositorio.save(categoria);
+			resultado = true;
+		} catch(IllegalArgumentException e) {
+			return false;
+		}
+		return resultado;
+	}
 	
 }

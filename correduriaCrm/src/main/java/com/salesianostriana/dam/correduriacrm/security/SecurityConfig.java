@@ -29,33 +29,31 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-
-        http.authorizeRequests().antMatchers("/").permitAll()
-                .and()
-	                .authorizeRequests().antMatchers("/h2-console/**").permitAll()
-	                .antMatchers("/assets/**").permitAll()
-	                .antMatchers("/dashboard/user/**").hasAnyRole("USER", "ADMIN")
-	                .antMatchers("/dashboard/admin/**").hasRole("ADMIN")
-	                .anyRequest().permitAll()
-                .and()
-                	.exceptionHandling()
-                	.accessDeniedPage("/error")
-                .and()
-	                .formLogin()
-	                .loginPage("/")
-	                .loginProcessingUrl("/login")
-	                //defaultSuccessUrl("/admin/")
-	                .successHandler(successLoginHandler)
-	               
-	                .failureUrl("/login-error").permitAll()
-                .and()
-                	.logout()
-                	.logoutUrl("/logout")
-                	.logoutSuccessUrl("/")
-                	.permitAll();
-        http.csrf()
-                //.ignoringAntMatchers("/h2-console/**")
-                .disable();
+    	
+    	 http.csrf().disable()
+                .authorizeRequests()
+                .antMatchers("/h2-console/**").permitAll()
+                .antMatchers("/assets/**").permitAll()
+                .antMatchers("/dashboard/user/**").hasRole("USER")
+                .antMatchers("/dashboard/admin/**", "/dashboard/user/**").hasRole("ADMIN")
+                .anyRequest().permitAll()
+            .and()
+            	.exceptionHandling()
+            	.accessDeniedPage("/error")
+            .and()
+                .formLogin()
+                .loginPage("/")
+                .loginProcessingUrl("/login")
+                //defaultSuccessUrl("/admin/")
+                .successHandler(successLoginHandler)
+               
+                .failureUrl("/login-error").permitAll()
+            .and()
+            	.logout()
+            	.logoutUrl("/logout")
+            	.logoutSuccessUrl("/")
+            	.permitAll();
+        
         http.headers().frameOptions().disable();
     }
     

@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.salesianostriana.dam.correduriacrm.model.Categoria;
 import com.salesianostriana.dam.correduriacrm.model.Cliente;
@@ -43,6 +44,9 @@ public class AdminController {
     
     private final VentaService ventaService;
 
+    
+    // index
+    
     @GetMapping("/")
     public String adminIndex(Model model, @AuthenticationPrincipal UserDetails user) {
     	
@@ -64,6 +68,8 @@ public class AdminController {
         }
     }
     
+    // cualquier tabla
+    
     @GetMapping("/tables/{nav}")
     public String adminTablesCat(@PathVariable("nav") String nav,  Model model, @AuthenticationPrincipal UserDetails user) {
     	
@@ -81,7 +87,6 @@ public class AdminController {
         	} else if ("cliente".equals(nav)) {
         		int numeroClientesPremium = clienteService.getNumeroClientesPreium();
         		double mediaGastoCliente = ventaService.calcularMediaGastoCliente();
-        		
         		model.addAttribute("usuario", elUsuario.get());
         		model.addAttribute("listaClientes", clienteService.findAll());
         		model.addAttribute("clientesPremium", numeroClientesPremium);
@@ -97,6 +102,7 @@ public class AdminController {
         }
     }
     
+    // tabla ventas
     
     @GetMapping("/venta")
     public String adminVentas(Model model, @AuthenticationPrincipal UserDetails user) {
@@ -112,7 +118,8 @@ public class AdminController {
         }
     }
     
-   
+    // eliminar cualquier entidad
+    
 	@GetMapping("/eliminar/{element}/{id}")
 	public String borrar (@PathVariable("id") Long id, @PathVariable("element") String element) {
 		Optional<Seguro> seguro = seguroService.findByID(id);
@@ -142,17 +149,16 @@ public class AdminController {
 			default:
 				return "error404";
 
-		}
-		
+		}		
 	}
-	
- 
+	 
 	@GetMapping("/eliminar/venta/{id}")
 	public String eliminarVenta(@PathVariable("id") Long id, Model model) {
 		ventaService.deleteByID(id);
 		return "redirect:/admin/venta/?success=true";
 	}
-
+	
+	// crear categoría
     
 	@GetMapping("/gestion/categoria")
 	public String altaCategoria(Model model, @AuthenticationPrincipal UserDetails user) {
@@ -169,6 +175,38 @@ public class AdminController {
         }
 	}
 	
+	@PostMapping("/gestion/categoria/submit")
+	public String submitCategoria(@ModelAttribute("categoria") Categoria categoria, Model model) {
+		categoriaService.save(categoria);
+	    return "redirect:/admin/tables/categoria";
+	}
+	
+	// editar categoría
+	
+	@GetMapping("/editar/categoria/{id}")
+	public String editarCategoria(@PathVariable Long id, Model model, @AuthenticationPrincipal UserDetails user) {
+		Optional<Categoria> categoria = categoriaService.findByID(id);
+		Optional<Empleado> elUsuario = empleadoService.findUserByUsername(user.getUsername());
+
+        if (elUsuario.isPresent()){
+        	model.addAttribute("usuario", elUsuario.get());
+        	model.addAttribute("categoria", categoria);
+        	return "dashboard/admin/categoriaEditForm";
+        } else {
+        	return "error404";
+        }
+	}
+	
+	@PostMapping("/editar/categoria")
+	public String editar(@ModelAttribute("categoria") Categoria categoria) {
+		categoriaService.edit(categoria);
+		return "redirect:/admin/tables/categoria/?success=true";
+	}
+	
+
+	
+	// crear venta
+	
 	@GetMapping("/gestion/venta")
 	public String annadirVenta(Model model, @AuthenticationPrincipal UserDetails user) {
 		Optional<Empleado> elUsuario = empleadoService.findUserByUsername(user.getUsername());
@@ -183,15 +221,7 @@ public class AdminController {
         	model.addAttribute("seguros", seguros);
         	model.addAttribute("clientes", clientes);
         	
-        	model.addAttribute("fechaDia", LocalDate.now().format(DateTimeFormatter.ISO_DATE));
-        	
-        	/*
-        	listaSelection
-        	<ul>
-        	th:for{ for(seguro : seguros) }
-        		<li id=seguro.idSeguro>seguro.nombre</li>
-        	</ul>
-        	*/
+        	model.addAttribute("fechaDia", LocalDate.now().format(DateTimeFormatter.ISO_DATE)); 
         	
         	return "dashboard/admin/ventaForm";
         } else {
@@ -199,41 +229,38 @@ public class AdminController {
         }
 	}
 	
-	@PostMapping("/gestion/categoria/submit")
-	public String submitCategoria(@ModelAttribute("categoria") Categoria categoria, Model model) {
-		categoriaService.save(categoria);
-	    return "redirect:/admin/tables/categoria";
-	}
+
 	
 	@PostMapping("/gestion/venta/submit")
 	public String submitVenta(@ModelAttribute("venta") Venta venta, Model model, @AuthenticationPrincipal UserDetails user) {
+		Optional<Empleado> elUsuario = empleadoService.findUserByUsername(user.getUsername());
+	
 		double precioVenta = ventaService.calcularPrecioVenta(venta);
 		venta.setPrecioVenta(precioVenta);
 		venta.setFecha_venta(LocalDate.now());
-		venta.setEmpleado(user.getUsername());
+		venta.setEmpleado(elUsuario.get().getNombre());
 		ventaService.save(venta);
 	    return "redirect:/admin/venta";
 	}
 	
-
-	/*
-	 * 
-	 * Autowired de cliente
-	 * 
-	@GetMapping("/cliente")
-	public String addCliente () {
-		
-		return "dashboard/admin/clienteFormulario";  // desde templates la ruta a seguir donde quiero que se ejecute
-	}
+	// Buscar
 	
-	@PostMapping("/addCliente")
-	public String submitCliente(@ModelAttribute("clienteForm") Cliente cliente) {
-		
-		clienteService.save(cliente);
-			return "dashboard/admin/tablas/cliente"; 			
-	}	
-	*/
-	// PostMapping: objeto que se crea: modelAttribute("objeto") Objeto nuevo
-	// El nombre dle modelAtribute será lo que ponga en el th:Object en el <form> 	
+	@GetMapping("/cliente/buscar")
+	public String buscarCliente(@RequestParam("clienteSearch") String busqueda,  Model model, @AuthenticationPrincipal UserDetails user) {
+		Optional<Empleado> elUsuario = empleadoService.findUserByUsername(user.getUsername());
+		if(elUsuario.isPresent()) {
+			int numeroClientesPremium = clienteService.getNumeroClientesPreium();
+			double mediaGastoCliente = ventaService.calcularMediaGastoCliente();
+			
+			model.addAttribute("listaClientes", clienteService.buscarPorNombreApellidos(busqueda, busqueda));
+			model.addAttribute("usuario", elUsuario.get());
+			model.addAttribute("clientesPremium", numeroClientesPremium);
+			model.addAttribute("gastoMedio", mediaGastoCliente);
+			return "dashboard/admin/tablesCli";
+		}else {
+			return "error404";
+		}
+	
+	}
 	
 }

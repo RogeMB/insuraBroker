@@ -4,6 +4,8 @@ import com.salesianostriana.dam.correduriacrm.model.Cliente;
 import com.salesianostriana.dam.correduriacrm.repository.IClienteRepository;
 import com.salesianostriana.dam.correduriacrm.service.baseservice.BaseService;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -43,6 +45,11 @@ public class ClienteService extends BaseService<Cliente, Long, IClienteRepositor
 	
 	public int getNumeroClientesPreium( ) {
 		return repositorio.getClientesPremium();
+	}
+
+
+	public List<Cliente> buscarPorNombreApellidos (String nombre, String apellidos) {
+		return repositorio.findByNombreContainsIgnoreCaseOrApellidosContainsIgnoreCase(nombre, apellidos);
 	}
 	
 }

@@ -6,6 +6,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface ICategoriaRepository extends JpaRepository<Categoria, Long> {
 	
-	// Contar y devolver String de categoría más vendida
+	// TODO Contar y devolver String de categoría más vendida
 
 }
