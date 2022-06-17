@@ -170,7 +170,7 @@
 							<div class="d-table-row">
 								<h1>Editar categoría</h1>
 							</div>
-							<form method="POST" th:action="@{/admin/editar/categoria}" th:object="${categoria}" id="formulario" class="col-10 d-table-row" onsubmit="return revisarFormulario();	">
+							<form method="POST" th:action="@{/admin/upload/categoria}" th:object="${categoria}" id="formulario" class="col-12 d-table-row" onsubmit="return revisarFormulario();	">
 								<div class="input-group mb-3 w-50 ">
 								    <div class="input-group-prepend">
 								      <label for="nombre" class="input-group-text" th:field="*{nombre}">Nombre</label>
@@ -179,7 +179,7 @@
 								</div>				
 								<div class="mensajeError text-danger d-none" id="errorNombre" >Nombre Incorrecto</div>
 								<button type="reset" class="btn btn-secondary mb-2 rounded-pill">Limpiar</button>
-								<button type="submit" id="enviar" class="btn btn-primary mb-2 rounded-pill">Añadir Categoría</button>
+								<button type="submit" id="enviar" class="btn btn-primary mb-2 rounded-pill">Editar Categoría</button>
 							</form>
 						</div>
 					</main>

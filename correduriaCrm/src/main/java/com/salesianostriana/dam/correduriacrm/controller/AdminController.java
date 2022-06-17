@@ -190,14 +190,14 @@ public class AdminController {
 
         if (elUsuario.isPresent()){
         	model.addAttribute("usuario", elUsuario.get());
-        	model.addAttribute("categoria", categoria);
+        	model.addAttribute("categoria", categoria.get());
         	return "dashboard/admin/categoriaEditForm";
         } else {
         	return "error404";
         }
 	}
 	
-	@PostMapping("/editar/categoria")
+	@PostMapping("/upload/categoria")
 	public String editar(@ModelAttribute("categoria") Categoria categoria) {
 		categoriaService.edit(categoria);
 		return "redirect:/admin/tables/categoria/?success=true";

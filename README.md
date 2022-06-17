@@ -1,5 +1,9 @@
 # CorreduriaCRM
 Proyecto Final 1ºDAM.
 
-El comando para ejecutarlo a través de mvn es:
+Toda la información en la documentación.
+
+
+El comando para ejecutarlo por consola a través de mvn es:
+
 mvn spring-boot:run

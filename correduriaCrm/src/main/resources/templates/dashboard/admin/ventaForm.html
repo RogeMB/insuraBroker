@@ -170,35 +170,34 @@
 							<div class="d-table-row">
 								<h1>Alta venta</h1>
 							</div>
-							<form method="POST" th:action="@{/admin/gestion/venta/submit}" th:object="${venta}" id="formulario" class="col-10 d-table-row" onsubmit="return revisarFormulario();	">
-								<div class="input-group mb-3 w-50 ">
+							<form method="POST" th:action="@{/admin/gestion/venta/submit}" th:object="${venta}" id="formulario" class="col-12 d-table-row" onsubmit="return revisarFormulario();	">
+								<div class="input-group mb-3 col-6">
 								    <div class="input-group-prepend">
-								      <label for="fechaDia" class="input-group-text" th:text="${fechaDia}">Fecha</label>
-								    </div>
-								    	   
+								    	<label for="fechaDia" class="input-group-text d-inline">Fecha de hoy: </label>
+								      	<label for="fechaDia" class="input-group-text d-inline" th:text="${fechaDia}">Fecha de hoy</label>
+								    </div>		    	   
 								</div>
-								<div class="col-lg-6">
-									<label for="seguroOrder" class="input-group-text">Seguro</label>
-								    <select class="form-control" id="seguroOrder" name="seguroOrder"  th:field="*{seguro}">
+								<div class="col-lg-10 mb-2">
+									<label for="seguroOrder" class="input-group-text tex-center fw-bold">Seguro</label>
+								    <select class="form-control" id="seguroOrder" name="seguroOrder"  th:field="*{seguro}" required>
 								        <option value="">Selecciona un seguro</option>
 								        <option th:each="seguro : ${seguros}"
 								                th:value="${seguro.idSeguro}"
-								                th:text="${seguro.tipo}+' : '+${seguro.empresa}"></option>
-								    </select>
-								    <!--<input type="text" id="nombre" name="nombre" class="form-control" placeholder="Nombre">-->
+								                th:text="${seguro.tipo}+' - '+${seguro.empresa}"></option>
+								    </select>   
 								</div>
-								<div class="col-lg-6">
-									<label for="clienteOrder" class="input-group-text"> cliente</label>
-								    <select class="form-control" id="clienteOrder" name="clienteOrder" th:field="*{cliente}">
+								<div class="col-lg-10">
+									<label for="clienteOrder" class="input-group-text text-center fw-bold"> Cliente</label>
+								    <select class="form-control" id="clienteOrder" name="clienteOrder" th:field="*{cliente}" required>
 								        <option value="">Selecciona un cliente</option>
 								        <option th:each="cliente : ${clientes}"
 								                th:value="${cliente.idCliente}"
-								                th:text="${cliente.nombre}+' : '+${cliente.apellidos}"></option>
+								                th:text="${cliente.nombre}+' '+${cliente.apellidos} + ' - DNI: ' + ${cliente.dni}"></option>
 								    </select>
 								</div>
-								<div class="mensajeError text-danger d-none" id="errorNombre" >Nombre Incorrecto</div>
-								<button type="reset" class="btn btn-secondary mb-2 rounded-pill">Limpiar</button>
-								<button type="submit" id="enviar" class="btn btn-primary mb-2 rounded-pill">Añadir Venta</button>
+								<small id="emailHelp" class="form-text text-muted">Seleccione ambos campos antes de continuar</small>
+								<button type="reset" class="btn btn-info d-inline mb-2 rounded-pill">Limpiar</button>
+								<button type="submit" id="enviar" class="btn btn-success d-inline mb-2 rounded-pill">Añadir Venta</button>
 							</form>
 						</div>
 					</main>
